@@ -46,8 +46,15 @@
                     </view>
                 </view>
                 <view class="status-image" v-if="coupon.isReceived">
+
+                    <!-- #ifdef MP -->
                     <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/ylq.png">
                     </image>
+                    <!-- #endif -->
+                    <!-- #ifdef H5 -->
+                    <img src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/ylq.png"
+                        class="product-image-h5">
+                    <!-- #endif -->
                 </view>
                 <!-- 展开的规则 -->
                 <view class="coupon-rule-detail" v-if="coupon.showRule">
@@ -156,7 +163,16 @@ export default {
         useCoupon(coupon) {
             this.$store.dispatch("saveEnvelopeToCache", coupon);
             uni.setStorageSync('newReceivedCoupon', true);// 标记新领取了优惠券
+
+            // #ifdef MP
+            // 小程序环境下使用 uni.navigateTo 进行页面跳转
             uni.navigateBack();
+            // #endif
+
+            // #ifdef H5
+            // H5 环境下使用 Vue Router 的 this.$router.push 方法进行页面跳转
+            this.$router.push({ path: `/qrcodePage` });
+            // #endif
         },
     },
 };
@@ -273,7 +289,8 @@ export default {
     height: 120rpx;
 }
 
-.status-image image {
+.status-image image,
+.product-image-h5 {
     width: 100%;
     height: 100%;
 }

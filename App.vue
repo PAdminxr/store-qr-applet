@@ -1,42 +1,34 @@
+<template>
+	<div id="app">
+		<router-view></router-view>
+	</div>
+</template>
+
 <script>
 export default {
 	onLaunch() {
-		const userInfo = uni.getStorageSync('userLoginInfo') || null;
-		const isLogin = uni.getStorageSync('isLogin') || false;
-
-		if (userInfo && isLogin) {
-			this.$store.dispatch('setUserInfo', userInfo);
-			this.$store.dispatch('setIsLogin', true);
-		}
+		console.log('App Launch');
 	},
-	mounted() {
-		// 加载用户登录信息和状态
-		this.$store.dispatch('loadUserInfoFromCache');
-		// 加载评论数据
-		this.$store.dispatch('loadCommentsFromCache');
-		// 加载领取的红包列表
-		this.$store.dispatch('loadReceivedRedEnvelopesFromCache');
-		// 加载我的收藏
-		this.$store.dispatch('loadFavoritesFromCache');
-		this.$store.dispatch("loadMerchantsFromCache");
-		// 加载投诉反馈
-		this.$store.dispatch('loadFeedbacksFromCache');
+	onShow() {
+		console.log('App Show');
+	},
+	onHide() {
+		console.log('App Hide');
 	}
 };
 </script>
 
 <style lang="scss">
-/*每个页面公共css */
+/* 公共样式 */
 @import '@/uni_modules/uni-scss/index.scss';
 /* #ifndef APP-NVUE */
 @import '@/static/customicons.css';
+/* #endif */
 
-// 设置整个项目的背景色
 page {
 	background-color: #f5f5f5;
 }
 
-/* #endif */
 .example-info {
 	font-size: 14px;
 	color: #333;

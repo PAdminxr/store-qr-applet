@@ -6,12 +6,7 @@
         "navigationStyle": "custom"
       }
     },
-    {
-      "path": "pages/chatMate/index",
-      "style": {
-        "navigationStyle": "custom"
-      }
-    },
+   
     {
       "path": "pages/izaolife/index",
       "style": {
@@ -30,6 +25,12 @@
         "navigationBarTitleText": "登录"
       }
     },
+	{
+	  "path": "pages/chatMate/index",
+	  "style": {
+	    "navigationStyle": "custom"
+	  }
+	},
     {
       "path": "pages/videoPlayer/videoPlayer",
       "style": {

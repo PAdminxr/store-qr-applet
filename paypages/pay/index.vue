@@ -1,7 +1,12 @@
 <template>
     <view class="container">
         <view class="store-info">
+            <!-- #ifdef MP -->
             <image :src="selectedData.image" mode="aspectFill"></image>
+            <!-- #endif -->
+            <!-- #ifdef H5 -->
+            <img :src="selectedData.image" class="product-image-h5">
+            <!-- #endif -->
             <view class="store-name">
                 <text>付款给</text>
                 <text class="store-fullname">{{ selectedData.name }}</text>
@@ -38,7 +43,7 @@
                                 <text class="hongbao-desc">红包待领取</text>
                             </view>
                             <text class="hongbao-expire" v-if="item.expireTimes">{{ formatTime(item.expireTime)
-                            }}后失效</text>
+                                }}后失效</text>
                             <text class="hongbao-expire" v-else>{{ item.expireTime }}</text>
                         </view>
 
@@ -53,10 +58,12 @@
 
         <view class="function-icons">
             <text class="function-title">查看商户公示信息</text>
+
             <uni-swiper-dot class="photo-swiper" :info="pages" @clickItem="clickItem" :dots-styles="dotsStyles"
                 :mode="'round'" :current="swiperDotIndex">
                 <swiper :current="swiperDotIndex" @change="changeSwiper" :circular="true" class="swiper-box">
                     <swiper-item v-for="(page, pageIndex) in pages" :key="pageIndex">
+                        <!-- #ifdef MP -->
                         <uni-grid :column="4" :highlight="true" :showBorder="false">
                             <uni-grid-item v-for="(item, index) in page" :key="index" :index="index">
                                 <view class="grid-item-box" @click="goToDetail(item)">
@@ -65,10 +72,21 @@
                                 </view>
                             </uni-grid-item>
                         </uni-grid>
+                        <!-- #endif -->
+                        <!-- #ifndef MP -->
+                        <view class="custom-grid">
+                            <view class="custom-grid-item" v-for="(item, index) in page" :key="index"
+                                @click="goToDetail(item)">
+                                <image :src="item.icon" class="image" mode="aspectFill" />
+                                <text class="text">{{ item.name }}</text>
+                            </view>
+                        </view>
+                        <!-- #endif -->
                     </swiper-item>
                 </swiper>
             </uni-swiper-dot>
         </view>
+
         <view class="keyboard" v-if="showInput">
             <view class="keyboard-show" @click="closeshowIpnut">
                 <uni-icons type="down" size="24" color="#000000" />
@@ -188,26 +206,31 @@ export default {
                     icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/punish-icon.png",
                     name: "处罚信息",
                     path: "/izaolifepages/penaltyInfo/detail",
+                    path2: '/penaltyDetail'
                 },
                 {
                     icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/business-icon.png",
                     name: "经营信息",
                     path: "/izaolifepages/businessInfo/index",
+                    path2: '/businessIndex'
                 },
                 {
                     icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/credit-icon.png",
                     name: "榴花信用",
                     path: "/izaolifepages/penaltyInfo/index",
+                    path2: '/penaltyIndex'
                 },
                 {
                     icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/kitchen-icon.png",
                     name: "明厨亮灶",
                     path: "/izaolifepages/kitchenInspection/index",
+                    path2: '/kitchenInspectionIndex'
                 },
                 {
                     icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/health-icon.png",
                     name: "健康证",
                     path: "/izaolifepages/health/index",
+                    path2: '/health'
                 },
             ],
             src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png",
@@ -255,21 +278,33 @@ export default {
             }
         }, 1000);
     },
+    // #ifdef MP
     onShow() {
-        // 检查是否有一个新的红包被领取
-        const newReceivedCoupon = uni.getStorageSync("newReceivedCoupon");
-        if (newReceivedCoupon) {
-            this.openPopup();
-
-            // 重置标志位
-            uni.setStorageSync("newReceivedCoupon", false);
-        }
-        //整数商品id随机生成数字1-12
-
-        this.shopId = this.getRandomInt(1, 12);
-        this.selectDataBasedOnShopId();
+        this.handleOnShow();
     },
+    // #endif
+
+    // #ifndef MP
+    mounted() {
+        this.handleOnShow();
+    },
+    // #endif
+
+
     methods: {
+        handleOnShow() {
+            // 这个方法会在小程序的 onShow 或 H5 的 mounted 中调用
+            const newReceivedCoupon = uni.getStorageSync("newReceivedCoupon");
+            if (newReceivedCoupon) {
+                this.openPopup();
+                uni.setStorageSync("newReceivedCoupon", false);
+            }
+
+            this.shopId = this.getRandomInt(1, 12);
+            console.log(this.shopId);
+            this.selectDataBasedOnShopId();
+        },
+
         selectDataBasedOnShopId() {
             if (this.shopId >= 1 && this.shopId <= 4) {
                 this.selectedData = mockDATA.restaurants.find(
@@ -279,7 +314,7 @@ export default {
                 this.selectedData = mockDATA.hotelInfo.find(
                     (item) => item.id === this.shopId
                 );
-            } else if (this.shopId >= 11 && this.shopId <= 12) {
+            } else if (this.shopId >= 10 && this.shopId <= 12) {
                 this.selectedData = mockDATA.travelInfo.find(
                     (item) => item.id === this.shopId
                 );
@@ -301,16 +336,34 @@ export default {
             this.$refs.popup.close();
         },
         logout() {
+
+            // #ifdef MP
+            // 小程序环境下使用 uni.navigateTo 进行页面跳转
             uni.navigateTo({
                 url: "/userpages/couponInfo/detail",
             });
+            // #endif
+
+            // #ifdef H5
+            // H5 环境下使用 Vue Router 的 this.$router.push 方法进行页面跳转
+            this.$router.push({ path: '/couponDetail' });
+            // #endif
         },
         goToCoupons() {
             // 重置标志位
             uni.setStorageSync("newReceivedCoupon", false);
+
+            // #ifdef MP
+            // 小程序环境下使用 uni.navigateTo 进行页面跳转
             uni.navigateTo({
                 url: "/userpages/couponInfo/index",
             });
+            // #endif
+
+            // #ifdef H5
+            // H5 环境下使用 Vue Router 的 this.$router.push 方法进行页面跳转
+            this.$router.push({ path: '/couponIndex' });
+            // #endif
         },
         openRemarkModal() {
             this.$refs.showRemarkModal.open(); // 打开弹窗
@@ -330,9 +383,35 @@ export default {
             this.swiperDotIndex = e.detail.current; // 更新当前索引
         },
         goToDetail(item) {
-            uni.navigateTo({
-                url: item.path,
-            });
+            if (item.name == "榴花信用") {
+                // #ifdef MP
+                // 小程序环境下使用 uni.navigateTo 进行页面跳转
+                uni.navigateTo({
+
+                    url: `${item.path}?id=${this.selectedData.id}&score=${this.selectedData.score}`,
+                });
+                // #endif
+
+                // #ifdef H5
+                // H5 环境下使用 Vue Router 的 this.$router.push 方法进行页面跳转
+                this.$router.push({ path: `${item.path2}?id=${this.selectedData.id}&score=${this.selectedData.score}` });
+                // #endif
+
+            } else {
+                // #ifdef MP
+                // 小程序环境下使用 uni.navigateTo 进行页面跳转
+                uni.navigateTo({
+                    url: item.path
+                });
+                // #endif
+
+                // #ifdef H5
+                // H5 环境下使用 Vue Router 的 this.$router.push 方法进行页面跳转
+                this.$router.push({ path: item.path2 });
+                // #endif
+            }
+
+
         },
         change(e) {
             console.log("当前选中:", e.detail);
@@ -431,8 +510,9 @@ export default {
             // 计算节省金额
             savingAmount = amount - remainingAmount;
 
+
             // 构建弹窗内容
-            let modalTitle = "确认支付";
+            let modalTitle = "模拟确认支付";
             let modalContent = "";
 
             if (usedRedEnvelopes.length > 0) {
@@ -443,7 +523,13 @@ export default {
             } else {
                 modalContent = `当前没有可用红包，需全额支付 ${amount} 元`;
             }
-
+            // #ifdef H5
+            // 对于H5环境，可以考虑直接使用原生alert作为调试手段，但正式环境中应避免这样做
+            alert(modalTitle + "\n" + modalContent); // 调试目的
+            console.log(this.$router, '111')
+            this.$router.push({ path: `/paymentResult?orderId=${this.shopId}` });
+            // #endif
+            // #ifndef H5
             uni.showModal({
                 title: modalTitle,
                 content: modalContent,
@@ -494,15 +580,26 @@ export default {
                         uni.hideLoading()
 
                         // 跳转支付结果页
+
+                        // #ifdef MP
+                        // 小程序环境下使用 uni.navigateTo 进行页面跳转
                         uni.navigateTo({
                             url: `/paypages/pay/paymentresult?orderId=${newOrder.orderId}`,
                         });
+                        // #endif
+
+                        // #ifdef H5
+                        // H5 环境下使用 Vue Router 的 this.$router.push 方法进行页面跳转
+                        console.log(this.$router, '111')
+                        this.$router.push({ path: `/paymentResult?orderId=${newOrder.orderId}` });
+                        // #endif
                     } else {
                         // 用户取消支付，不做任何操作或提示用户已取消
                         console.log("用户取消了支付");
                     }
                 },
             });
+            // #endif
         },
 
         handleRemarkInput(e) {
@@ -587,7 +684,8 @@ export default {
     // margin-bottom: 20rpx;
     padding: 20rpx;
 
-    image {
+    image,
+    .product-image-h5 {
         width: 100rpx;
         height: 100rpx;
         margin-right: 20rpx;
@@ -674,6 +772,28 @@ export default {
     }
 }
 
+.custom-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.custom-grid-item {
+    width: 23%;
+    margin-bottom: 20rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-bottom: 10rpx;
+}
+
 .more-red-packet {
     color: #767676;
     font-size: 24rpx;
@@ -705,6 +825,7 @@ export default {
         margin-bottom: 20rpx;
         padding-bottom: 10rpx;
         position: relative;
+        line-height: 70rpx;
     }
 
     .currency-symbol {
@@ -892,7 +1013,8 @@ export default {
 .keyboard {
     position: fixed;
     bottom: 0;
-    width: 96%;
+    left: 0;
+    width: 100%;
     background-color: #eeeeee;
     padding: 10rpx;
     box-sizing: border-box;

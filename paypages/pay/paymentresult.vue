@@ -41,6 +41,7 @@
                 </view>
 
             </view>
+            <!-- #ifdef MP -->
             <view class="result-info">
                 <view v-if="result === 'success'" class="result-buttons">
                     <button type="default" @click="goHome">返回首页</button>
@@ -53,6 +54,7 @@
                 </view>
 
             </view>
+            <!-- #endif -->
         </view>
     </view>
 </template>
@@ -83,6 +85,7 @@ export default {
     methods: {
         goHome() {
             console.log('返回首页');
+
             uni.switchTab({
                 url: '/pages/izaolife/index'
             });

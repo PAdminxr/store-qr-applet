@@ -1,7 +1,12 @@
 <template>
     <view class="page-container">
         <view class="image-container" @click="showBigImage">
-            <image class="health-certificate" :src="imageSrc"></image>
+            <!-- #ifdef MP -->
+            <image :src="imageSrc" class="health-certificate"></image>
+            <!-- #endif -->
+            <!-- #ifdef H5 -->
+            <img :src="imageSrc" class="health-certificate">
+            <!-- #endif -->
         </view>
     </view>
 </template>

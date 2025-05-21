@@ -1,22 +1,12 @@
 <template>
     <view class="gauge-container">
         <!-- 仪表盘 -->
-        <uni-ec-canvas class="uni-ec-canvas" ref="canvas" canvas-id="gaugeChart" id="gaugeChart"
-            :ec="ec"></uni-ec-canvas>
 
-        <!-- 中间的信用等级圆形背景 -->
-        <!-- <view class="center-circle">
-            <text class="credit-value">{{ value }}</text>
-            <text class="credit-label">信用等级</text>
-        </view> -->
+        <div class="uni-ec-canvas" id="main">
 
-        <!-- 上方刻度线和范围指示器
-        <view class="scale-lines">
-            <view v-for="(item, index) in scaleLabels" :key="index" class="scale-line-container">
-                <view class="scale-line"></view>
-                <text :class="['range-indicator', { active: isActiveRange(index) }]">{{ item.label }}</text>
-            </view>
-        </view> -->
+        </div>
+
+
 
         <!-- 底部进度条和标签 -->
         <view class="progress-bar-container">
@@ -87,16 +77,19 @@ export default {
 
     watch: {
         value(newVal) {
-            this.$refs.canvas.init(this.initChart);
-        },
+            this.updateCreditLevel(newVal);
+            if (this.chart) {
+                this.chart.setOption({
+                    series: [{
+                        data: [{ value: newVal }]
+                    }]
+                });
+            }
+        }
     },
     mounted() {
-        this.$nextTick(() => {
-            this.updateCreditLevel(this.value); // 初始化信用等级文本
-            if (this.$refs.canvas) {
-                this.$refs.canvas.init(this.initChart);
-            }
-        });
+
+        this.initChart();
     },
     methods: {
         updateCreditLevel(value) {
@@ -143,38 +136,33 @@ export default {
             return stops;
         },
 
-        initChart(canvas, width, height, canvasDpr) {
-            const chart = echarts.init(canvas, null, {
-                width: width,
-                height: height,
-                devicePixelRatio: canvasDpr,
-            });
-            canvas.setChart(chart);
+        initChart() {
+            this.updateCreditLevel(this.value);
+            var chart = echarts.init(document.getElementById('main'));
 
             const option = {
-                // 鼠标悬浮的提示
                 tooltip: {
                     formatter: '{b} : {c}'
                 },
                 series: [
                     {
                         type: 'gauge',
-                        min: 0, //最大值
-                        max: 100, //最小值
-                        startAngle: 200, //仪表盘起始角度。正右手侧为0度，正上方为90度，正左手侧为180度。
-                        endAngle: -20, //仪表盘结束角度
-                        splitNumber: 5, //仪表盘刻度的分割段数
+                        min: 0,
+                        max: 100,
+                        startAngle: 200,
+                        endAngle: -20,
+                        splitNumber: 5,
                         itemStyle: {
-                            color: '#f37215', //颜色
-                            shadowColor: 'rgba(0,138,255,0.45)', //阴影颜色
-                            shadowBlur: 10, //图形阴影的模糊大小
-                            shadowOffsetX: 2, //阴影水平方向上的偏移距离
-                            shadowOffsetY: 2 //阴影垂直方向上的偏移距离
+                            color: '#f37215',
+                            shadowColor: 'rgba(0,138,255,0.45)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 2
                         },
                         progress: {
-                            show: true, //是否显示进度条
-                            roundCap: true, //是否在两端显示成圆形
-                            width: 18, //进度条宽度
+                            show: true,
+                            roundCap: true,
+                            width: 18,
                             itemStyle: {
                                 color: {
                                     type: 'linear',
@@ -183,21 +171,15 @@ export default {
                                     x2: 0,
                                     y2: 1,
                                     colorStops: [
-                                        {
-                                            offset: 0,
-                                            color: '#f12711' // 0% 处的颜色
-                                        },
-                                        {
-                                            offset: 1,
-                                            color: '#f5af19' // 100% 处的颜色
-                                        }
+                                        { offset: 0, color: '#f12711' },
+                                        { offset: 1, color: '#f5af19' }
                                     ],
-                                    global: false // 缺省为 false
+                                    global: false
                                 }
                             }
                         },
                         pointer: {
-                            show: true, //是否显示指针
+                            show: true,
                             itemStyle: {
                                 color: {
                                     type: 'linear',
@@ -206,38 +188,29 @@ export default {
                                     x2: 0,
                                     y2: 1,
                                     colorStops: [
-                                        {
-                                            offset: 0,
-                                            color: '#f12711' // 0% 处的颜色
-                                        },
-                                        {
-                                            offset: 1,
-                                            color: '#f5af19' // 100% 处的颜色
-                                        }
+                                        { offset: 0, color: '#f12711' },
+                                        { offset: 1, color: '#f5af19' }
                                     ],
-                                    global: false // 缺省为 false
+                                    global: false
                                 }
                             }
                         },
-
                         axisLine: {
-                            show: true, //是否显示仪表盘轴线
-                            roundCap: true, //是否在两端显示成圆形
-                            width: 18,//轴线宽度
+                            show: true,
+                            roundCap: true,
+                            width: 18,
                             lineStyle: {
                                 color: [
-
                                     [0.59, '#FF4949'],
                                     [0.69, '#FF913A'],
                                     [0.79, '#FFC629'],
                                     [0.89, '#66CC66'],
-                                    [1, '#4CAF50'],
+                                    [1, '#4CAF50']
                                 ]
                             }
                         },
-
                         axisTick: {
-                            show: true, //是否显示刻度
+                            show: true,
                             distance: -29,
                             itemStyle: {
                                 color: '#fff',
@@ -245,24 +218,24 @@ export default {
                             }
                         },
                         splitLine: {
-                            show: true, //是否显示分隔线
+                            show: true,
                             distance: -30
                         },
                         axisLabel: {
-                            show: false, //是否显示标签
+                            show: false,
                             distance: -10
                         },
                         title: {
-                            show: true, //是否显示标题
+                            show: true,
                             fontSize: 20
                         },
                         detail: {
-                            show: true, //是否显示详情
-                            valueAnimation: true, //是否开启标签的数字动画
-                            borderRadius: 8, //文字块的圆角
-                            offsetCenter: [0, '60%'], //相对于仪表盘中心的偏移位置，数组第一项是水平方向的偏移，第二项是垂直方向的偏移。可以是绝对的数值，也可以是相对于仪表盘半径的百分比
-                            fontSize: 50, //文字的字体大小
-                            fontWeight: 'bolder', //文字字体的粗细
+                            show: true,
+                            valueAnimation: true,
+                            borderRadius: 8,
+                            offsetCenter: [0, '60%'],
+                            fontSize: 50,
+                            fontWeight: 'bolder',
                             formatter: (value) => {
                                 return `{value|${value}}\n{name|信用${this.creditLevelText}}`;
                             },
@@ -273,22 +246,18 @@ export default {
                                 },
                                 value: {
                                     fontSize: 38,
-                                    fontWeight: 'bold',
+                                    fontWeight: 'bold'
                                 }
                             },
-                            color: 'auto' //文本颜色
+                            color: 'auto'
                         },
-                        data: [
-                            {
-                                value: this.value
-                            }
-                        ]
+                        data: [{ value: this.value }]
                     }
                 ]
             };
 
             chart.setOption(option);
-            return chart;
+            this.chart = chart;
         },
         isActive(index) {
             const currentValue = this.value;
