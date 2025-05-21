@@ -14,7 +14,8 @@
         <view class="content">
             <!-- 头部 -->
             <view class="header" :style="{ paddingTop: statusBarHeight + 'rpx' }">
-                <image src="/static/images/robot.png" class="robot-icon"></image>
+                <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/robot.png"
+                    class="robot-icon"></image>
                 <view class="greeting">
                     <text class="title">Hi~ 我是小助理</text>
                     <text class="subtitle">很高兴为您提供服务！</text>
@@ -75,12 +76,13 @@
         </view>
         <view class="voiced" :class="{ show: show_voice }">
             <image class="voice_img" mode="widthFix"
-                :src="(show_voice ? '/static/images/recorde.gif' : '/static/images/none.png')">
+                :src="(show_voice ? 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/recorde.gif' : 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/none.png')">
             </image>
             <view class="tip">手指上滑取消发送</view>
         </view>
         <view class="voiced" :class="{ show: show_cancel_voice }">
-            <image class="voice_img" mode="widthFix" :src="'/static/images/quxiao.png'">
+            <image class="voice_img" mode="widthFix"
+                :src="'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/quxiao.png'">
             </image>
             <view class="tip">松开手指取消发送</view>
         </view>
@@ -163,7 +165,7 @@ export default {
         },
         navigateToDetail(item) {
             uni.showToast({
-                title: '功能暂未开放',
+                title: "客官~ 该功能暂未开放哦~",
                 icon: 'none'
             });
             console.log('跳转到详细页面:', item.title);
@@ -187,7 +189,7 @@ export default {
         },
         addsendMessage() {
             uni.showToast({
-                title: '功能暂未开放',
+                title: "客官~ 该功能暂未开放哦~",
                 icon: 'none',
             });
         },

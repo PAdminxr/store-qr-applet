@@ -128,8 +128,7 @@
             formatDuration(item.duration)
           }}</text>
 
-          <!-- 隐藏的视频元素，用于获取视频信息 -->
-          <video id="myVideo" :src="item.videoSrc" @loadedmetadata="onLoadedMetadata" style="display: none"></video>
+
         </view>
       </view>
     </view>
@@ -180,14 +179,14 @@ export default {
     },
     navigateTomessage() {
       uni.navigateTo({
-        url: "/pages/izaozixunpages/message/index",
+        url: "/izaozixunpages/message/index",
       });
     },
     onClickNoticeBar(type, id) {
-      let url = `/pages/izaozixunpages/articleDetail/index?id=${id}`;
+      let url = `/izaozixunpages/articleDetail/index?id=${id}`;
 
       if (type == "video") {
-        url = `/pages/izaozixunpages/articlevideoDetail/index?id=${id}`;
+        url = `/izaozixunpages/articlevideoDetail/index?id=${id}`;
       }
       uni.navigateTo({
         url: url,
@@ -198,10 +197,7 @@ export default {
       const videoContext = uni.createVideoContext("myVideo");
       videoContext.play();
     },
-    onLoadedMetadata(event) {
-      const index = event.currentTarget.dataset.index;
-      this.videoNews[index].duration = event.detail.duration; // 获取视频总时长
-    },
+
     formatDuration(seconds) {
       const date = new Date(null);
       date.setSeconds(seconds);
@@ -213,7 +209,7 @@ export default {
     },
     travelRefresh() {
       uni.navigateTo({
-        url: "/pages/izaozixunpages/travel/index",
+        url: "/izaozixunpages/travel/index",
       });
     },
     refreshHotNews() {
@@ -228,7 +224,7 @@ export default {
     },
     onSearchConfirm(e) {
       uni.navigateTo({
-        url: "/pages/izaolifepages/searchPage/index",
+        url: "/izaolifepages/searchPage/index",
       });
     },
     navigateTo(url) {

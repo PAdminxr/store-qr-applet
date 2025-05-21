@@ -39,7 +39,7 @@
   ],
   "subPackages": [
     {
-      "root": "pages/izaozixunpages",
+      "root": "izaozixunpages",
       "pages": [
         {
           "path": "message/index",
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "root": "pages/izaolifepages",
+      "root": "izaolifepages",
       "pages": [
         {
           "path": "searchPage/index",
@@ -157,7 +157,7 @@
       ]
     },
     {
-      "root": "pages/userpages",
+      "root": "userpages",
       "pages": [
         {
           "path": "personalInfo/index",
@@ -264,7 +264,7 @@
       ]
     },
     {
-      "root": "pages/paypages",
+      "root": "paypages",
       "pages": [
         {
           "path": "pay/index",

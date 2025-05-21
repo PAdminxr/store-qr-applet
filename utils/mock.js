@@ -5,7 +5,7 @@ export default {
     travel: [
         {
 
-            imageUrl: "/static/izaozixun/travel1.png",
+            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel1.png",
             videoUrl: "",
             type: "image",
             views: 5678,
@@ -22,7 +22,7 @@ export default {
             typeof: 'scenic'
         },
         {
-            imageUrl: "/static/izaozixun/travel3.png",
+            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel3.png",
             videoUrl: "",
             type: "image",
             views: 0,
@@ -39,7 +39,7 @@ export default {
             typeof: 'scenic'
         },
         {
-            imageUrl: "/static/izaozixun/travel4.png",
+            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel4.png",
             videoUrl: "",
             type: "image",
             views: 5678,
@@ -56,13 +56,13 @@ export default {
             typeof: 'scenic'
         },
         {
-            imageUrl: "/static/izaozixun/travel2.png",
+            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel2.png",
             videoUrl: "",
             type: "image",
             views: 60,
             title: "去台儿庄攻略一定要收藏 今年山东海边大火",
             desc: "",
-            avatar: "/static/c1.png",
+            avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/c1.png",
             author: "麦兜响当当",
             likes: 45,
             isLiked: false,
@@ -73,7 +73,7 @@ export default {
             typeof: 'scenic'
         },
         {
-            imageUrl: "/static/izaozixun/travel5.png",
+            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel5.png",
             videoUrl: "",
             type: "image",
             views: 15678,
@@ -90,7 +90,7 @@ export default {
             typeof: 'scenic'
         },
         {
-            imageUrl: "/static/izaozixun/travel6.png",
+            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel6.png",
             videoUrl: "",
             type: "image",
             views: 5,
@@ -107,7 +107,7 @@ export default {
             typeof: 'scenic'
         },
         {
-            imageUrl: "/static/izaolife/food1.png",
+            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food1.png",
             videoUrl: "",
             type: "image",
             views: 5678,
@@ -128,12 +128,12 @@ export default {
 
     // 类型为 'photo' 时返回的图片列表数据 (photos)
     photo: [
-        { imageUrl: '/static/izaozixun/台儿庄区.png', name: '台儿庄区', id: 1 },
-        { imageUrl: '/static/izaozixun/薛城区.png', name: '薛城区', id: 2 },
-        { imageUrl: '/static/izaozixun/山亭区.png', name: '山亭区', id: 3 },
-        { imageUrl: '/static/izaozixun/滕州市.png', name: '滕州市', id: 4 },
-        { imageUrl: '/static/izaozixun/市中区.png', name: '市中区', id: 5 },
-        { imageUrl: '/static/izaozixun/峄城区.png', name: '峄城区', id: 6 },
+        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/台儿庄区.png', name: '台儿庄区', id: 1 },
+        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/薛城区.png', name: '薛城区', id: 2 },
+        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/山亭区.png', name: '山亭区', id: 3 },
+        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/滕州市.png', name: '滕州市', id: 4 },
+        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/市中区.png', name: '市中区', id: 5 },
+        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/峄城区.png', name: '峄城区', id: 6 },
     ],
     hotTags: [
         { name: "热点景区", active: true, type: "scenic" },
@@ -144,61 +144,61 @@ export default {
     zixunArray: ['台儿庄区', '山亭区', '峄城区', '市中区', '滕州市', '薛城区'],
     thumbnails: [
         {
-            currentImage: "/static/izaozixun/wlbig.png",
+            currentImage: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/wlbig.png",
             description: "江北水乡 | 天下第一庄。",
-            avatarSrc: "/static/images/avatar.png",
+            avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
             name: "张三",
         },
         {
-            currentImage: "/static/izaozixun/wlbig2.png",
+            currentImage: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/wlbig2.png",
             description: "测试 | 天下第一庄。",
-            avatarSrc: "/static/izaozixun/credit.png",
+            avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/credit.png",
             name: "李四",
         },
         {
-            currentImage: "/static/izaozixun/wlbig3.png",
+            currentImage: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/wlbig3.png",
             description: "测试2 | 天下第一庄。",
-            avatarSrc: "/static/izaozixun/business.png",
+            avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/business.png",
             name: "王五",
         },
     ],
     banners: [
-        { image: "/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次' },
-        { image: "/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次2' },
+        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次' },
+        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次2' },
     ],
     shortcutItems: [
         {
-            icon: "/static/izaozixun/news.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/news.png",
             color: "#008000",
             text: "要闻动态",
             url: "/pages/news",
         },
         {
-            icon: "/static/izaozixun/policy.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/policy.png",
             color: "#0000FF",
             text: "政策法规",
             url: "/pages/policy",
         },
         {
-            icon: "/static/izaozixun/business.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/business.png",
             color: "#FFA500",
             text: "商家亮证",
             url: "/pages/business",
         },
         {
-            icon: "/static/izaozixun/promotion.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/promotion.png",
             color: "#FF0000",
             text: "优惠活动",
             url: "/pages/promotion",
         },
         {
-            icon: "/static/izaozixun/credit.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/credit.png",
             color: "#FFA500",
             text: "榴花信用",
             url: "/pages/credit",
         },
         {
-            icon: "/static/izaozixun/data.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/data.png",
             color: "#008000",
             text: "数据公开",
             url: "/pages/data",
@@ -208,7 +208,7 @@ export default {
         {
             id: 1,
             title: "全市积极开展《民法典》“送法进企业”活动",
-            image: "/static/izaozixun/hot1.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/hot1.png",
             views: 286,
             timeAgo: '2025-04-19 10:29',
             article: {
@@ -216,7 +216,7 @@ export default {
                 title: '全市积极开展《民法典》“送法进企业”活动',
                 date: '2025-04-09 13:29',
                 views: 286,
-                imageUrl: "/static/izaozixun/hot1.png",// 图片路径
+                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/hot1.png",// 图片路径
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
           <h3>中国华能：积极开展股票增持</h3>
@@ -235,14 +235,14 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: '/static/izaozixun/ava1.png',
+                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
                     time: '2025-05-09 13:29 '
                 },
                 {
                     id: 2,
-                    avatar: '/static/izaozixun/ava2.png',
+                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava2.png',
                     author: '我们爱学习',
                     text: '身在伟大的中国，多么自豪！一切困难都会迎刃而解，雄起！',
                     time: '2025-05-19 13:29'
@@ -252,7 +252,7 @@ export default {
         {
             id: 2,
             title: "为资本市场注入信心 多家央企密集宣布回购",
-            image: "/static/izaozixun/hot2.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/hot2.png",
             views: 450,
             timeAgo: '2025-05-09 10:29',
             article: {
@@ -260,7 +260,7 @@ export default {
                 title: '为资本市场注入信心 多家央企密集宣布回购',
                 date: '2025-05-09 10:29',
                 views: 450,
-                imageUrl: "/static/izaozixun/hot2.png",
+                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/hot2.png",
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
           <h3>中国华能：积极开展股票增持</h3>
@@ -279,14 +279,14 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: '/static/izaozixun/ava1.png',
+                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
                     time: '2025-05-09 17:29'
                 },
                 {
                     id: 2,
-                    avatar: '/static/izaozixun/ava2.png',
+                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava2.png',
                     author: '我们爱学习',
                     text: '身在伟大的中国，多么自豪！一切困难都会迎刃而解，雄起！',
                     time: '2025-05-19 13:29'
@@ -298,18 +298,18 @@ export default {
         {
             id: 3,
             title: "玉渊潭天 | 一部手机看懂美国加关税的代价",
-            image: "/static/izaozixun/video1.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video1.png",
             views: 2026,
             timeAgo: '2025-05-9 10:29',
-            videoSrc: "/static/izaozixun/1.mp4",
+            videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/1.mp4",
             duration: 3000,
             article: {
                 id: 1,
                 title: '玉渊潭天 | 一部手机看懂美国加关税的代价',
                 date: '2025-05-09 10:29',
                 views: 2026,
-                imageUrl: "/static/izaozixun/video1.png",
-                videoSrc: "/static/izaozixun/1.mp4",
+                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video1.png",
+                videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/1.mp4",
                 duration: 3000,
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
@@ -328,7 +328,7 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: '/static/izaozixun/ava1.png',
+                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
                     time: '2025-05-09 13:29 '
@@ -339,18 +339,18 @@ export default {
         {
             id: 4,
             title: "香港财政司司长:香港将坚持自由贸易政策 保持自由港地位",
-            image: "/static/izaozixun/video2.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video2.png",
             views: 2130,
             timeAgo: '2025-04-19 11:29',
-            videoSrc: "/static/izaozixun/2.mp4",
+            videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/2.mp4",
             duration: 4000,
             article: {
                 id: 2,
                 title: '香港财政司司长:香港将坚持自由贸易政策 保持自由港地位',
                 date: '2025-05-09 10:29',
                 views: 2130,
-                imageUrl: "/static/izaozixun/video2.png",
-                videoSrc: "/static/izaozixun/2.mp4",
+                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video2.png",
+                videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/2.mp4",
                 duration: 4000,
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
@@ -369,14 +369,14 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: '/static/izaozixun/ava1.png',
+                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
                     time: '2025-05-09 13:29 '
                 },
                 {
                     id: 2,
-                    avatar: '/static/izaozixun/ava2.png',
+                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava2.png',
                     author: '我们爱学习',
                     text: '身在伟大的中国，多么自豪！一切困难都会迎刃而解，雄起！',
                     time: '2025-05-19 13:29'
@@ -386,18 +386,18 @@ export default {
         {
             id: 5,
             title: "清明假期全国揽投快递包裹超28亿件",
-            image: "/static/izaozixun/video3.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video3.png",
             views: 202,
             timeAgo: '2025-04-22 11:29',
-            videoSrc: "/static/izaozixun/3.mp4",
+            videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/3.mp4",
             duration: 50,
             article: {
                 id: 2,
                 title: '清明假期全国揽投快递包裹超28亿件',
                 date: '2025-05-09 10:29',
                 views: 202,
-                imageUrl: "/static/izaozixun/video3.png",
-                videoSrc: "/static/izaozixun/3.mp4",
+                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video3.png",
+                videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/3.mp4",
                 duration: 50,
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
@@ -416,14 +416,14 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: '/static/izaozixun/ava1.png',
+                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
                     time: '2025-05-09 13:29 '
                 },
                 {
                     id: 2,
-                    avatar: '/static/izaozixun/ava2.png',
+                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava2.png',
                     author: '我们爱学习',
                     text: '身在伟大的中国，多么自豪！一切困难都会迎刃而解，雄起！',
                     time: '2025-05-19 13:29'
@@ -443,43 +443,43 @@ export default {
     ],
 
     ctBannerImgs: [
-        "/static/izaolife/sjimg.png",
-        "/static/izaolife/sjimg.png",
-        "/static/izaolife/sjimg.png",
+        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjimg.png",
+        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjimg.png",
+        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjimg.png",
     ],
     reviews: [
         {
-            avatar: "/static/c1.png",
+            avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/c1.png",
             userName: "用户OIKL7270",
             date: "2025/03/17",
             rating: 5,
             content: "非常好，菜量很大，老板人很大方！！！",
             pics: [
-                "/static/izaolife/IMG_3389.png",
-                "/static/izaolife/IMG_3390.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3389.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3390.png",
             ],
             showFullContent: false,
             ishow: true,
             isExpanded: false,
         },
         {
-            avatar: "/static/c2.png",
+            avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/c2.png",
             userName: "匿名用户",
             date: "2025/03/17",
             rating: 4,
             content:
                 "非常好，菜量很大，老板人很大方！！！美团上点的，有鱼有鸡的。",
             pics: [
-                "/static/izaolife/IMG_3389.png",
-                "/static/izaolife/IMG_3390.png",
-                "/static/izaolife/IMG_3391.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3389.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3390.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3391.png",
             ],
             showFullContent: false,
             ishow: false,
             isExpanded: false,
         },
         {
-            avatar: "/static/c3.png",
+            avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/c3.png",
             userName: "瓣瓣西瓜",
             date: "2025/03/17",
             rating: 5,
@@ -493,91 +493,91 @@ export default {
     ],
     merchantInfos: [
         {
-            icon: "/static/izaolife/punish-icon.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/punish-icon.png",
             name: "处罚信息",
-            path: "/pages/izaolifepages/penaltyInfo/detail",
+            path: "/izaolifepages/penaltyInfo/detail",
         },
         {
-            icon: "/static/izaolife/business-icon.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/business-icon.png",
             name: "经营信息",
-            path: "/pages/izaolifepages/businessInfo/index",
+            path: "/izaolifepages/businessInfo/index",
         },
         {
-            icon: "/static/izaolife/credit-icon.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/credit-icon.png",
             name: "榴花信用",
-            path: "/pages/izaolifepages/penaltyInfo/index",
+            path: "/izaolifepages/penaltyInfo/index",
         },
         {
-            icon: "/static/izaolife/kitchen-icon.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/kitchen-icon.png",
             name: "明厨亮灶",
-            path: "/pages/izaolifepages/kitchenInspection/index",
+            path: "/izaolifepages/kitchenInspection/index",
         },
         {
-            icon: "/static/izaolife/health-icon.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/health-icon.png",
             name: "健康证",
-            path: "/pages/izaolifepages/health/index",
+            path: "/izaolifepages/health/index",
         },
     ],
     fwInfos: [
         {
-            icon: "/static/izaolife/cat.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/cat.png",
             name: "收费停车场",
         },
         {
-            icon: "/static/izaolife/wifi.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/wifi.png",
             name: "免费wifi",
         },
         {
-            icon: "/static/izaolife/ct.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct.png",
             name: "餐厅",
         },
         {
-            icon: "/static/izaolife/xyq.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/xyq.png",
             name: "吸烟区",
         },
         {
-            icon: "/static/izaolife/yqjt.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/yqjt.png",
             name: "园区交通",
         },
         {
-            icon: "/static/izaolife/sjcd.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjcd.png",
             name: "手机充电",
         },
     ],
     jqFwInfos: [
         {
-            icon: "/static/izaolife/cat.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/cat.png",
             name: "收费停车场",
         },
 
         {
-            icon: "/static/izaolife/ct.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct.png",
             name: "餐厅",
         },
         {
-            icon: "/static/izaolife/xyq.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/xyq.png",
             name: "吸烟区",
         },
         {
-            icon: "/static/izaolife/yqjt.png",
+            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/yqjt.png",
             name: "园区交通",
         },
     ],
     jqBannerImgs: [
-        "/static/izaolife/jqimg.png",
-        "/static/izaolife/jqimg.png",
-        "/static/izaolife/jqimg.png",
+        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jqimg.png",
+        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jqimg.png",
+        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jqimg.png",
     ],
     jdBannerImgs: [
-        "/static/izaolife/jdimg.png",
-        "/static/izaolife/jdimg.png",
-        "/static/izaolife/jdimg.png",
+        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdimg.png",
+        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdimg.png",
+        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdimg.png",
     ],
     restaurants: [
         {
             id: 1,
             image:
-                "/static/izaolife/ct1.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct1.png",
             name: "台儿庄运河鱼馆枣庄辣子鸡",
             score: 89,
             isOpen: true,
@@ -597,7 +597,7 @@ export default {
         {
             id: 2,
             image:
-                "/static/izaolife/ct2.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct2.png",
             name: "花家地艺术餐厅",
             score: 80,
             isOpen: false,
@@ -617,7 +617,7 @@ export default {
         {
             id: 3,
             image:
-                "/static/izaolife/ct3.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct3.png",
             name: "运河鱼馆（古城店）",
             score: 77,
             isOpen: true,
@@ -637,7 +637,7 @@ export default {
         {
             id: 4,
             image:
-                "/static/izaolife/ct4.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct4.png",
             name: "小火柴大鱼头·铁锅炖·鲁菜",
             score: 98,
             isOpen: true,
@@ -659,7 +659,7 @@ export default {
         {
             id: 5,
             image:
-                "/static/izaolife/jdms1.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms1.png",
             name: "滕州滨江国际大酒店",
             score: 89,
             isOpen: true,
@@ -680,7 +680,7 @@ export default {
         {
             id: 6,
             image:
-                "/static/izaolife/jdms2.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms2.png",
             name: "布丁连锁酒店",
             score: 80,
             isOpen: false,
@@ -701,7 +701,7 @@ export default {
         {
             id: 7,
             image:
-                "/static/izaolife/jdms3.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms3.png",
             name: "那片海文艺酒店",
             score: 77,
             isOpen: true,
@@ -722,7 +722,7 @@ export default {
         {
             id: 8,
             image:
-                "/static/izaolife/jdms4.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms4.png",
             name: "舜和枣庄大酒店",
             score: 98,
             isOpen: true,
@@ -743,7 +743,7 @@ export default {
         {
             id: 9,
             image:
-                "/static/izaolife/jdms5.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms5.png",
             name: "艺龙米高时尚酒店",
             score: 98,
             isOpen: true,
@@ -766,7 +766,7 @@ export default {
         {
             id: 10,
             image:
-                "/static/izaolife/jq1.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jq1.png",
             name: "台儿庄古城",
             score: 89,
             isOpen: true,
@@ -785,7 +785,7 @@ export default {
         {
             id: 11,
             image:
-                "/static/izaolife/jq2.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jq2.png",
             name: "铁道游击队纪念园",
             score: 80,
             isOpen: false,
@@ -804,7 +804,7 @@ export default {
         {
             id: 12,
             image:
-                "/static/izaolife/jq3.png",
+                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jq3.png",
             name: "铁道游击队纪念园",
             score: 77,
             isOpen: true,
@@ -824,7 +824,7 @@ export default {
     ],
     siteMessages: [
         {
-            icon: '/static/izaozixun/icon-1.png',
+            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-1.png',
             title: '系统消息',
             description: '关于本周末信息系统将暂停服务的通知',
             time: '昨天17:00',
@@ -832,7 +832,7 @@ export default {
             value: 6
         },
         {
-            icon: '/static/izaozixun/icon-2.png',
+            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-2.png',
             title: '活动消息',
             description: '邀请好友，享4重好礼！',
             time: '2小时前',
@@ -840,7 +840,7 @@ export default {
             value: 100000
         },
         {
-            icon: '/static/izaozixun/icon-1.png',
+            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-1.png',
             title: '云南过桥米线',
             description: '亲爱的顾客，本店菜品上新，诚意邀请您再次光临本店品尝',
             time: '04-08 13:00',
@@ -850,21 +850,21 @@ export default {
     ],
     systemAnnouncements: [
         {
-            icon: '/static/izaozixun/icon-3.png',
+            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-3.png',
             title: '升级公告',
             description: '系统已完成新版本迭代！修复已知问题，新增新增',
             time: '昨天17:00',
             tag: false
         },
         {
-            icon: '/static/izaozixun/icon-3.png',
+            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-3.png',
             title: '升级公告',
             description: '系统已完成新版本迭代！修复已知问题，新增新增',
             time: '昨天17:00',
             tag: false
         },
         {
-            icon: '/static/izaozixun/icon-3.png',
+            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-3.png',
             title: '升级公告',
             description: '系统已完成新版本迭代！修复已知问题，新增新增',
             time: '昨天17:00',
@@ -872,32 +872,32 @@ export default {
         }
     ],
     functionList: [
-        { icon: "/static/izaolife/food-icon.png", name: "美食餐饮", path: '/pages/izaolifepages/fineFood/index' },
-        { icon: "/static/izaolife/hotel-icon.png", name: "酒店民宿", path: '/pages/izaolifepages/hotelAndHome/index' },
-        { icon: "/static/izaolife/techan-icon.png", name: "枣庄特产" },
-        { icon: "/static/izaolife/scenic-icon.png", name: "景区出行", path: '/pages/izaolifepages/scenicTravel/index' },
-        { icon: "/static/izaolife/play-icon.png", name: "休闲玩乐" },
-        { icon: "/static/izaolife/cash-icon.png", name: "天天现金" },
-        { icon: "/static/izaolife/parent-child-icon.png", name: "亲子乐园" },
-        { icon: "/static/izaolife/vacation-icon.png", name: "旅游度假" },
-        { icon: "/static/izaolife/parent-child-icon.png", name: "测试滑动1" },
-        { icon: "/static/izaolife/vacation-icon.png", name: "测试滑动2" },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food-icon.png", name: "美食餐饮", path: '/izaolifepages/fineFood/index' },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel-icon.png", name: "酒店民宿", path: '/izaolifepages/hotelAndHome/index' },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/techan-icon.png", name: "枣庄特产" },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic-icon.png", name: "景区出行", path: '/izaolifepages/scenicTravel/index' },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/play-icon.png", name: "休闲玩乐" },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/cash-icon.png", name: "天天现金" },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/parent-child-icon.png", name: "亲子乐园" },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/vacation-icon.png", name: "旅游度假" },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/parent-child-icon.png", name: "测试滑动1" },
+        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/vacation-icon.png", name: "测试滑动2" },
     ],
     mustEatList: [
         {
-            image: "/static/izaolife/food1.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food1.png",
             name: "素雨辣子鸡",
             desc: "地道枣庄味",
             top: 1,
         },
         {
-            image: "/static/izaolife/food2.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food2.png",
             name: "枣庄菜煎饼",
             desc: "品味枣庄味",
             top: 2,
         },
         {
-            image: "/static/izaolife/food3.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food3.png",
             name: "滕州卷饼",
             desc: "寻觅古县美食",
             top: 3,
@@ -905,32 +905,32 @@ export default {
     ],
     hotelList: [
         {
-            image: "/static/izaolife/hotel1.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel1.png",
             location: "近台儿庄古城",
             name: "北方世纪酒店",
         },
         {
-            image: "/static/izaolife/hotel2.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel2.png",
             location: "近抱犊崮",
             name: "黑龙江宾馆",
         },
         {
-            image: "/static/izaolife/hotel3.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel3.png",
             location: "近台儿庄古城",
             name: "状元楼客栈",
         },
     ],
     scenicBigList: [
         {
-            image: "/static/izaolife/scenic1.png",
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic1.png",
             name: "旅游攻略",
             desc: "你想知道的门票时刻、交通时刻表等应有尽有",
         },
 
     ],
     scenicSmallList: [
-        { image: "/static/izaolife/scenic2.png", name: "纪念园攻略" },
-        { image: "/static/izaolife/scenic3.png", name: "特色游记" },
-        { image: "/static/izaolife/scenic4.png", name: "VR导览" },
+        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic2.png", name: "纪念园攻略" },
+        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic3.png", name: "特色游记" },
+        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic4.png", name: "VR导览" },
     ],
 };

@@ -56,15 +56,18 @@
       <!-- 第二行按钮 -->
       <view class="button-row">
         <navigator url="/pages/orders/index" class="button-item">
-          <image class="icon" src="@/static/images/star.png" mode="aspectFit"></image>
+          <image class="icon" src="@https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/star.png"
+            mode="aspectFit"></image>
           <text class="button-text">我的订单</text>
         </navigator>
         <navigator url="/pages/works/index" class="button-item">
-          <image class="icon" src="@/static/images/message.png" mode="aspectFit"></image>
+          <image class="icon" src="@https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/message.png"
+            mode="aspectFit"></image>
           <text class="button-text">我的作品</text>
         </navigator>
         <navigator url="/pages/settings/index" class="button-item">
-          <image class="icon" src="@/static/images/setting.png" mode="aspectFit"></image>
+          <image class="icon" src="@https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/setting.png"
+            mode="aspectFit"></image>
           <text class="button-text">设置</text>
         </navigator>
       </view>
@@ -78,7 +81,7 @@ export default {
     return {
       num: "-",
       userInfo: {
-        avatarSrc: "/static/images/avatar.png",
+        avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
       },
       unserdata: {
         shoucang: "-",

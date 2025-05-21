@@ -5,7 +5,9 @@
             <!-- <video v-if="isVideo" :src="mediaSrc" class="media-content" controls="false" disable-playback="true"
                 style="pointer-events: none;" // 禁止视频元素响应点击事件></video> -->
             <view v-if="isVideo" :class="!showStyle ? 'video-cover' : 'video-cover radius'">
-                <image class="cover-image" src="/static/images/video.png" mode="aspectFill" />
+                <image class="cover-image"
+                    src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/video.png"
+                    mode="aspectFill" />
             </view>
             <image v-else :src="mediaSrc" mode="aspectFill"
                 :class="!showStyle ? 'media-content' : 'media-content radius'"></image>

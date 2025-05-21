@@ -7,7 +7,9 @@
                 @setViews="handleSetViews" />
             <view class="video-play" v-if="item.type === 'video'">
 
-                <image class="cover-image" src="/static/images/video_cover.png" mode="aspectFill" />
+                <image class="cover-image"
+                    src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/video_cover.png"
+                    mode="aspectFill" />
             </view>
             <view class="view-count" v-if="showViews && item.views > 0">
                 <uni-icons type="eye" size="24rpx" color="#fff"></uni-icons>

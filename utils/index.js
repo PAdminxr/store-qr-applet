@@ -131,6 +131,14 @@ export default new Vuex.Store({
             }
             uni.setStorageSync('works', state.works);
         },
+        UPDATE_FAVORTITE_VIEW(state, { id, views }) {
+
+            const favorite = state.favorites.find(favorite => favorite.articleId === id);
+            if (favorite) {
+                favorite.views = views;
+            }
+            uni.setStorageSync('favorites', state.favorites);
+        },
         UPDATE_VIEWS(state, { mediaId, workId }) {
             const work = state.works.find(work => work.workId === workId);
             if (work) {
@@ -277,6 +285,9 @@ export default new Vuex.Store({
         },
         updateWorkLike({ commit }, payload) {
             commit('UPDATE_WORK_LIKE', payload);
+        },
+        updateFavoriteView({ commit }, payload) {
+            commit('UPDATE_FAVORTITE_VIEW', payload);
         }
 
     },

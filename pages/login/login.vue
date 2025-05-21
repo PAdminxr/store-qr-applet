@@ -2,7 +2,8 @@
   <view class="login-page" :style="{ minHeight: pageHeight }">
     <!-- Logo 和 标题 -->
     <view class="logo-section">
-      <image src="/static/logo.png" mode="aspectFit" class="logo"></image>
+      <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/logo.png" mode="aspectFit"
+        class="logo"></image>
       <text class="app-name">i枣码智慧消费平台</text>
     </view>
 
@@ -124,7 +125,7 @@ export default {
             loginType: "微信",
             loginMethod: "手机号",
             introduction: "这是一个示例简介",
-            avatarSrc: "/static/logo.png",
+            avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/logo.png",
             loginTime: new Date().toISOString(),
           };
 
@@ -155,7 +156,7 @@ export default {
 
     otherLogin() {
       uni.showToast({
-        title: "功能为开放哦~",
+        title: "客官~ 该功能暂未开放哦~",
         icon: "none",
       });
     },

@@ -52,8 +52,8 @@
 		<view class="must-eat">
 			<view class="title">
 				<text class="titletext">i必吃榜</text>
-				<view class="more" @click="goToMore('/pages/izaolifepages/foodGuide/index')">更多
-					<uni-icons type="right" size="40rpx"></uni-icons>
+				<view class="more" @click="goToMore('/izaolifepages/foodGuide/index')">更多
+					<uni-icons type="right" size="30rpx"></uni-icons>
 				</view>
 			</view>
 			<view class="list">
@@ -74,8 +74,8 @@
 		<view class="hotel">
 			<view class="title">
 				<text class="titletext">酒店民宿</text>
-				<view class="more" @click="goToMore('/pages/izaolifepages/hotelAndHome/index')">更多
-					<uni-icons type="right" size="40rpx"></uni-icons>
+				<view class="more" @click="goToMore('/izaolifepages/hotelAndHome/index')">更多
+					<uni-icons type="right" size="30rpx"></uni-icons>
 				</view>
 			</view>
 			<view class="list">
@@ -103,8 +103,8 @@
 			<view class="title">
 				<text class="titletext">景区出行</text>
 
-				<view class="more" @click="goToMore('/pages/izaolifepages/scenicTravel/index')">更多
-					<uni-icons type="right" size="40rpx"></uni-icons>
+				<view class="more" @click="goToMore('/izaolifepages/scenicTravel/index')">更多
+					<uni-icons type="right" size="30rpx"></uni-icons>
 				</view>
 			</view>
 			<view class="list">
@@ -135,7 +135,8 @@
 			</view>
 		</view>
 		<uni-popup ref="popup" type="center" :animation="true" @touchstart="closePopup">
-			<img src="/static/izaolife/红包弹窗.png" class="hongbao" />
+			<img src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/红包弹窗.png"
+				class="hongbao" />
 		</uni-popup>
 	</view>
 
@@ -201,7 +202,7 @@ export default {
 	methods: {
 		navigateTo() {
 			// uni.navigateTo({
-			// 	url: "/pages/izaolifepages/restaurantDetail/index",
+			// 	url: "/izaolifepages/restaurantDetail/index",
 			// });
 		},
 		closePopup() {
@@ -210,11 +211,11 @@ export default {
 		getTopImage(top) {
 			switch (top) {
 				case 1:
-					return '/static/izaolife/top1.png';
+					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/top1.png';
 				case 2:
-					return '/static/izaolife/top2.png';
+					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/top2.png';
 				default:
-					return '/static/izaolife/top3.png';
+					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/top3.png';
 			}
 		},
 
@@ -237,7 +238,7 @@ export default {
 		onSearchConfirm() {
 			console.log("搜索确认");
 			uni.navigateTo({
-				url: "/pages/izaolifepages/searchPage/index",
+				url: "/izaolifepages/searchPage/index",
 			});
 		},
 		goToMore(url) {
@@ -416,7 +417,7 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	font-size: 32rpx;
+	font-size: 26rpx;
 }
 
 .list {

@@ -19,7 +19,7 @@
                 </view>
             </view>
             <!-- 红包区域 - 登录后显示 -->
-            <view class="hongbao-container" v-if="isLogin">
+            <view class="hongbao-container" v-if="isLogin && hongbao">
                 <view class="hongbao">
                     <view class="hongbao-content">
                         <view class="flex-row">
@@ -39,7 +39,7 @@
         </view>
 
         <!-- 中间内容区域 -->
-        <view class="content" :style="isLogin ? 'margin-top: 60rpx;' : 'margin-top: 0;'">
+        <view class="content" :style="isLogin && hongbao ? 'margin-top: 60rpx;' : 'margin-top: 0;'">
             <!-- 数据统计区域 -->
             <view class="data-container">
                 <uni-grid :column="4" :highlight="true" :showBorder="false" class="grid-container">
@@ -57,28 +57,61 @@
                 <uni-grid :column="4" :highlight="true" :showBorder="false" class="grid-container">
                     <uni-grid-item>
                         <view class="grid-item-content" @click="JumpOrder()">
-                            <image class="grid-icon" src="/static/user/star.png" mode="aspectFit"></image>
+                            <image class="grid-icon"
+                                src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/star.png"
+                                mode="aspectFit"></image>
                             <text class="grid-text">我的订单</text>
                         </view>
                     </uni-grid-item>
                     <uni-grid-item>
                         <view class="grid-item-content" @click="JumpWork()">
-                            <image class="grid-icon" src="/static/user/message.png" mode="aspectFit"></image>
+                            <image class="grid-icon"
+                                src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/message.png"
+                                mode="aspectFit"></image>
                             <text class="grid-text">我的作品</text>
                         </view>
                     </uni-grid-item>
                     <uni-grid-item>
                         <view class="grid-item-content" @click="JumpSetting()">
-                            <image class="grid-icon" src="/static/user/setting.png" mode="aspectFit"></image>
+                            <image class="grid-icon"
+                                src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/setting.png"
+                                mode="aspectFit"></image>
                             <text class="grid-text">设置</text>
+                        </view>
+                    </uni-grid-item>
+                    <uni-grid-item>
+                        <view class="grid-item-content" @click="Jumppay()">
+                            <image class="grid-icon"
+                                src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/cash-icon.png"
+                                mode="aspectFit"></image>
+                            <text class="grid-text">模拟付款</text>
                         </view>
                     </uni-grid-item>
                 </uni-grid>
             </view>
         </view>
-        <view class="footer" @click="Jumppay()">
-            <text>付款</text>
-        </view>
+
+        <!-- 领取成功弹框 -->
+        <uni-popup ref="popup" type="center">
+            <view class="popup-content">
+                <text class="title">领取成功</text>
+                <view>
+                    <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png"
+                        class="red-envelope"></image>
+                </view>
+                <view class="description">
+                    优惠券已发放至您的账户<br />
+                    可在“我的-我的优惠券”中查看
+                </view>
+                <view class="buttons">
+                    <button class="btn-know" @click="closePopup">知道了</button>
+                    <button class="btn-check" @click="goToCoupons">去查看</button>
+                </view>
+            </view>
+            <view class="close-btn-modal" @click="closePopup">
+                <uni-icons type="close" size="34" color="#fff" />
+            </view>
+        </uni-popup>
     </view>
 </template>
 
@@ -106,17 +139,27 @@ export default {
             ],
             isLogin: false,
             userInfo: {
-                avatarSrc: "/static/images/avatar.png",
+                avatarSrc:
+                    "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
                 nickName: "游客",
                 introduction: "登录后才能查看更多信息哦~",
             },
-            src: "/static/user/red-envelope.png",
+            src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png",
             validTime: new Date().getTime() + 24 * 60 * 60 * 1000, // 默认24小时有效期
+            timer: null,
+            hongbao: true, // 控制红包区域的显示
         };
     },
 
     onShow() {
         this.getFromCache();
+        const newReceivedCoupon = uni.getStorageSync("newReceivedCoupon");
+        if (newReceivedCoupon) {
+            this.openPopup();
+
+            // 重置标志位
+            uni.setStorageSync("newReceivedCoupon", false);
+        }
     },
 
     methods: {
@@ -124,7 +167,7 @@ export default {
             // 加载用户登录信息和状态
             this.$store.dispatch("loadUserInfoFromCache");
             // 加载评论数据
-            this.$store.dispatch("loadCommentsFromCache");
+            this.$store.dispatch('loadOrdersFromCache');
             // 加载领取的红包列表
             this.$store.dispatch("loadReceivedRedEnvelopesFromCache");
             // 加载我的收藏
@@ -142,7 +185,7 @@ export default {
         JumpUserInfo() {
             if (this.isLogin) {
                 uni.navigateTo({
-                    url: "/pages/userpages/personalInfo/index",
+                    url: "/userpages/personalInfo/index",
                 });
             } else {
                 this.JumpLogin();
@@ -151,7 +194,7 @@ export default {
         JumpOrder() {
             if (this.isLogin) {
                 uni.navigateTo({
-                    url: "/pages/userpages/ordersInfo/index",
+                    url: "/userpages/ordersInfo/index",
                 });
             } else {
                 this.JumpLogin();
@@ -160,7 +203,7 @@ export default {
         JumpWork() {
             if (this.isLogin) {
                 uni.navigateTo({
-                    url: "/pages/userpages/publishWork/detail",
+                    url: "/userpages/publishWork/detail",
                 });
             } else {
                 this.JumpLogin();
@@ -168,8 +211,10 @@ export default {
         },
         JumpSetting() {
             if (this.isLogin) {
-                uni.navigateTo({
-                    url: "/pages/userpages/settings/index",
+                uni.showToast({
+                    title: "客官~ 该功能暂未开放哦~",
+                    icon: "none",
+                    duration: 2000,
                 });
             } else {
                 this.JumpLogin();
@@ -178,7 +223,7 @@ export default {
         Jumppay() {
             if (this.isLogin) {
                 uni.navigateTo({
-                    url: "/pages/paypages/pay/index",
+                    url: "/paypages/pay/index",
                 });
             } else {
                 this.JumpLogin();
@@ -186,7 +231,7 @@ export default {
         },
         getHongbao() {
             uni.navigateTo({
-                url: "/pages/userpages/couponInfo/detail",
+                url: "/userpages/couponInfo/detail",
             });
         },
         handleGridClick(item) {
@@ -197,18 +242,27 @@ export default {
 
             switch (item.key) {
                 case "favoriteCount":
-                    uni.navigateTo({ url: "/pages/userpages/favoriteInfo/index" });
+                    uni.navigateTo({ url: "/userpages/favoriteInfo/index" });
                     break;
                 case "unEvaluatedCount":
-                    uni.navigateTo({ url: "/pages/userpages/evaluation/index" });
+                    uni.navigateTo({ url: "/userpages/evaluation/index" });
                     break;
                 case "feedbackCount":
-                    uni.navigateTo({ url: "/pages/userpages/submitFeedback/info" });
+                    uni.navigateTo({ url: "/userpages/submitFeedback/info" });
                     break;
                 case "redEnvelopeCount":
-                    uni.navigateTo({ url: "/pages/userpages/couponInfo/index" });
+                    uni.navigateTo({ url: "/userpages/couponInfo/index" });
                     break;
             }
+        },
+        openPopup() {
+            this.$refs.popup.open();
+        },
+        closePopup() {
+            // 重置标志位
+            uni.setStorageSync("newReceivedCoupon", false);
+            this.hongbao = false;
+            this.$refs.popup.close();
         },
         loadLoginStatus() {
             const isLogin = this.$store.getters.getIsLogin || false;
@@ -233,7 +287,8 @@ export default {
             if (this.isLogin) {
                 // 获取用户信息
                 this.userInfo = this.getUserInfo() || {
-                    avatarSrc: "/static/images/avatar.png",
+                    avatarSrc:
+                        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
                     nickName: "未设置昵称",
                     introduction: "暂无个人介绍",
                 };
@@ -241,7 +296,8 @@ export default {
                 this.updateMenubar();
             } else {
                 this.userInfo = {
-                    avatarSrc: "/static/images/avatar.png",
+                    avatarSrc:
+                        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
                     nickName: "游客",
                     introduction: "登录后才能查看更多信息哦~",
                 };
@@ -268,9 +324,7 @@ export default {
         getUnEvaluatedCount() {
             if (!this.isLogin) return "-";
             const orders = this.$store.getters.getOrders || [];
-            const comments = this.$store.getters.getComments || [];
-            const unEvaluatedOrders = orders.filter((item) => !item.evaluation);
-            return unEvaluatedOrders.length + comments.length;
+            return orders.length;
         },
         getRedEnvelopeCount() {
             if (!this.isLogin) return "-";
@@ -298,6 +352,33 @@ export default {
                 .toString()
                 .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
         },
+        startExpireTimer() {
+            // 清除之前的计时器
+            this.clearExpireTimer();
+
+            // 每秒更新一次有效期显示
+            this.timer = setInterval(() => {
+                this.$forceUpdate();
+            }, 1000);
+        },
+        clearExpireTimer() {
+            if (this.timer) {
+                clearInterval(this.timer);
+                this.timer = null;
+            }
+        },
+    },
+    onUnload() {
+        // 页面卸载时清除计时器
+        this.clearExpireTimer();
+    },
+    created() {
+        this.timer = setInterval(() => {
+            this.validTime -= 1000;
+            if (this.validTime <= 0) {
+                clearInterval(this.timer);
+            }
+        }, 1000);
     },
 };
 </script>
@@ -498,5 +579,67 @@ export default {
             }
         }
     }
+}
+
+.popup-content {
+    background-color: white;
+    padding: 50rpx;
+    border-radius: 30rpx;
+    text-align: center;
+
+    .title {
+        font-size: 40rpx;
+        color: red;
+        margin-bottom: 20rpx;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .red-envelope {
+        width: 200rpx;
+        height: 200rpx;
+        margin-bottom: 20rpx;
+    }
+
+    .description {
+        font-size: 28rpx;
+        color: #666;
+        margin-bottom: 30rpx;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        gap: 20rpx;
+    }
+
+    .btn-know,
+    .btn-check {
+        width: 200rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        border-radius: 40rpx;
+        font-size: 32rpx;
+    }
+
+    .btn-know {
+        border: 2rpx solid red;
+        color: red;
+        background-color: white;
+    }
+
+    .btn-check {
+        background: linear-gradient(to bottom, #ff9100, #ff1b00);
+        color: white;
+    }
+}
+
+.close-btn-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    padding-top: 20rpx;
 }
 </style>
