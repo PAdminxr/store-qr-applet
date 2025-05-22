@@ -118,11 +118,11 @@ export default new Vuex.Store({
         SAVE_ENVELOPE(state, envelopes) {
             state.receivedRedEnvelopes = envelopes;
         },
-        UPDATE_WORK_LIKE(state, { id, isLiked, likes }) {
+        UPDATE_WORK_LIKE(state, { mediaId, isLiked, likes }) {
             // 遍历所有作品
             for (const work of state.works) {
                 // 找到匹配的媒体项
-                const media = work.mediaList.find(m => m.id === id);
+                const media = work.mediaList.find(m => m.mediaId === mediaId);
                 if (media) {
                     media.isLiked = isLiked;
                     media.likes = likes;

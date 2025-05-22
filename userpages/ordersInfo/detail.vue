@@ -99,7 +99,7 @@ export default {
         gosubmitFeedback() {
             if (this.orderInfo.feedbacks) {
                 uni.navigateTo({
-                    url: `/userpages/submitFeedback/detail?orderId=${this.orderId}`
+                    url: "/userpages/submitFeedback/info",
                 });
             } else {
                 uni.navigateTo({

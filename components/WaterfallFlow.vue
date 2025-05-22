@@ -76,11 +76,11 @@ export default {
                 this.$emit('like', updated);
 
             } else {
-                const idx = this.spots.findIndex((i) => i.id === updated.id);
+                const idx = this.spots.findIndex((i) => i.mediaId === updated.mediaId);
                 if (idx > -1) {
                     this.$set(this.spots, idx, updated);
                     this.$store.dispatch("updateWorkLike", {
-                        id: updated.id,
+                        mediaId: updated.mediaId,
                         isLiked: updated.isLiked,
                         likes: updated.likes,
                     });
