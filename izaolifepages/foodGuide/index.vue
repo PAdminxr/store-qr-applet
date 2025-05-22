@@ -22,7 +22,7 @@
         <!-- 食品推荐列表 -->
         <view class="food-list">
             <view v-for="(food, index) in foods" :key="index" class="food-item-container">
-                <view class="food-item">
+                <view class="food-item" @click="onFoodClick">
                     <image :src="food.image" mode="aspectFill" class="food-image"></image>
 
                     <view class="food-top-badge">
@@ -64,6 +64,11 @@ export default {
         onSearch() {
             uni.navigateTo({
                 url: "/izaolifepages/searchPage/index",
+            });
+        },
+        onFoodClick() {
+            uni.navigateTo({
+                url: "/izaolifepages/foodGuide/detail",
             });
         },
         getTopImage(top) {
