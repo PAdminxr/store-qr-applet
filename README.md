@@ -1,1 +1,0 @@
-# store-qr-applet
