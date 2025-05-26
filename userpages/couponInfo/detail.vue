@@ -74,6 +74,36 @@ export default {
             // 模拟数据
             allCoupons: [
                 {
+                    amount: 50,
+                    expireTime: new Date().getTime() + 24 * 60 * 60 * 1000,
+                    expireTimes: true,
+                    id: 11,
+                    title: "向商家付款优惠券",
+                    minAmount: 30,
+                    isTodayExpired: true,
+                    expire: "23:59",
+                    validDate: "2025.05.12",
+                    rule: "1. 向商家付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+                    showRule: false,
+                    isReceived: false, // 是否使用
+                    type: 1,
+                },
+                {
+                    amount: 20,
+                    expireTime: "限时发放",
+                    id: 12,
+                    expireTimes: false,
+                    title: "限时发放",
+                    minAmount: 30,
+                    isTodayExpired: true,
+                    expire: "23:59",
+                    validDate: "2025.05.12",
+                    rule: "1. 付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+                    showRule: false,
+                    isReceived: false, // 是否使用
+                    type: 1,
+                },
+                {
                     id: 1,
                     title: "注册有礼",
                     amount: 20,

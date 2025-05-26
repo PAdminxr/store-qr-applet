@@ -50,16 +50,16 @@ export default {
     onShow() {
         // 判断用户是否登录
         this.isLogin = this.$store.getters.getIsLogin || false;
-        if (this.isLogin) {
-            // 获取用户信息
-            this.userInfo = this.getUserInfo()
-        }
-        else {
-            //回到我的页面
-            uni.reLaunch({
-                url: '/pages/user/index',
-            })
-        }
+        // if (this.isLogin) {
+        //     // 获取用户信息
+        //     this.userInfo = this.getUserInfo()
+        // }
+        // else {
+        //     //回到我的页面
+        //     uni.reLaunch({
+        //         url: '/pages/user/index',
+        //     })
+        // }
     },
     onLaunch() {
         const userInfo = uni.getStorageSync('userLoginInfo') || null;

@@ -47,14 +47,15 @@
                             <text class="hongbao-expire" v-else>{{ item.expireTime }}</text>
                         </view>
 
-                        <view class="hongbao-action" @click="logout">
+                        <view class="hongbao-action" @click="useCoupon(item)">
                             <text class="hongbao-btn">去领取</text>
                         </view>
                     </view>
                 </view>
             </view>
-            <view class="more-red-packet" @click="logout">更多红包 ></view>
+
         </view>
+        <view class="more-red-packet" @click="logout">更多红包 ></view>
 
         <view class="function-icons">
             <text class="function-title">查看商户公示信息</text>
@@ -187,14 +188,32 @@ export default {
                 {
                     amount: 50,
                     expireTime: new Date().getTime() + 24 * 60 * 60 * 1000,
-                    id: 1,
                     expireTimes: true,
+                    id: 11,
+                    title: "向商家付款优惠券",
+                    minAmount: 30,
+                    isTodayExpired: true,
+                    expire: "23:59",
+                    validDate: "2025.05.12",
+                    rule: "1. 向商家付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+                    showRule: false,
+                    isReceived: false, // 是否使用
+                    type: 1,
                 },
                 {
                     amount: 20,
                     expireTime: "限时发放",
-                    id: 2,
+                    id: 12,
                     expireTimes: false,
+                    title: "限时发放",
+                    minAmount: 30,
+                    isTodayExpired: true,
+                    expire: "23:59",
+                    validDate: "2025.05.12",
+                    rule: "1. 付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+                    showRule: false,
+                    isReceived: false, // 是否使用
+                    type: 1,
                 },
             ],
             moreRedPacketList: [
@@ -292,6 +311,15 @@ export default {
 
 
     methods: {
+        useCoupon(coupon) {
+            this.$store.dispatch("saveEnvelopeToCache", coupon);
+            uni.setStorageSync('newReceivedCoupon', true);// 标记新领取了优惠券
+            this.openPopup();
+            uni.setStorageSync("newReceivedCoupon", false);
+            //移除已经领取的优惠卷
+            this.redPacketList = this.redPacketList.filter((item) => item.id !== coupon.id);
+
+        },
         handleOnShow() {
             // 这个方法会在小程序的 onShow 或 H5 的 mounted 中调用
             const newReceivedCoupon = uni.getStorageSync("newReceivedCoupon");

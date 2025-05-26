@@ -192,42 +192,56 @@ export default {
             }
         },
         JumpOrder() {
-            if (this.isLogin) {
-                uni.navigateTo({
-                    url: "/userpages/ordersInfo/index",
-                });
-            } else {
-                this.JumpLogin();
-            }
+            // if (this.isLogin) {
+            //     uni.navigateTo({
+            //         url: "/userpages/ordersInfo/index",
+            //     });
+            // } else {
+            //     this.JumpLogin();
+            // }
+            uni.navigateTo({
+                url: "/userpages/ordersInfo/index",
+            });
         },
         JumpWork() {
-            if (this.isLogin) {
-                uni.navigateTo({
-                    url: "/userpages/publishWork/detail",
-                });
-            } else {
-                this.JumpLogin();
-            }
+            // if (this.isLogin) {
+            //     uni.navigateTo({
+            //         url: "/userpages/publishWork/detail",
+            //     });
+            // } else {
+            //     this.JumpLogin();
+            // }
+            uni.navigateTo({
+                url: "/userpages/publishWork/detail",
+            });
         },
         JumpSetting() {
-            if (this.isLogin) {
-                uni.showToast({
-                    title: "客官~ 该功能暂未开放哦~",
-                    icon: "none",
-                    duration: 2000,
-                });
-            } else {
-                this.JumpLogin();
-            }
+            // if (this.isLogin) {
+            //     uni.showToast({
+            //         title: "客官~ 该功能暂未开放哦~",
+            //         icon: "none",
+            //         duration: 2000,
+            //     });
+            // } else {
+            //     this.JumpLogin();
+            // }
+            uni.showToast({
+                title: "客官~ 该功能暂未开放哦~",
+                icon: "none",
+                duration: 2000,
+            });
         },
         Jumppay() {
-            if (this.isLogin) {
-                uni.navigateTo({
-                    url: "/paypages/pay/index",
-                });
-            } else {
-                this.JumpLogin();
-            }
+            // if (this.isLogin) {
+            //     uni.navigateTo({
+            //         url: "/paypages/pay/index",
+            //     });
+            // } else {
+            //     this.JumpLogin();
+            // }
+            uni.navigateTo({
+                url: "/paypages/pay/index",
+            });
         },
         getHongbao() {
             uni.navigateTo({
@@ -284,27 +298,36 @@ export default {
             //     },
             // });
 
-            if (this.isLogin) {
-                // 获取用户信息
-                this.userInfo = this.getUserInfo() || {
-                    avatarSrc:
-                        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
-                    nickName: "未设置昵称",
-                    introduction: "暂无个人介绍",
-                };
+            // if (this.isLogin) {
+            //     // 获取用户信息
+            //     this.userInfo = this.getUserInfo() || {
+            //         avatarSrc:
+            //             "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
+            //         nickName: "未设置昵称",
+            //         introduction: "暂无个人介绍",
+            //     };
 
-                this.updateMenubar();
-            } else {
-                this.userInfo = {
-                    avatarSrc:
-                        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
-                    nickName: "游客",
-                    introduction: "登录后才能查看更多信息哦~",
-                };
-                this.menubar.forEach((item) => {
-                    item.num = "-";
-                });
-            }
+            //     this.updateMenubar();
+            // } else {
+            //     this.userInfo = {
+            //         avatarSrc:
+            //             "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
+            //         nickName: "游客",
+            //         introduction: "登录后才能查看更多信息哦~",
+            //     };
+            //     this.menubar.forEach((item) => {
+            //         item.num = "-";
+            //     });
+            // }
+            this.userInfo = {
+                avatarSrc:
+                    "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
+                nickName: "游客",
+                introduction: "登录后才能查看更多信息哦~",
+            };
+            this.menubar.forEach((item) => {
+                item.num = "-";
+            });
         },
         getUserInfo() {
             return this.$store.getters.getUserInfo || {};
