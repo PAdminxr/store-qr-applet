@@ -222,11 +222,11 @@ export default {
 		getTopImage(top) {
 			switch (top) {
 				case 1:
-					return '/static/images/ftop1.png';
+					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/ftop1.png';
 				case 2:
-					return '/static/images/ftop2.png';
+					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/ftop2.png';
 				default:
-					return '/static/images/ftop3.png';
+					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/ftop3.png';
 			}
 		},
 

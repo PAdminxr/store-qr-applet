@@ -9,7 +9,8 @@
         </view>
         <!-- 头部区域 -->
         <view class="header">
-            <image src="/static/images/header-bg.png" mode="aspectFill" class="header-image"></image>
+            <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/header-bg.png"
+                mode="aspectFill" class="header-image"></image>
             <!-- 搜索栏 -->
 
 
@@ -35,7 +36,8 @@
                         <image v-if="index < 3" :src="getTopImage(index + 1)" mode="aspectFit" class="top-tagimage">
                         </image>
                         <view v-else class="top-badge2">
-                            <image src="/static/images/矩形.png" mode="aspectFit" class="top-tagimage">
+                            <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/矩形.png"
+                                mode="aspectFit" class="top-tagimage">
                             </image>
                             <p class="top-tag">TOP <text>{{ food.top }}</text>
                             </p>
@@ -93,11 +95,11 @@ export default {
         getTopImage(top) {
             switch (top) {
                 case 1:
-                    return '/static/images/ftop1.png';
+                    return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/ftop1.png';
                 case 2:
-                    return '/static/images/ftop2.png';
+                    return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/ftop2.png';
                 default:
-                    return '/static/images/ftop3.png';
+                    return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/ftop3.png';
             }
         },
     }

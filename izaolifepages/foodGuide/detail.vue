@@ -32,8 +32,11 @@
         <view class="restaurant-list">
             <view class="restaurant-item" v-for="(restaurant, index) in restaurants" :key="index"
                 @click="navigateTo(restaurant)">
-                <image v-if="index < 3" src="/static/images/top3.png" mode="aspectFit" class="top-tagimage" />
-                <image v-else src="/static/images/top4.png" mode="aspectFit" class="top-tagimage" />
+                <image v-if="index < 3"
+                    src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/top3.png"
+                    mode="aspectFit" class="top-tagimage" />
+                <image v-else src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/top4.png"
+                    mode="aspectFit" class="top-tagimage" />
                 <p class="top-tag">TOP <text>{{ restaurant.top }}</text>
                 </p>
 

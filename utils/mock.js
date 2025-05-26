@@ -576,7 +576,7 @@ export default {
     ],
     foods: [
         {
-            id: 1, image: ['/static/images/swfood1.png', '/static/images/laziji.png'], name: '枣庄特色辣子鸡', top: '01',
+            id: 1, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood1.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/laziji.png'], name: '枣庄特色辣子鸡', top: '01',
             recommendation: `
           <p>枣庄，辣子鸡的故乡！</p>
            <p>吃枣庄辣子鸡，品尝特色美食</p>
@@ -584,7 +584,7 @@ export default {
           `,
         },
         {
-            id: 2, image: ['/static/images/swfood2.png', '/static/images/swfood2.png'], name: '枣庄菜煎饼', top: '02',
+            id: 2, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood2.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood2.png'], name: '枣庄菜煎饼', top: '02',
             recommendation: `
           <p>枣庄菜煎饼！</p>
            <p>吃枣庄菜煎饼，品尝特色美食</p>
@@ -592,7 +592,7 @@ export default {
           `,
         },
         {
-            id: 3, image: ['/static/images/swfood3.png', '/static/images/swfood3.png'], name: '滕州卷饼', top: '03',
+            id: 3, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood3.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood3.png'], name: '滕州卷饼', top: '03',
             recommendation: `
           <p>滕州卷饼</p>
            <p>吃滕州卷饼，品尝特色美食</p>
@@ -600,7 +600,7 @@ export default {
           `,
         },
         {
-            id: 4, image: ['/static/images/swfood4.png', '/static/images/swfood4.png'], name: '枣庄糁汤', top: '04',
+            id: 4, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood4.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood4.png'], name: '枣庄糁汤', top: '04',
             recommendation: `
           <p>枣庄糁汤!</p>
            <p>吃枣庄糁汤，品尝特色美食</p>
@@ -608,7 +608,7 @@ export default {
           `,
         },
         {
-            id: 5, image: ['/static/images/swfood5.png', '/static/images/swfood5.png'], name: '水煎包', top: '05',
+            id: 5, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood5.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood5.png'], name: '水煎包', top: '05',
             recommendation: `
           <p>水煎包!</p>
            <p>吃水煎包，品尝特色美食</p>
@@ -616,7 +616,7 @@ export default {
           `,
         },
         {
-            id: 6, image: ['/static/images/swfood6.png', '/static/images/swfood6.png'], name: '羊肉汤', top: '06',
+            id: 6, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood6.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood6.png'], name: '羊肉汤', top: '06',
             recommendation: `
           <p>羊肉汤!</p>
            <p>吃羊肉汤，品尝特色美食</p>
