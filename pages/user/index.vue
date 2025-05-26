@@ -249,10 +249,10 @@ export default {
             });
         },
         handleGridClick(item) {
-            if (!this.isLogin) {
-                this.JumpLogin();
-                return;
-            }
+            // if (!this.isLogin) {
+            //     this.JumpLogin();
+            //     return;
+            // }
 
             switch (item.key) {
                 case "favoriteCount":

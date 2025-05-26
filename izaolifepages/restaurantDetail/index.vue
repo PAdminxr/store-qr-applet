@@ -328,10 +328,10 @@ export default {
             });
         },
         toggleFavorite() {
-            if (!this.$store.getters.getIsLogin) {
-                this.JumpLogin();
-                return;
-            }
+            // if (!this.$store.getters.getIsLogin) {
+            //     this.JumpLogin();
+            //     return;
+            // }
             this.isFavorited = !this.isFavorited;
             const id = this.restaurantId;
             const types = {

@@ -33,7 +33,7 @@
                 <view class="coupon-bottom">
                     <view class="coupon-rules" @click="toggleRule(coupon)">
                         <text>红包使用规则</text>
-                        <uni-icons :type="coupon.showRule ? 'down' : 'up'" size="28rpx" color="#929292"></uni-icons>
+                        <uni-icons :type="coupon.showRule ? 'up' : 'down'" size="28rpx" color="#929292"></uni-icons>
                     </view>
                     <view class="coupon-use-btn">
 
@@ -72,7 +72,7 @@
                 <view class="coupon-bottom">
                     <view class="coupon-rules" @click="toggleRule(coupon)">
                         <text>红包使用规则</text>
-                        <uni-icons :type="coupon.showRule ? 'down' : 'up'" size="28rpx" color='#929292'></uni-icons>
+                        <uni-icons :type="coupon.showRule ? 'up' : 'down'" size="28rpx" color='#929292'></uni-icons>
                     </view>
 
                 </view>
@@ -109,7 +109,7 @@
                 <view class="coupon-bottom">
                     <view class="coupon-rules" @click="toggleRule(coupon)">
                         <text>红包使用规则</text>
-                        <uni-icons :type="coupon.showRule ? 'down' : 'up'" size="28rpx" color='#929292'></uni-icons>
+                        <uni-icons :type="coupon.showRule ? 'up' : 'down'" size="28rpx" color='#929292'></uni-icons>
                     </view>
 
                 </view>

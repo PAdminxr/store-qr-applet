@@ -179,12 +179,12 @@ export default {
             text: "政策法规",
             url: "/pages/policy",
         },
-        {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/business.png",
-            color: "#FFA500",
-            text: "商家亮证",
-            url: "/pages/business",
-        },
+        // {
+        //     icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/business.png",
+        //     color: "#FFA500",
+        //     text: "商家亮证",
+        //     url: "/pages/business",
+        // },
         {
             icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/promotion.png",
             color: "#FF0000",
@@ -447,6 +447,7 @@ export default {
         "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjimg.png",
         "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjimg.png",
     ],
+
     reviews: [
         {
             avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/c1.png",
@@ -573,6 +574,56 @@ export default {
         "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdimg.png",
         "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdimg.png",
     ],
+    foods: [
+        {
+            id: 1, image: ['/static/images/swfood1.png', '/static/images/laziji.png'], name: '枣庄特色辣子鸡', top: '01',
+            recommendation: `
+          <p>枣庄，辣子鸡的故乡！</p>
+           <p>吃枣庄辣子鸡，品尝特色美食</p>
+          <p>枣庄辣子鸡选用上等食材，鸡肉新鲜、辣椒香醇，每一口都能感受到食材的新鲜和美味。它的味道独特，麻辣适中，香气四溢，让人回味无穷!</p>
+          `,
+        },
+        {
+            id: 2, image: ['/static/images/swfood2.png', '/static/images/swfood2.png'], name: '枣庄菜煎饼', top: '02',
+            recommendation: `
+          <p>枣庄菜煎饼！</p>
+           <p>吃枣庄菜煎饼，品尝特色美食</p>
+          <p>枣庄菜煎饼选用上等食材，辣椒香醇，每一口都能感受到食材的新鲜和美味。它的味道独特，麻辣适中，香气四溢，让人回味无穷!</p>
+          `,
+        },
+        {
+            id: 3, image: ['/static/images/swfood3.png', '/static/images/swfood3.png'], name: '滕州卷饼', top: '03',
+            recommendation: `
+          <p>滕州卷饼</p>
+           <p>吃滕州卷饼，品尝特色美食</p>
+          <p>滕州卷饼选用上等食材，辣椒香醇，每一口都能感受到食材的新鲜和美味。它的味道独特，麻辣适中，香气四溢，让人回味无穷!</p>
+          `,
+        },
+        {
+            id: 4, image: ['/static/images/swfood4.png', '/static/images/swfood4.png'], name: '枣庄糁汤', top: '04',
+            recommendation: `
+          <p>枣庄糁汤!</p>
+           <p>吃枣庄糁汤，品尝特色美食</p>
+          <p>枣庄糁汤选用上等食材，辣椒香醇，每一口都能感受到食材的新鲜和美味。它的味道独特，麻辣适中，香气四溢，让人回味无穷!</p>
+          `,
+        },
+        {
+            id: 5, image: ['/static/images/swfood5.png', '/static/images/swfood5.png'], name: '水煎包', top: '05',
+            recommendation: `
+          <p>水煎包!</p>
+           <p>吃水煎包，品尝特色美食</p>
+          <p>水煎包选用上等食材，辣椒香醇，每一口都能感受到食材的新鲜和美味。它的味道独特，麻辣适中，香气四溢，让人回味无穷!</p>
+          `,
+        },
+        {
+            id: 6, image: ['/static/images/swfood6.png', '/static/images/swfood6.png'], name: '羊肉汤', top: '06',
+            recommendation: `
+          <p>羊肉汤!</p>
+           <p>吃羊肉汤，品尝特色美食</p>
+          <p>羊肉汤选用上等食材，味道香醇，每一口都能感受到食材的新鲜和美味。它的味道独特，麻辣适中，香气四溢，让人回味无穷!</p>
+          `,
+        }
+    ],
     restaurants: [
         {
             id: 1,
@@ -590,10 +641,13 @@ export default {
             recommendation: `
           <p>枣庄，辣子鸡的故乡！</p>
           <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
-         <p>图片上是老板的手，和这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
+         <image  src="/static/images/top3.png" mode="aspectFit" class="top-tagimage" />
+          <p>图片上是老板的手，和这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
             isFavorite: false,
+            top: '01'
         },
+
         {
             id: 2,
             image:
@@ -613,6 +667,7 @@ export default {
           <p>我们是枣庄首家门店，一家酒香不怕巷子深的花家地艺术餐厅，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
          <p>图片上是老板的手，和这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
+            top: '02'
         },
         {
             id: 3,
@@ -633,6 +688,7 @@ export default {
           <p>我们是枣庄首家门店，一家酒香不怕巷子深的运河鱼馆（古城店），位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
          <p>图片上是老板的手，和这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
+            top: '03'
         },
         {
             id: 4,
@@ -653,9 +709,73 @@ export default {
           <p>我们是枣庄首家门店，一家酒香不怕巷子深的小火柴大鱼头·铁锅炖·鲁菜，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
          <p>图片上是老板的手，和这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
+            top: '04'
         },
     ],
     hotelInfo: [
+        {
+            id: 41,
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel1.png",
+            location: "近台儿庄古城",
+            name: "北方世纪酒店",
+            score: 80,
+            isOpen: false,
+            businessHours: "17:00-03:00",
+            distance: "66m",
+            address: "台儿庄区东顺南路古城东门对面",
+            addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
+            distanceOwner: "距您直线距离约0.6km",
+            isFavorite: false,
+            recommendation: `
+            <p> 这是一家非常新的，进去以后发现最新版本的酒店也太棒了。 </p>
+            <p> 早餐也好吃，这碗面没得说</p>
+            <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
+            <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+            <p> 一百块出头你会选择吗？</p>
+            <p> 欢迎各大看官来本店入住！</p>`
+        },
+        {
+            id: 42,
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel2.png",
+            location: "近抱犊崮",
+            name: "黑龙江宾馆",
+            score: 80,
+            isOpen: false,
+            businessHours: "17:00-03:00",
+            distance: "66m",
+            address: "台儿庄区东顺南路古城东门对面",
+            addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
+            distanceOwner: "距您直线距离约0.6km",
+            isFavorite: false,
+            recommendation: `
+            <p> 这是一家非常新的，进去以后发现最新版本的酒店也太棒了。 </p>
+            <p> 早餐也好吃，这碗面没得说</p>
+            <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
+            <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+            <p> 一百块出头你会选择吗？</p>
+            <p> 欢迎各大看官来本店入住！</p>`
+        },
+        {
+            id: 43,
+            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel3.png",
+            location: "近台儿庄古城",
+            name: "状元楼客栈",
+            score: 80,
+            isOpen: false,
+            businessHours: "17:00-03:00",
+            distance: "66m",
+            address: "台儿庄区东顺南路古城东门对面",
+            addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
+            distanceOwner: "距您直线距离约0.6km",
+            isFavorite: false,
+            recommendation: `
+            <p> 这是一家非常新的，进去以后发现最新版本的酒店也太棒了。 </p>
+            <p> 早餐也好吃，这碗面没得说</p>
+            <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
+            <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+            <p> 一百块出头你会选择吗？</p>
+            <p> 欢迎各大看官来本店入住！</p>`
+        },
         {
             id: 5,
             image:
@@ -670,11 +790,11 @@ export default {
             distanceOwner: "距您直线距离约0.6km",
             isFavorite: false,
             recommendation: `
-            <p> 这是一家非常新的如家，进去以后发现最新版本的如家酒店也太棒了。 </p>
-            <p> 早餐也好吃，如家这碗面没得说</p>
+            <p> 这是一家非常新的，进去以后发现最新版本的酒店也太棒了。 </p>
+            <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-            <p> 一百块出头你会选择如家吗？</p>
+            <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
@@ -691,11 +811,11 @@ export default {
             distanceOwner: "距您直线距离约0.6km",
             isFavorite: false,
             recommendation: `
-            <p> 这是一家非常新的如家，进去以后发现最新版本的如家酒店也太棒了。 </p>
-            <p> 早餐也好吃，如家这碗面没得说</p>
+            <p> 这是一家非常新的，进去以后发现最新版本的酒店也太棒了。 </p>
+            <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-            <p> 一百块出头你会选择如家吗？</p>
+            <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
@@ -712,11 +832,11 @@ export default {
             distanceOwner: "距您直线距离约0.6km",
             isFavorite: false,
             recommendation: `
-            <p> 这是一家非常新的如家，进去以后发现最新版本的如家酒店也太棒了。 </p>
-            <p> 早餐也好吃，如家这碗面没得说</p>
+            <p> 这是一家非常新的，进去以后发现最新版本的酒店也太棒了。 </p>
+            <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-            <p> 一百块出头你会选择如家吗？</p>
+            <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
@@ -733,11 +853,11 @@ export default {
             distanceOwner: "距您直线距离约0.6km",
             isFavorite: false,
             recommendation: `
-            <p> 这是一家非常新的如家，进去以后发现最新版本的如家酒店也太棒了。 </p>
-            <p> 早餐也好吃，如家这碗面没得说</p>
+            <p> 这是一家非常新的，进去以后发现最新版本的酒店也太棒了。 </p>
+            <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-            <p> 一百块出头你会选择如家吗？</p>
+            <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
@@ -754,11 +874,11 @@ export default {
             distanceOwner: "距您直线距离约0.6km",
             isFavorite: false,
             recommendation: `
-            <p> 这是一家非常新的如家，进去以后发现最新版本的如家酒店也太棒了。 </p>
-            <p> 早餐也好吃，如家这碗面没得说</p>
+            <p> 这是一家非常新的酒店，进去以后发现最新版本的酒店也太棒了。 </p>
+            <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-            <p> 一百块出头你会选择如家吗？</p>
+            <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
     ],
@@ -885,19 +1005,22 @@ export default {
     ],
     mustEatList: [
         {
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food1.png",
+            id: 1,
+            image: "/static/images/swfood1.png",
             name: "素雨辣子鸡",
             desc: "地道枣庄味",
             top: 1,
         },
         {
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food2.png",
+            id: 2,
+            image: "/static/images/swfood2.png",
             name: "枣庄菜煎饼",
             desc: "品味枣庄味",
             top: 2,
         },
         {
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food3.png",
+            id: 3,
+            image: "/static/images/swfood3.png",
             name: "滕州卷饼",
             desc: "寻觅古县美食",
             top: 3,
@@ -905,16 +1028,19 @@ export default {
     ],
     hotelList: [
         {
+            id: 41,
             image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel1.png",
             location: "近台儿庄古城",
             name: "北方世纪酒店",
         },
         {
+            id: 42,
             image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel2.png",
             location: "近抱犊崮",
             name: "黑龙江宾馆",
         },
         {
+            id: 43,
             image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel3.png",
             location: "近台儿庄古城",
             name: "状元楼客栈",

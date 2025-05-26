@@ -1,9 +1,15 @@
 <template>
     <view class="food-guide-page">
+        <!-- 搜索栏和分类区域容器 -->
+        <view class="top-nav-icons" ref="topNavIcons" :style="{ top: safeAreaTop + 'px' }">
+            <view class="nav-left" @click="goBack">
+                <uni-icons type="left" size="24" color="#FFFFFF"></uni-icons>
+            </view>
+
+        </view>
         <!-- 头部区域 -->
         <view class="header">
-            <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/header-bg.png"
-                mode="aspectFill" class="header-image"></image>
+            <image src="/static/images/header-bg.png" mode="aspectFill" class="header-image"></image>
             <!-- 搜索栏 -->
 
 
@@ -22,16 +28,14 @@
         <!-- 食品推荐列表 -->
         <view class="food-list">
             <view v-for="(food, index) in foods" :key="index" class="food-item-container">
-                <view class="food-item" @click="onFoodClick">
-                    <image :src="food.image" mode="aspectFill" class="food-image"></image>
+                <view class="food-item" @click="onFoodClick(food)">
+                    <image :src="food.image[0]" mode="aspectFill" class="food-image"></image>
 
                     <view class="food-top-badge">
                         <image v-if="index < 3" :src="getTopImage(index + 1)" mode="aspectFit" class="top-tagimage">
                         </image>
                         <view v-else class="top-badge2">
-                            <image
-                                src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/矩形.png"
-                                mode="aspectFit" class="top-tagimage">
+                            <image src="/static/images/矩形.png" mode="aspectFit" class="top-tagimage">
                             </image>
                             <p class="top-tag">TOP <text>{{ food.top }}</text>
                             </p>
@@ -46,49 +50,103 @@
 </template>
 
 <script>
+import mockDATA from "@/utils/mock.js";
 export default {
     data() {
         return {
-            foods: [
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/swfood1.png', name: '枣庄特色辣子鸡', top: '01' },
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/swfood2.png', name: '枣庄菜煎饼', top: '02' },
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/swfood3.png', name: '滕州卷饼', top: '03' },
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/swfood4.png', name: '枣庄糁汤', top: '04' },
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/swfood5.png', name: '水煎包', top: '05' },
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/swfood6.png', name: '羊肉汤', top: '06' }
-            ]
+            safeAreaTop: 0,
+            foods: mockDATA.foods,
         };
     },
+    mounted() {
+
+        this.getSystemInfo();
+    },
     methods: {
+        getSystemInfo() {
+            uni.getSystemInfo({
+                success: (res) => {
+                    this.statusBarHeight = res.statusBarHeight;
+                    if (res.safeArea) {
+                        this.safeAreaTop = res.safeArea.top;
+                    } else {
+                        this.safeAreaTop = this.statusBarHeight;
+                    }
+                    this.safeAreaTop += 8;
+                },
+            });
+        },
+        goBack() {
+            uni.navigateBack();
+        },
 
         onSearch() {
             uni.navigateTo({
                 url: "/izaolifepages/searchPage/index",
             });
         },
-        onFoodClick() {
+        onFoodClick(item) {
             uni.navigateTo({
-                url: "/izaolifepages/foodGuide/detail",
+                url: `/izaolifepages/foodGuide/detail?id=${item.id}`,
             });
         },
         getTopImage(top) {
             switch (top) {
                 case 1:
-                    return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/top1.png';
+                    return '/static/images/ftop1.png';
                 case 2:
-                    return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/top2.png';
+                    return '/static/images/ftop2.png';
                 default:
-                    return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/top3.png';
+                    return '/static/images/ftop3.png';
             }
         },
     }
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .food-guide-page {
     background-color: #f4f4f4;
 
+}
+
+/* 顶部导航图标 */
+.top-nav-icons {
+    position: absolute;
+
+    top: var(--status-bar-height);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20rpx;
+    z-index: 20;
+    align-items: center;
+    width: 68%;
+
+    @media (max-width: 350px) {
+        width: 65%;
+    }
+}
+
+.top-nav-icons .nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.top-nav-icons .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.top-nav-icons .nav-icon {
+    background: rgb(0 0 0 / 52%);
+    border-radius: 100rpx;
+    width: 55rpx;
+    height: 55rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header {
@@ -224,15 +282,20 @@ export default {
     position: absolute;
     z-index: 20;
     top: 10rpx;
-    right: 20rpx;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 18rpx;
+    font-size: 14rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76%;
 }
 
 .top-tag text {
-    font-size: 22rpx;
+    font-size: 26rpx;
+    font-weight: 600;
 }
 
 .food-name {

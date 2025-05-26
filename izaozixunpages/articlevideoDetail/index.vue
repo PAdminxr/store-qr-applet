@@ -159,10 +159,10 @@ export default {
 
 
         submitComment() {
-            if (!this.isLogin) {
-                this.JumpLogin();
-                return;
-            }
+            // if (!this.isLogin) {
+            //     this.JumpLogin();
+            //     return;
+            // }
             if (this.commentText.trim()) {
                 //追加进mockDATA中
                 let id = this.articleId;
@@ -181,10 +181,10 @@ export default {
             }
         },
         toggleLike() {
-            if (!this.isLogin) {
-                this.JumpLogin();
-                return;
-            }
+            // if (!this.isLogin) {
+            //     this.JumpLogin();
+            //     return;
+            // }
             let id = this.articleId;
             let articleUpdate = mockDATA.videoNews.find((item) => item.id === id);
             if (articleUpdate) {
@@ -198,10 +198,10 @@ export default {
             }
         },
         toggleFavorite() {
-            if (!this.isLogin) {
-                this.JumpLogin();
-                return;
-            }
+            // if (!this.isLogin) {
+            //     this.JumpLogin();
+            //     return;
+            // }
             //修改收藏数量
             let id = this.articleId;
             let articleUpdate = mockDATA.videoNews.find((item) => item.id === id);
@@ -229,10 +229,10 @@ export default {
             }
         },
         shareArticle() {
-            if (!this.isLogin) {
-                this.JumpLogin();
-                return;
-            }
+            // if (!this.isLogin) {
+            //     this.JumpLogin();
+            //     return;
+            // }
             uni.showToast({
                 title: "请点击右上角“...”按钮进行分享",
                 icon: "none",

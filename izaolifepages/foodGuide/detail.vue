@@ -10,17 +10,17 @@
         <!-- 轮播图 -->
         <view class="banner-container">
             <swiper class="banner-swiper" :indicator-dots="true" :autoplay="false" :interval="5000" :duration="500"
-                indicator-active-color="white">
-                <swiper-item v-for="(img, index) in bannerImgs" :key="index">
+                indicator-active-color="white" indicator-color="#d7d5d4a3">
+                <swiper-item v-for="(img, index) in food.image" :key="index">
                     <image class="banner-image" :src="img"></image>
                 </swiper-item>
             </swiper>
         </view>
         <view class="recommendation-container">
             <text class="recommendation">
-                枣庄特色辣子鸡
+                {{ food.name }}
             </text>
-            <rich-text :nodes="recommendation" class="recommen"></rich-text>
+            <rich-text :nodes="food.recommendation" class="recommen"></rich-text>
             <text class="recommendation">
                 推荐门店
             </text>
@@ -32,8 +32,10 @@
         <view class="restaurant-list">
             <view class="restaurant-item" v-for="(restaurant, index) in restaurants" :key="index"
                 @click="navigateTo(restaurant)">
-                <image v-if="index < 3" src="/static/images/tabbar/top3.png" mode="aspectFit" class="top-tagimage" />
-                <image v-else src="/static/images/tabbar/top4.png" mode="aspectFit" class="top-tagimage" />
+                <image v-if="index < 3" src="/static/images/top3.png" mode="aspectFit" class="top-tagimage" />
+                <image v-else src="/static/images/top4.png" mode="aspectFit" class="top-tagimage" />
+                <p class="top-tag">TOP <text>{{ restaurant.top }}</text>
+                </p>
 
                 <image :src="restaurant.image" mode="aspectFill" class="restaurant-image"></image>
                 <view class="restaurant-info">
@@ -50,7 +52,7 @@
                             <text v-else style="color: #adadad">休息中</text>
                             <span :style="{ color: restaurant.isOpen ? '#333333' : '#adadad' }">{{
                                 restaurant.businessHours
-                                }}</span>
+                            }}</span>
                         </view>
                         <view class="restaurant-distance">{{ restaurant.distance }}</view>
                     </view>
@@ -70,15 +72,21 @@ import mockDATA from "@/utils/mock.js";
 export default {
     data() {
         return {
-            bannerImgs: mockDATA.ctBannerImgs,
+
             safeAreaTop: 0,
             restaurants: mockDATA.restaurants,
-            recommendation: `
-          <p>吃枣庄辣子鸡，品尝特色美食</p>
-          <p>枣庄辣子鸡选用上等食材，鸡肉新鲜、辣椒香醇，每一口都能感受到食材的新鲜和美味。它的味道独特，麻辣适中，香气四溢，让人回味无穷!</p>
-          `,
+            food: {},
 
+            id: null,
         };
+    },
+    onLoad(options) {
+        console.log(options);
+        if (options.id) {
+            this.id = parseInt(options.id);
+            this.food = mockDATA.foods.find(food => food.id === this.id);
+        }
+
     },
     mounted() {
 
@@ -214,7 +222,7 @@ export default {
 }
 
 .recommen {
-    font-size: 27rpx;
+    font-size: 24rpx;
     color: #555454;
     line-height: 44rpx;
     display: inline-block;
@@ -240,16 +248,38 @@ export default {
     border-radius: 20rpx;
     box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.05);
     position: relative;
+    align-items: center;
 }
 
 .top-tagimage {
     position: absolute;
-    top: -12rpx;
-    left: 10rpx;
-    width: 56rpx;
-    height: 67rpx;
+    top: 2rpx;
+    left: 20rpx;
+    width: 44rpx;
+    height: 66rpx;
     z-index: 10;
     /* 确保层级最高 */
+}
+
+.top-tag {
+    position: absolute;
+    z-index: 20;
+    top: 10rpx;
+    left: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12rpx;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.5%;
+}
+
+.top-tag text {
+    font-size: 22rpx;
+    font-weight: 600;
 }
 
 .restaurant-image {
@@ -275,7 +305,7 @@ export default {
 }
 
 .restaurant-name {
-    font-size: 32rpx;
+    font-size: 28rpx;
     font-weight: 500;
     margin-bottom: 8rpx;
     color: #333;
@@ -303,7 +333,7 @@ export default {
 }
 
 .restaurant-status {
-    font-size: 24rpx;
+    font-size: 20rpx;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -315,13 +345,13 @@ export default {
 }
 
 .restaurant-address {
-    font-size: 26rpx;
+    font-size: 22rpx;
     display: block;
     padding: 10rpx 0;
 }
 
 .restaurant-distance {
-    font-size: 26rpx;
+    font-size: 20rpx;
 }
 
 ::v-deep .uni-searchbar__box {

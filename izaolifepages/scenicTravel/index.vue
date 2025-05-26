@@ -22,7 +22,7 @@
                         <text>{{ tab }}</text>
                         <view class="slider" v-if="currentTab === tab"></view>
                     </view>
-                    <view class="expand-btn" @click="toggleCategories">
+                    <view class="expand-btn" @click="toggleCategories" v-if="tags.length > 5">
                         <uni-icons :type="isCategoriesExpanded ? 'up' : 'down'" size="36rpx"></uni-icons>
                     </view>
                 </view>
@@ -186,6 +186,9 @@ export default {
     align-items: center;
     justify-content: flex-start;
     position: relative;
+    width: 90%;
+    margin: 0 auto;
+    gap: 50rpx;
 }
 
 
@@ -196,7 +199,7 @@ export default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 18%;
+    // min-width: 18%;
     box-sizing: border-box;
     font-size: 26rpx;
     color: #929292;
@@ -321,6 +324,7 @@ export default {
     display: inline-block;
     width: 100%;
     font-size: 32rpx;
+    margin-top: 100px;
 }
 
 .restaurant-name {

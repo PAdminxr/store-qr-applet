@@ -58,7 +58,7 @@
 			</view>
 			<view class="list">
 				<view class="item" v-for="(food, index) in mustEatList" :key="index" @click="navigateTo()">
-					<view class="img-container">
+					<view class="img-container" @click="navigateTofood(food)">
 						<image :src="food.image" class="food-image"></image>
 						<image :src="getTopImage(food.top)" mode="aspectFit" class="top-tagimage"></image>
 						<view class="overlay-text">
@@ -81,7 +81,7 @@
 			<view class="list">
 
 				<view class="item" v-for="(hotel, index) in hotelList" :key="index">
-					<view class="img-container">
+					<view class="img-container" @click="navigateTohotel(hotel)">
 						<image :src="hotel.image" class="hotel-image"></image>
 
 						<view class="overlay-text">
@@ -188,7 +188,7 @@ export default {
 	onLoad() {
 		uni.getSystemInfo({
 			success: (res) => {
-				this.statusBarHeight = res.statusBarHeight;
+				this.statusBarHeight = res.statusBarHeight - 8;
 			},
 		});
 
@@ -197,9 +197,20 @@ export default {
 		//过五秒
 		setTimeout(() => {
 			// this.$refs.popup.open();
-		}, 5000)
+		}, 1000)
 	},
 	methods: {
+		navigateTohotel(item) {
+			uni.navigateTo({
+				url: `/izaolifepages/restaurantDetail/index?id=${item.id}&type=${3}`,
+			});
+		},
+		navigateTofood(food) {
+			uni.navigateTo({
+				url: `/izaolifepages/foodGuide/detail?id=${food.id}`,
+			});
+
+		},
 		navigateTo() {
 			// uni.navigateTo({
 			// 	url: "/izaolifepages/restaurantDetail/index",
@@ -211,11 +222,11 @@ export default {
 		getTopImage(top) {
 			switch (top) {
 				case 1:
-					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/top1.png';
+					return '/static/images/ftop1.png';
 				case 2:
-					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/top2.png';
+					return '/static/images/ftop2.png';
 				default:
-					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/top3.png';
+					return '/static/images/ftop3.png';
 			}
 		},
 
@@ -499,6 +510,12 @@ export default {
 	width: 85%;
 	padding: 5rpx 0rpx 5rpx 20rpx;
 	gap: 10rpx;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.hotel-address text {
+	font-size: 16rpx;
 }
 
 .hotel-name {
@@ -513,14 +530,15 @@ export default {
 	font-weight: 400;
 	display: block;
 	margin-bottom: 8rpx;
-	font-size: 32rpx;
+	font-size: 24rpx;
+	font-weight: 600;
 }
 
 .food-desc {
 	font-weight: normal;
 	display: block;
 	line-height: 1.2;
-	font-size: 22rpx;
+	font-size: 16rpx;
 }
 
 
