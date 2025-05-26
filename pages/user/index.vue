@@ -147,7 +147,7 @@ export default {
             src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png",
             validTime: new Date().getTime() + 24 * 60 * 60 * 1000, // 默认24小时有效期
             timer: null,
-            hongbao: true, // 控制红包区域的显示
+            hongbao: false, // 控制红包区域的显示
         };
     },
 
