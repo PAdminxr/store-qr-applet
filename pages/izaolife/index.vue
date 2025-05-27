@@ -134,9 +134,50 @@
 				</view>
 			</view>
 		</view>
-		<uni-popup ref="popup" type="center" :animation="true" @touchstart="closePopup">
-			<img src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/红包弹窗.png"
-				class="hongbao" />
+		<!-- <uni-popup ref="popup" type="center" :animation="true" @touchstart="closePopup">
+			<view>
+				<img src="/static/images/红包弹窗.png" class="hongbao" />
+			</view>
+			<view class="close-btn-modal" @click="closePopup">
+				<uni-icons type="close" size="34" color="#fff" />
+			</view>
+		</uni-popup> -->
+		<uni-popup ref="popup" type="center" :mask-click="false" @touchstart="closePopup" :animation="true">
+			<view class="hongbao-popup">
+				<!-- 红包容器 -->
+				<view class="hongbao-wrapper">
+					<!-- 背景图 -->
+					<image class="hongbao-bg" src="/static/images/红包弹窗.png" mode="fill" />
+
+					<!-- 内容层（绝对定位在背景图之上） -->
+					<view class="hongbao-info">
+						<view class="info-row">
+							<!-- 左侧金额信息 -->
+							<view class="left-content">
+
+								<text class="amount"><text class="symbol">¥</text>30</text>
+								<text class="condition">满100元可使用</text>
+							</view>
+
+							<!-- 分割线 -->
+							<view class="divider"></view>
+
+							<!-- 右侧有效期信息 -->
+							<view class="right-content">
+								<text class="valid-title">优惠券有效期至</text>
+								<text class="valid-date">2025-07-08 23:59</text>
+							</view>
+						</view>
+						<!-- 底部领取按钮 -->
+						<view class="coupon-button">立即领取</view>
+					</view>
+				</view>
+
+				<!-- 关闭按钮 -->
+				<view class="close-btn-modal" @click="closePopup">
+					<uni-icons type="close" size="34" color="#fff" />
+				</view>
+			</view>
 		</uni-popup>
 	</view>
 
@@ -195,6 +236,7 @@ export default {
 	},
 	mounted() {
 		//过五秒
+		this.$refs.popup.open();
 		setTimeout(() => {
 			// this.$refs.popup.open();
 		}, 1000)
@@ -217,7 +259,7 @@ export default {
 			// });
 		},
 		closePopup() {
-			this.$refs.popup.close();
+			// this.$refs.popup.close();
 		},
 		getTopImage(top) {
 			switch (top) {
@@ -675,11 +717,131 @@ export default {
 	position: relative;
 }
 
-.small-item .second-image {
-	width: 100%;
-	height: 134rpx;
-	object-fit: cover;
+.hongbao-popup {
+	position: relative;
+	width: 90%;
+	max-width: 600rpx;
+	/* 控制最大宽度 */
+	background-color: transparent;
+}
 
+.hongbao-wrapper {
+	position: relative;
+	width: 100%;
+	padding-top: 100%;
+	/* 创建1:1比例 */
+	border-radius: 16rpx;
+	overflow: hidden;
+}
+
+.hongbao-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: inherit;
+}
+
+.hongbao-info {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 90%;
+	padding: 40rpx 20rpx;
+	box-sizing: border-box;
+	z-index: 2;
+	pointer-events: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.info-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 30rpx;
+	pointer-events: auto;
+}
+
+.left-content,
+.right-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 45%;
+	text-align: center;
+}
+
+.amount {
+	color: #F6402B;
+	font-size: 80rpx;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+}
+
+.symbol {
+	font-size: 40rpx;
+	margin-right: 10rpx;
+}
+
+.condition {
+	color: #F6402B;
+	font-size: 22rpx;
+	margin-top: -10rpx;
+	text-align: center;
+	width: 100%;
+}
+
+.divider {
+	width: 2rpx;
+	height: 86rpx;
+	background-color: #F4AF6B;
+	margin: 0 20rpx;
+}
+
+.valid-title {
+	color: #866141;
+	font-size: 26rpx;
+}
+
+.valid-date {
+	color: #866141;
+	font-size: 22rpx;
+	margin-top: 4rpx;
+}
+
+.coupon-button {
+	background-image: linear-gradient(to bottom, #FCEAC8, #F8CBA0);
+	color: #866141;
+	border-radius: 40rpx;
+	width: 60%;
+	padding: 20rpx 0;
+	margin-top: 30rpx;
+	font-size: 28rpx;
+	text-align: center;
+}
+
+.close-btn-modal {
+	position: absolute;
+	bottom: -60rpx;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 50%;
+	width: 60rpx;
+	height: 60rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 3;
 }
 
 .small-item .overlay-text {

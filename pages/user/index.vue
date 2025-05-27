@@ -19,7 +19,7 @@
                 </view>
             </view>
             <!-- 红包区域 - 登录后显示 -->
-            <view class="hongbao-container" v-if="isLogin && hongbao">
+            <!-- <view class="hongbao-container" v-if="isLogin && hongbao">
                 <view class="hongbao">
                     <view class="hongbao-content">
                         <view class="flex-row">
@@ -34,8 +34,28 @@
                             <text class="hongbao-btn">去领取</text>
                         </view>
                     </view>
+                </view> 
+            </view> -->
+            <view class="hongbao-container" v-if="isLogin && currentHongbao">
+                <view class="hongbao">
+                    <view class="hongbao-content">
+                        <view class="flex-row">
+                            <image :src="currentHongbao.src" mode="aspectFit" class="hongbao-icon"></image>
+                            <view class="hongbao-text">
+                                <text class="hongbao-amount">{{ currentHongbao.amount }}元</text>
+                                <text class="hongbao-desc">红包待领取</text>
+                            </view>
+                            <text class="hongbao-expire" v-if="currentHongbao.type === 'time'">{{
+                                formatTime(currentHongbao.validTime) }}后失效</text>
+                            <text class="hongbao-expire" v-else>{{ currentHongbao.validTime }}</text>
+                        </view>
+                        <view class="hongbao-action" @click="getHongbao">
+                            <text class="hongbao-btn">去领取</text>
+                        </view>
+                    </view>
                 </view>
             </view>
+
         </view>
 
         <!-- 中间内容区域 -->
@@ -119,6 +139,13 @@
 export default {
     data() {
         return {
+            hongbaoList: [
+                { src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png", amount: 50, validTime: new Date().getTime() + 24 * 60 * 60 * 1000, type: "time" },
+                { src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png", amount: 20, validTime: '限时领取', type: 'text' },
+
+            ],
+            currentIndex: 0,
+            intervalId: null,
             menubar: [
                 {
                     name: "我的收藏",
@@ -147,10 +174,14 @@ export default {
             src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png",
             validTime: new Date().getTime() + 24 * 60 * 60 * 1000, // 默认24小时有效期
             timer: null,
-            hongbao: false, // 控制红包区域的显示
+            hongbao: true, // 控制红包区域的显示
         };
     },
-
+    computed: {
+        currentHongbao() {
+            return this.hongbaoList[this.currentIndex];
+        }
+    },
     onShow() {
         this.getFromCache();
         const newReceivedCoupon = uni.getStorageSync("newReceivedCoupon");
@@ -161,8 +192,26 @@ export default {
             uni.setStorageSync("newReceivedCoupon", false);
         }
     },
-
+    mounted() {
+        this.startAutoSwitch();
+    },
     methods: {
+        startAutoSwitch() {
+            this.intervalId = setInterval(() => {
+                this.currentIndex = (this.currentIndex + 1) % this.hongbaoList.length;
+            }, 2000);
+        },
+        stopAutoSwitch() {
+            if (this.intervalId) {
+                clearInterval(this.intervalId);
+                this.intervalId = null;
+            }
+        },
+        getHongbao() {
+            // 处理领取逻辑
+            console.log('领取了红包:', this.currentHongbao);
+        },
+
         getFromCache() {
             // 加载用户登录信息和状态
             this.$store.dispatch("loadUserInfoFromCache");
@@ -394,6 +443,7 @@ export default {
     onUnload() {
         // 页面卸载时清除计时器
         this.clearExpireTimer();
+        this.stopAutoSwitch();
     },
     created() {
         this.timer = setInterval(() => {

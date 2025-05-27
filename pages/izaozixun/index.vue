@@ -123,6 +123,7 @@
         </view>
         <view class="news-image-container">
           <image :src="item.image" mode="aspectFill" class="news-image"></image>
+          <!-- <image src="/static/images/tabbar/播放.png" class="image"></image> -->
           <!-- 视频时长显示 -->
           <text v-if="item.duration" class="duration">{{
             formatDuration(item.duration)
@@ -382,6 +383,14 @@ export default {
 .video-news {
   .news-item {
     position: relative;
+
+    .image {
+      position: absolute;
+      color: white;
+      right: 6rpx;
+      bottom: 24rpx;
+      font-size: 20rpx;
+    }
 
     .duration {
       position: absolute;
