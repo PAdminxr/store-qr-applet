@@ -3,13 +3,36 @@
 
         <!-- 商户信息区域 -->
         <view class="info-section">
-            <p class="info-item"><text>商户名称：</text>{{ businessName }}</p>
-            <p class="info-item "><text class="ltext2">地&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;&nbsp;：</text>{{ address }}</p>
-            <p class="info-item"><text>营业时间：</text>{{ operatingHours }}</p>
-            <p class="info-item"><text class="ltext">联&nbsp;系&nbsp;人&nbsp;：</text>{{ contactPerson }}</p>
-            <p class="info-item"><text>联系电话：</text>{{ phoneNumber }}</p>
-            <p class="info-item"><text>营业执照：</text>{{ businessLicense }}</p>
-
+            <p class="info-item">
+                <text class="label">商户名称</text>
+                <text class="colon">：</text>
+                <text class="value">{{ businessName }}</text>
+            </p>
+            <p class="info-item">
+                <text class="label">地址</text>
+                <text class="colon">：</text>
+                <text class="value">{{ address }}</text>
+            </p>
+            <p class="info-item">
+                <text class="label">营业时间</text>
+                <text class="colon">：</text>
+                <text class="value">{{ operatingHours }}</text>
+            </p>
+            <p class="info-item">
+                <text class="label">联系人</text>
+                <text class="colon">：</text>
+                <text class="value">{{ contactPerson }}</text>
+            </p>
+            <p class="info-item">
+                <text class="label">联系电话</text>
+                <text class="colon">：</text>
+                <text class="value">{{ phoneNumber }}</text>
+            </p>
+            <p class="info-item">
+                <text class="label">营业执照</text>
+                <text class="colon">：</text>
+                <text class="value">{{ businessLicense }}</text>
+            </p>
         </view>
 
         <!-- 营业执照图片区域 -->
@@ -22,9 +45,6 @@
                 <text class="note-text">本信息仅供参考，实际情况以商家现场为准</text>
             </view>
         </view>
-
-
-
     </view>
 </template>
 
@@ -38,13 +58,10 @@ export default {
             contactPerson: '张经理',
             phoneNumber: '+86-21-12345678',
             businessLicense: '1234 5678 9101',
-            licenseImage: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/license.png' // 替换为实际的营业执照图片路径
+            licenseImage: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/license.png' // 替换为实际的营业执照图片路径
         };
     },
     methods: {
-        goBack() {
-            uni.navigateBack();
-        },
         previewImage() {
             uni.previewImage({
                 urls: [this.licenseImage],
@@ -72,21 +89,41 @@ export default {
 
 .info-section {
     padding: 50rpx 30rpx 30rpx 30rpx;
-
 }
 
 .info-item {
-    display: grid;
-    grid-template-columns: 150rpx 1fr;
+    display: flex;
+    align-items: center;
     font-size: 28rpx;
     color: #333;
-    margin-bottom: 10rpx;
-
+    margin-bottom: 20rpx;
 }
 
-.info-item text {
-    text-align: right;
-    letter-spacing: 3rpx;
+.info-item .label {
+    width: 130rpx;
+    /* 固定标签容器宽度 */
+    text-align: justify;
+    /* 文本两端对齐 */
+    text-align-last: justify;
+    /* 最后一行也两端对齐 */
+    overflow: hidden;
+    /* 防止文本溢出 */
+    text-overflow: clip;
+    /* 文本溢出时裁剪 */
+    box-sizing: border-box;
+}
+
+.info-item .colon {
+    width: 30rpx;
+    /* 固定冒号宽度 */
+    text-align: center;
+    font-weight: bold;
+}
+
+.info-item .value {
+    flex: 1;
+    /* 值占据剩余空间 */
+    padding-left: 10rpx;
 }
 
 .license-section {
@@ -101,14 +138,12 @@ export default {
 .license-image {
     width: 80%;
     height: 800rpx;
-
 }
 
 .license-image .image {
     width: 100%;
     height: 100%;
     border-radius: 10rpx;
-    // border: 1px dashed #ccc;
 }
 
 .note-section {

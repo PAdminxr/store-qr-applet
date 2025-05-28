@@ -2,7 +2,7 @@
     <view class="special-food-page">
         <!-- 头部区域 -->
         <view class="header">
-            <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/placeholder.jpg"
+            <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/placeholder.jpg"
                 mode="aspectFill" class="header-image"></image>
             <view class="header-overlay">
                 <text class="header-title">枣庄特色辣子鸡</text>
@@ -45,10 +45,10 @@ export default {
     data() {
         return {
             shops: [
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/placeholder.jpg', name: '小火柴大鱼头·铁锅炖·鲁菜...', rating: '98', status: '营业中 09:00-22:00', address: '台儿庄区东顺南路古城东门对面', distance: '320m' },
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/placeholder.jpg', name: '台儿庄运河鱼馆枣庄辣子鸡', rating: '89', status: '营业中 09:00-22:00', address: '台儿庄区东顺南路古城东门对面', distance: '105m' },
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/placeholder.jpg', name: '花家地艺术餐厅', rating: '80', status: '休息中 17:00-03:00', address: '台儿庄区东顺南路古城东门对面', distance: '66m' },
-                { image: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/placeholder.jpg', name: '运河鱼馆（古城店）', rating: '77', status: '营业中 09:00-22:00', address: '台儿庄区东顺南路古城东门对面', distance: '1.2km' }
+                { image: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/placeholder.jpg', name: '小火柴大鱼头·铁锅炖·鲁菜...', rating: '98', status: '营业中 09:00-22:00', address: '台儿庄区东顺南路古城东门对面', distance: '320m' },
+                { image: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/placeholder.jpg', name: '台儿庄运河鱼馆枣庄辣子鸡', rating: '89', status: '营业中 09:00-22:00', address: '台儿庄区东顺南路古城东门对面', distance: '105m' },
+                { image: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/placeholder.jpg', name: '花家地艺术餐厅', rating: '80', status: '休息中 17:00-03:00', address: '台儿庄区东顺南路古城东门对面', distance: '66m' },
+                { image: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/placeholder.jpg', name: '运河鱼馆（古城店）', rating: '77', status: '营业中 09:00-22:00', address: '台儿庄区东顺南路古城东门对面', distance: '1.2km' }
             ]
         };
     },

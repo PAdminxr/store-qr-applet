@@ -4,15 +4,32 @@ export default {
 
     travel: [
         {
-
-            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel1.png",
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel15.png",
             videoUrl: "",
             type: "image",
-            views: 5678,
+            views: null,
             title: "",
             desc: "",
             avatar: "",
             author: "",
+            likes: 0,
+            isLiked: false,
+            parentId: 4,
+            workId: 1,
+            mediaId: 5,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+        {
+
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel1.png",
+            videoUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video4.mp4",
+            type: "video",
+            views: 5678,
+            title: "夏日避暑：微山湖红荷湿地",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像2.png",
+            author: "麦兜响当当",
             likes: 5200,
             isLiked: false,
             parentId: 1,
@@ -22,48 +39,14 @@ export default {
             typeof: 'scenic'
         },
         {
-            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel3.png",
-            videoUrl: "",
-            type: "image",
-            views: 0,
-            title: "夏日避暑：微山湖红荷湿地",
-            desc: "",
-            avatar: "",
-            author: "",
-            likes: 0,
-            isLiked: false,
-            parentId: 6,
-            workId: 1,
-            mediaId: 2,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
-        },
-        {
-            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel4.png",
-            videoUrl: "",
-            type: "image",
-            views: 5678,
-            title: "这是另一个标题这是多于两行的标题这是多于两行的标题这是多于两行的标题这是多于两行的标题",
-            desc: "这是另一段描述信息...",
-            avatar: "",
-            author: "另一位作者",
-            likes: 4689,
-            isLiked: false,
-            parentId: 2,
-            workId: 1,
-            mediaId: 3,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
-        },
-        {
-            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel2.png",
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel4.png",
             videoUrl: "",
             type: "image",
             views: 60,
-            title: "去台儿庄攻略一定要收藏 今年山东海边大火",
+            title: "【枣庄三天两夜】人均500穿越江北水乡！",
             desc: "",
-            avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/c1.png",
-            author: "麦兜响当当",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "辛夷花",
             likes: 45,
             isLiked: false,
             parentId: 3,
@@ -72,32 +55,51 @@ export default {
             timestamp: "2023-08-18 10:30:00",
             typeof: 'scenic'
         },
+
         {
-            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel5.png",
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel2.png",
             videoUrl: "",
             type: "image",
-            views: 15678,
-            title: "这是另一个标题这是多于两行的标题这是多于两行的标题这是多于两行的标题这是多于两行的标题",
-            desc: "这是另一段描述信息...",
-            avatar: "",
-            author: "另一位作者",
-            likes: 9012,
+            views: 899,
+            title: "去台儿庄攻略一定要收藏 今年山东海边大火",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像2.png",
+            author: "麦兜响当当",
+            likes: 689,
             isLiked: false,
-            parentId: 4,
+            parentId: 6,
             workId: 1,
-            mediaId: 5,
+            mediaId: 2,
             timestamp: "2023-08-18 10:30:00",
             typeof: 'scenic'
         },
         {
-            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/travel6.png",
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel3.png",
+            videoUrl: "",
+            type: "image",
+            views: 5678,
+            title: "【枣庄三天两夜】人均500穿越江北水乡！",
+            desc: "这是另一段描述信息...",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "辛夷花",
+            likes: 4689,
+            isLiked: false,
+            parentId: 2,
+            workId: 1,
+            mediaId: 3,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+
+        {
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel4.png",
             videoUrl: "",
             type: "image",
             views: 5,
-            title: "",
+            title: "【枣庄三天两夜】人均500穿越江北水乡！",
             desc: "",
-            avatar: "",
-            author: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "辛夷花",
             likes: 0,
             isLiked: false,
             parentId: 5,
@@ -107,33 +109,251 @@ export default {
             typeof: 'scenic'
         },
         {
-            imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food1.png",
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel6.png",
             videoUrl: "",
             type: "image",
             views: 5678,
-            title: "",
+            title: "快来看！今年一定要来玩呀~",
             desc: "",
-            avatar: "",
-            author: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "辛夷花",
             likes: 900,
             isLiked: false,
             parentId: 5,
-            typeof: 'food',
+            typeof: 'scenic',
             workId: 1,
             mediaId: 7,
             timestamp: "2023-08-18 10:30:00",
 
         },
+
+        {
+
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel2.png",
+            videoUrl: "",
+            type: "image",
+            views: 5678,
+            title: "【枣庄三天两夜】人均500穿越江北水乡！",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像2.png",
+            author: "麦兜响当当",
+            likes: 5200,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 9,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'topic'
+        },
+        {
+
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel3.png",
+            videoUrl: "",
+            type: "image",
+            views: 5678,
+            title: "夏日避暑：微山湖红荷湿地",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "麦兜响当当",
+            likes: 5200,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 10,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'topic'
+        },
+        {
+
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel4.png",
+            videoUrl: "",
+            type: "image",
+            views: 5678,
+            title: "一定要收藏 今年大火",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像2.png",
+            author: "麦兜响当当",
+            likes: 5200,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 11,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+
+        {
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel5.png",
+            videoUrl: "",
+            type: "image",
+            views: null,
+            title: "台儿庄古城一日游 慢悠悠逛一天足够了",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "辛夷花",
+            likes: 0,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 25,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+        {
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel4.png",
+            videoUrl: "",
+            type: "image",
+            views: 60,
+            title: "【枣庄三天两夜】人均500穿越江北水乡！",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "辛夷花",
+            likes: 45,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 24,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+
+        {
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel2.png",
+            videoUrl: "",
+            type: "image",
+            views: 899,
+            title: "去台儿庄攻略一定要收藏 今年山东海边大火",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像2.png",
+            author: "麦兜响当当",
+            likes: 689,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 22,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+        {
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel3.png",
+            videoUrl: "",
+            type: "image",
+            views: 5678,
+            title: "【枣庄三天两夜】人均500穿越江北水乡！",
+            desc: "这是另一段描述信息...",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "辛夷花",
+            likes: 4689,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 23,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+
+        {
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel6.png",
+            videoUrl: "",
+            type: "image",
+            views: 0,
+            title: "",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "辛夷花",
+            likes: 0,
+            isLiked: false,
+            parentId: 1,
+            typeof: 'scenic',
+            workId: 1,
+            mediaId: 27,
+            timestamp: "2023-08-18 10:30:00",
+
+        },
+        {
+
+
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel1.png",
+            videoUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video4.mp4",
+            type: "video",
+            views: 5678,
+            title: "夏日避暑：微山湖红荷湿地",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像2.png",
+            author: "麦兜响当当",
+            likes: 5200,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 28,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+        {
+
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel2.png",
+            videoUrl: "",
+            type: "image",
+            views: 5678,
+            title: "【枣庄三天两夜】人均500穿越江北水乡！",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像2.png",
+            author: "麦兜响当当",
+            likes: 5200,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 29,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+        {
+
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel3.png",
+            videoUrl: "",
+            type: "image",
+            views: 5678,
+            title: "夏日避暑：微山湖红荷湿地",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            author: "麦兜响当当",
+            likes: 5200,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 30,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+        {
+
+            imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel4.png",
+            videoUrl: "",
+            type: "image",
+            views: 5678,
+            title: "夏日避暑：微山湖红荷湿地",
+            desc: "",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像2.png",
+            author: "麦兜响当当",
+            likes: 5200,
+            isLiked: false,
+            parentId: 1,
+            workId: 1,
+            mediaId: 31,
+            timestamp: "2023-08-18 10:30:00",
+            typeof: 'scenic'
+        },
+
     ],
 
     // 类型为 'photo' 时返回的图片列表数据 (photos)
     photo: [
-        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/台儿庄区.png', name: '台儿庄区', id: 1 },
-        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/薛城区.png', name: '薛城区', id: 2 },
-        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/山亭区.png', name: '山亭区', id: 3 },
-        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/滕州市.png', name: '滕州市', id: 4 },
-        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/市中区.png', name: '市中区', id: 5 },
-        { imageUrl: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/峄城区.png', name: '峄城区', id: 6 },
+        { imageUrl: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/台儿庄区.png', name: '台儿庄区', id: 1 },
+        { imageUrl: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/薛城区.png', name: '薛城区', id: 2 },
+        { imageUrl: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/山亭区.png', name: '山亭区', id: 3 },
+        { imageUrl: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/滕州市.png', name: '滕州市', id: 4 },
+        { imageUrl: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/市中区.png', name: '市中区', id: 5 },
+        { imageUrl: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/峄城区.png', name: '峄城区', id: 6 },
     ],
     hotTags: [
         { name: "热点景区", active: true, type: "scenic" },
@@ -144,61 +364,61 @@ export default {
     zixunArray: ['台儿庄区', '山亭区', '峄城区', '市中区', '滕州市', '薛城区'],
     thumbnails: [
         {
-            currentImage: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/wlbig.png",
+            currentImage: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/wlbig.png",
             description: "江北水乡 | 天下第一庄。",
-            avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
-            name: "张三",
+            avatarSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            name: "辛夷花",
         },
         {
-            currentImage: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/wlbig2.png",
-            description: "测试 | 天下第一庄。",
-            avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/credit.png",
-            name: "李四",
+            currentImage: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/wlbig2.png",
+            description: "江北水乡 | 天下第一庄。",
+            avatarSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            name: "辛夷花",
         },
         {
-            currentImage: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/wlbig3.png",
-            description: "测试2 | 天下第一庄。",
-            avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/business.png",
-            name: "王五",
+            currentImage: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/wlbig3.png",
+            description: "江北水乡 | 天下第一庄。",
+            avatarSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            name: "辛夷花",
         },
     ],
     banners: [
-        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次' },
-        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次2' },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次' },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次2' },
     ],
     shortcutItems: [
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/news.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/news.svg",
             color: "#008000",
             text: "要闻动态",
-            url: "/pages/news",
+            url: "/izaozixunpages/articleDetail/index?id=1",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/policy.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/policy.svg",
             color: "#0000FF",
             text: "政策法规",
-            url: "/pages/policy",
+            url: "/izaozixunpages/articlevideoDetail/index?id=4"
         },
         // {
-        //     icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/business.png",
+        //     icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/business.svg",
         //     color: "#FFA500",
         //     text: "商家亮证",
         //     url: "/pages/business",
         // },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/promotion.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/promotion.svg",
             color: "#FF0000",
             text: "优惠活动",
             url: "/pages/promotion",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/credit.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/credit.svg",
             color: "#FFA500",
             text: "榴花信用",
             url: "/pages/credit",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/data.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/data.svg",
             color: "#008000",
             text: "数据公开",
             url: "/pages/data",
@@ -208,7 +428,7 @@ export default {
         {
             id: 1,
             title: "全市积极开展《民法典》“送法进企业”活动",
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/hot1.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/hot1.png",
             views: 286,
             timeAgo: '2025-04-19 10:29',
             article: {
@@ -216,7 +436,7 @@ export default {
                 title: '全市积极开展《民法典》“送法进企业”活动',
                 date: '2025-04-09 13:29',
                 views: 286,
-                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/hot1.png",// 图片路径
+                imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/hot1.png",// 图片路径
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
           <h3>中国华能：积极开展股票增持</h3>
@@ -235,14 +455,14 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
-                    time: '2025-05-09 13:29 '
+                    time: '2025-05-27 13:29 '
                 },
                 {
                     id: 2,
-                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava2.png',
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
                     author: '我们爱学习',
                     text: '身在伟大的中国，多么自豪！一切困难都会迎刃而解，雄起！',
                     time: '2025-05-19 13:29'
@@ -252,15 +472,15 @@ export default {
         {
             id: 2,
             title: "为资本市场注入信心 多家央企密集宣布回购",
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/hot2.png",
-            views: 450,
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/hot2.png",
+            views: 150,
             timeAgo: '2025-05-09 10:29',
             article: {
                 id: 2,
                 title: '为资本市场注入信心 多家央企密集宣布回购',
                 date: '2025-05-09 10:29',
-                views: 450,
-                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/hot2.png",
+                views: 150,
+                imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/hot2.png",
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
           <h3>中国华能：积极开展股票增持</h3>
@@ -279,14 +499,14 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
-                    time: '2025-05-09 17:29'
+                    time: '2025-05-27 17:29'
                 },
                 {
                     id: 2,
-                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava2.png',
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
                     author: '我们爱学习',
                     text: '身在伟大的中国，多么自豪！一切困难都会迎刃而解，雄起！',
                     time: '2025-05-19 13:29'
@@ -298,18 +518,18 @@ export default {
         {
             id: 3,
             title: "玉渊潭天 | 一部手机看懂美国加关税的代价",
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video1.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video1.png",
             views: 2026,
             timeAgo: '2025-05-9 10:29',
-            videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/1.mp4",
+            videoSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/1.mp4",
             duration: 3000,
             article: {
                 id: 1,
                 title: '玉渊潭天 | 一部手机看懂美国加关税的代价',
                 date: '2025-05-09 10:29',
                 views: 2026,
-                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video1.png",
-                videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/1.mp4",
+                imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video1.png",
+                videoSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/1.mp4",
                 duration: 3000,
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
@@ -328,7 +548,7 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
                     time: '2025-05-09 13:29 '
@@ -339,18 +559,18 @@ export default {
         {
             id: 4,
             title: "香港财政司司长:香港将坚持自由贸易政策 保持自由港地位",
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video2.png",
-            views: 2130,
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video2.png",
+            views: 2000,
             timeAgo: '2025-04-19 11:29',
-            videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/2.mp4",
+            videoSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/2.mp4",
             duration: 4000,
             article: {
                 id: 2,
                 title: '香港财政司司长:香港将坚持自由贸易政策 保持自由港地位',
                 date: '2025-05-09 10:29',
-                views: 2130,
-                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video2.png",
-                videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/2.mp4",
+                views: 2000,
+                imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video2.png",
+                videoSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/2.mp4",
                 duration: 4000,
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
@@ -369,14 +589,14 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
                     time: '2025-05-09 13:29 '
                 },
                 {
                     id: 2,
-                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava2.png',
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
                     author: '我们爱学习',
                     text: '身在伟大的中国，多么自豪！一切困难都会迎刃而解，雄起！',
                     time: '2025-05-19 13:29'
@@ -386,18 +606,18 @@ export default {
         {
             id: 5,
             title: "清明假期全国揽投快递包裹超28亿件",
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video3.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video3.png",
             views: 202,
             timeAgo: '2025-04-22 11:29',
-            videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/3.mp4",
+            videoSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/3.mp4",
             duration: 50,
             article: {
                 id: 2,
                 title: '清明假期全国揽投快递包裹超28亿件',
                 date: '2025-05-09 10:29',
                 views: 202,
-                imageUrl: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/video3.png",
-                videoSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/3.mp4",
+                imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video3.png",
+                videoSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/3.mp4",
                 duration: 50,
                 content: `
           <p>4月8日午间，中国华能、中国石油、中国石化等多家A股上市公司密集发布公告，基于对未来发展前景的信心，将积极开展股票回购增持。</p>
@@ -416,14 +636,14 @@ export default {
             comments: [
                 {
                     id: 1,
-                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava1.png',
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
                     author: '民族魂中国梦',
                     text: '好！致敬我们伟大的党和祖国！充满信心！中国资本市场加油！中国股市加油！',
                     time: '2025-05-09 13:29 '
                 },
                 {
                     id: 2,
-                    avatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/ava2.png',
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
                     author: '我们爱学习',
                     text: '身在伟大的中国，多么自豪！一切困难都会迎刃而解，雄起！',
                     time: '2025-05-19 13:29'
@@ -443,44 +663,44 @@ export default {
     ],
 
     ctBannerImgs: [
-        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjimg.png",
-        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjimg.png",
-        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjimg.png",
+        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/sjimg.png",
+        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/sjimg.png",
+        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/sjimg.png",
     ],
 
     reviews: [
         {
-            avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/c1.png",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/c1.png",
             userName: "用户OIKL7270",
             date: "2025/03/17",
             rating: 5,
             content: "非常好，菜量很大，老板人很大方！！！",
             pics: [
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3389.png",
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3390.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/IMG_3389.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/IMG_3390.png",
             ],
             showFullContent: false,
             ishow: true,
             isExpanded: false,
         },
         {
-            avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/c2.png",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/c2.png",
             userName: "匿名用户",
             date: "2025/03/17",
             rating: 4,
             content:
                 "非常好，菜量很大，老板人很大方！！！美团上点的，有鱼有鸡的。",
             pics: [
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3389.png",
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3390.png",
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/IMG_3391.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/IMG_3389.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/IMG_3390.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/IMG_3391.png",
             ],
             showFullContent: false,
             ishow: false,
             isExpanded: false,
         },
         {
-            avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/c3.png",
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/c3.png",
             userName: "瓣瓣西瓜",
             date: "2025/03/17",
             rating: 5,
@@ -494,89 +714,89 @@ export default {
     ],
     merchantInfos: [
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/punish-icon.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/punish-icon.png",
             name: "处罚信息",
             path: "/izaolifepages/penaltyInfo/detail",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/business-icon.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/business-icon.png",
             name: "经营信息",
             path: "/izaolifepages/businessInfo/index",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/credit-icon.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/credit-icon.png",
             name: "榴花信用",
             path: "/izaolifepages/penaltyInfo/index",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/kitchen-icon.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/kitchen-icon.png",
             name: "明厨亮灶",
             path: "/izaolifepages/kitchenInspection/index",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/health-icon.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/health-icon.png",
             name: "健康证",
             path: "/izaolifepages/health/index",
         },
     ],
     fwInfos: [
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/cat.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/cat.png",
             name: "收费停车场",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/wifi.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/wifi.png",
             name: "免费wifi",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct.png",
             name: "餐厅",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/xyq.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/xyq.png",
             name: "吸烟区",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/yqjt.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/yqjt.png",
             name: "园区交通",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/sjcd.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/sjcd.png",
             name: "手机充电",
         },
     ],
     jqFwInfos: [
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/cat.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/cat.png",
             name: "收费停车场",
         },
 
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct.png",
             name: "餐厅",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/xyq.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/xyq.png",
             name: "吸烟区",
         },
         {
-            icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/yqjt.png",
+            icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/yqjt.png",
             name: "园区交通",
         },
     ],
     jqBannerImgs: [
-        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jqimg.png",
-        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jqimg.png",
-        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jqimg.png",
+        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jqimg.png",
+        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jqimg.png",
+        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jqimg.png",
     ],
     jdBannerImgs: [
-        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdimg.png",
-        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdimg.png",
-        "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdimg.png",
+        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdimg.png",
+        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdimg.png",
+        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdimg.png",
     ],
     foods: [
         {
-            id: 1, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood1.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/laziji.png'], name: '枣庄特色辣子鸡', top: '01',
+            id: 1, image: ['https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png', 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/laziji.png'], name: '枣庄特色辣子鸡', top: '01',
             recommendation: `
           <p>枣庄，辣子鸡的故乡！</p>
            <p>吃枣庄辣子鸡，品尝特色美食</p>
@@ -584,7 +804,7 @@ export default {
           `,
         },
         {
-            id: 2, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood2.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood2.png'], name: '枣庄菜煎饼', top: '02',
+            id: 2, image: ['https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood2.png', 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood2.png'], name: '枣庄菜煎饼', top: '02',
             recommendation: `
           <p>枣庄菜煎饼！</p>
            <p>吃枣庄菜煎饼，品尝特色美食</p>
@@ -592,7 +812,7 @@ export default {
           `,
         },
         {
-            id: 3, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood3.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood3.png'], name: '滕州卷饼', top: '03',
+            id: 3, image: ['https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood3.png', 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood3.png'], name: '滕州卷饼', top: '03',
             recommendation: `
           <p>滕州卷饼</p>
            <p>吃滕州卷饼，品尝特色美食</p>
@@ -600,7 +820,7 @@ export default {
           `,
         },
         {
-            id: 4, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood4.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood4.png'], name: '枣庄糁汤', top: '04',
+            id: 4, image: ['https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood4.png', 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood4.png'], name: '枣庄糁汤', top: '04',
             recommendation: `
           <p>枣庄糁汤!</p>
            <p>吃枣庄糁汤，品尝特色美食</p>
@@ -608,7 +828,7 @@ export default {
           `,
         },
         {
-            id: 5, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood5.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood5.png'], name: '水煎包', top: '05',
+            id: 5, image: ['https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood5.png', 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood5.png'], name: '水煎包', top: '05',
             recommendation: `
           <p>水煎包!</p>
            <p>吃水煎包，品尝特色美食</p>
@@ -616,7 +836,7 @@ export default {
           `,
         },
         {
-            id: 6, image: ['https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood6.png', 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/swfood6.png'], name: '羊肉汤', top: '06',
+            id: 6, image: ['https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood6.png', 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood6.png'], name: '羊肉汤', top: '06',
             recommendation: `
           <p>羊肉汤!</p>
            <p>吃羊肉汤，品尝特色美食</p>
@@ -628,7 +848,7 @@ export default {
         {
             id: 1,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct1.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct1.png",
             name: "台儿庄运河鱼馆枣庄辣子鸡",
             score: 89,
             isOpen: true,
@@ -639,11 +859,13 @@ export default {
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
             distanceOwner: "距您直线距离约2.6km",
             recommendation: `
-          <p>枣庄，辣子鸡的故乡！</p>
-          <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
-         <image  src="/static/images/top3.png" mode="aspectFit" class="top-tagimage" />
-          <p>图片上是老板的手，和这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
-          `,
+  <p>枣庄，辣子鸡的故乡！</p>
+  <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
+  
+  <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover;" />
+  
+  <p>图片上这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
+`,
             isFavorite: false,
             top: '01'
         },
@@ -651,7 +873,7 @@ export default {
         {
             id: 2,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct2.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct2.png",
             name: "花家地艺术餐厅",
             score: 80,
             isOpen: false,
@@ -663,16 +885,18 @@ export default {
             distanceOwner: "距您直线距离约0.6km",
             isFavorite: false,
             recommendation: `
-          <p>花家地艺术餐厅！</p>
-          <p>我们是枣庄首家门店，一家酒香不怕巷子深的花家地艺术餐厅，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
-         <p>图片上是老板的手，和这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
+          <p>枣庄，辣子鸡的故乡！</p>
+          <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
+       
+          <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover;" />
+   <p>图片上这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
             top: '02'
         },
         {
             id: 3,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct3.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct3.png",
             name: "运河鱼馆（古城店）",
             score: 77,
             isOpen: true,
@@ -684,16 +908,18 @@ export default {
             distanceOwner: "距您直线距离约0.6km",
             isFavorite: false,
             recommendation: `
-          <p>运河鱼馆（古城店）！</p>
-          <p>我们是枣庄首家门店，一家酒香不怕巷子深的运河鱼馆（古城店），位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
-         <p>图片上是老板的手，和这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
+          <p>枣庄，辣子鸡的故乡！</p>
+          <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
+       
+          <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover;" />
+  <p>图片上这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
             top: '03'
         },
         {
             id: 4,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/ct4.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct4.png",
             name: "小火柴大鱼头·铁锅炖·鲁菜",
             score: 98,
             isOpen: true,
@@ -705,9 +931,10 @@ export default {
             distanceOwner: "距您直线距离约0.6km",
             isFavorite: false,
             recommendation: `
-          <p>小火柴大鱼头·铁锅炖·鲁菜！</p>
-          <p>我们是枣庄首家门店，一家酒香不怕巷子深的小火柴大鱼头·铁锅炖·鲁菜，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
-         <p>图片上是老板的手，和这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
+          <p>枣庄，辣子鸡的故乡！</p>
+          <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
+        <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover;" />
+    <p>图片上这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
             top: '04'
         },
@@ -715,7 +942,7 @@ export default {
     hotelInfo: [
         {
             id: 41,
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel1.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel1.png",
             location: "近台儿庄古城",
             name: "北方世纪酒店",
             score: 80,
@@ -731,12 +958,14 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
             id: 42,
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel2.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel2.png",
             location: "近抱犊崮",
             name: "黑龙江宾馆",
             score: 80,
@@ -752,12 +981,14 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel2.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
             id: 43,
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel3.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel3.png",
             location: "近台儿庄古城",
             name: "状元楼客栈",
             score: 80,
@@ -773,13 +1004,15 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel3.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
             id: 5,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms1.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms1.png",
             name: "滕州滨江国际大酒店",
             score: 89,
             isOpen: true,
@@ -794,13 +1027,14 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+            <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
             id: 6,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms2.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms2.png",
             name: "布丁连锁酒店",
             score: 80,
             isOpen: false,
@@ -815,13 +1049,14 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+            <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms2.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
             id: 7,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms3.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms3.png",
             name: "那片海文艺酒店",
             score: 77,
             isOpen: true,
@@ -836,13 +1071,15 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms3.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
             id: 8,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms4.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms4.png",
             name: "舜和枣庄大酒店",
             score: 98,
             isOpen: true,
@@ -857,13 +1094,15 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms4.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
         {
             id: 9,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jdms5.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms5.png",
             name: "艺龙米高时尚酒店",
             score: 98,
             isOpen: true,
@@ -886,7 +1125,7 @@ export default {
         {
             id: 10,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jq1.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jq1.png",
             name: "台儿庄古城",
             score: 89,
             isOpen: true,
@@ -900,12 +1139,14 @@ export default {
                <p>  台儿庄古城，位于山东省枣庄市台儿庄区，是一处具有深厚历史文化底蕴的旅游景区。这座古城的历史可以追溯到秦汉时期，
                         经历了唐宋时期的发展，至明清时期达到繁荣。古城以其独特的历史文化价值和美丽的自然风光而闻名。</p>
           <p>   一步一景：古城内的建筑、街道、桥梁都充满了古朴的气息，仿佛穿越回了古代。</p>
-            <p> 夜景璀璨：夜晚的古城更是美轮美奂，灯火阑珊，如梦如幻。</p>`
+            <p> 夜景璀璨：夜晚的古城更是美轮美奂，灯火阑珊，如梦如幻。</p>
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jq1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+`
         },
         {
             id: 11,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jq2.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jq2.png",
             name: "铁道游击队纪念园",
             score: 80,
             isOpen: false,
@@ -924,7 +1165,7 @@ export default {
         {
             id: 12,
             image:
-                "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/jq3.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jq3.png",
             name: "铁道游击队纪念园",
             score: 77,
             isOpen: true,
@@ -944,15 +1185,15 @@ export default {
     ],
     siteMessages: [
         {
-            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-1.png',
+            icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-1.png',
             title: '系统消息',
             description: '关于本周末信息系统将暂停服务的通知',
-            time: '昨天17:00',
+            time: '1小时前',
             tag: true,
             value: 6
         },
         {
-            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-2.png',
+            icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-2.png',
             title: '活动消息',
             description: '邀请好友，享4重好礼！',
             time: '2小时前',
@@ -960,31 +1201,31 @@ export default {
             value: 100000
         },
         {
-            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-1.png',
+            icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-1.png',
             title: '云南过桥米线',
             description: '亲爱的顾客，本店菜品上新，诚意邀请您再次光临本店品尝',
-            time: '04-08 13:00',
+            time: '05-18 13:00',
             tag: false,
             value: 1
         }
     ],
     systemAnnouncements: [
         {
-            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-3.png',
+            icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-3.png',
             title: '升级公告',
             description: '系统已完成新版本迭代！修复已知问题，新增新增',
             time: '昨天17:00',
             tag: false
         },
         {
-            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-3.png',
+            icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-3.png',
             title: '升级公告',
             description: '系统已完成新版本迭代！修复已知问题，新增新增',
             time: '昨天17:00',
             tag: false
         },
         {
-            icon: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/icon-3.png',
+            icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-3.png',
             title: '升级公告',
             description: '系统已完成新版本迭代！修复已知问题，新增新增',
             time: '昨天17:00',
@@ -992,35 +1233,35 @@ export default {
         }
     ],
     functionList: [
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/food-icon.png", name: "美食餐饮", path: '/izaolifepages/fineFood/index' },
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel-icon.png", name: "酒店民宿", path: '/izaolifepages/hotelAndHome/index' },
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/techan-icon.png", name: "枣庄特产" },
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic-icon.png", name: "景区出行", path: '/izaolifepages/scenicTravel/index' },
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/play-icon.png", name: "休闲玩乐" },
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/cash-icon.png", name: "天天现金" },
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/parent-child-icon.png", name: "亲子乐园" },
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/vacation-icon.png", name: "旅游度假" },
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/parent-child-icon.png", name: "测试滑动1" },
-        { icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/vacation-icon.png", name: "测试滑动2" },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/food-icon.png", name: "美食餐饮", path: '/izaolifepages/fineFood/index' },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel-icon.png", name: "酒店民宿", path: '/izaolifepages/hotelAndHome/index' },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/techan-icon.png", name: "枣庄特产" },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/scenic-icon.png", name: "景区出行", path: '/izaolifepages/scenicTravel/index' },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/play-icon.png", name: "休闲玩乐" },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/cash-icon.png", name: "天天现金" },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/parent-child-icon.png", name: "亲子乐园" },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/vacation-icon.png", name: "旅游度假" },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/parent-child-icon.png", name: "测试滑动1" },
+        { icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/vacation-icon.png", name: "测试滑动2" },
     ],
     mustEatList: [
         {
             id: 1,
-            image: "/static/images/swfood1.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png",
             name: "素雨辣子鸡",
             desc: "地道枣庄味",
             top: 1,
         },
         {
             id: 2,
-            image: "/static/images/swfood2.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood2.png",
             name: "枣庄菜煎饼",
             desc: "品味枣庄味",
             top: 2,
         },
         {
             id: 3,
-            image: "/static/images/swfood3.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood3.png",
             name: "滕州卷饼",
             desc: "寻觅古县美食",
             top: 3,
@@ -1029,34 +1270,165 @@ export default {
     hotelList: [
         {
             id: 41,
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel1.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel1.png",
             location: "近台儿庄古城",
             name: "北方世纪酒店",
         },
         {
             id: 42,
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel2.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel2.png",
             location: "近抱犊崮",
             name: "黑龙江宾馆",
         },
         {
             id: 43,
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/hotel3.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel3.png",
             location: "近台儿庄古城",
             name: "状元楼客栈",
         },
     ],
     scenicBigList: [
         {
-            image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic1.png",
+            image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/scenic1.png",
             name: "旅游攻略",
             desc: "你想知道的门票时刻、交通时刻表等应有尽有",
         },
 
     ],
     scenicSmallList: [
-        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic2.png", name: "纪念园攻略" },
-        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic3.png", name: "特色游记" },
-        { image: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/scenic4.png", name: "VR导览" },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/scenic2.png", name: "纪念园攻略" },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/scenic3.png", name: "特色游记" },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/scenic4.png", name: "VR导览" },
+    ],
+    allCoupons: [
+        {
+            amount: 66,
+            expireTime: new Date().getTime() + 24 * 60 * 60 * 1000,
+            expireTimes: true,
+            id: 56,
+            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png",
+            title: "优惠券~",
+            minAmount: 30,
+            isTodayExpired: true,
+            expire: "23:59",
+            validDate: "2025.05.12",
+            rule: "1. 向商家付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+            showRule: false,
+            isReceived: false, // 是否使用
+            type: 1,
+        },
+        {
+            amount: 77,
+            expireTime: "限时发放啦~",
+            id: 57,
+            expireTimes: false,
+            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png",
+            title: "限时发放",
+            minAmount: 30,
+            isTodayExpired: true,
+            expire: "23:59",
+            validDate: "2025.05.12",
+            rule: "1. 付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+            showRule: false,
+            isReceived: false, // 是否使用
+            type: 1,
+        },
+        {
+            amount: 50,
+            expireTime: new Date().getTime() + 24 * 60 * 60 * 1000,
+            expireTimes: true,
+            id: 11,
+            title: "向商家付款优惠券",
+            minAmount: 30,
+            isTodayExpired: true,
+            expire: "23:59",
+            validDate: "2025.05.12",
+            rule: "1. 向商家付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+            showRule: false,
+            isReceived: false, // 是否使用
+            type: 1,
+        },
+        {
+            amount: 20,
+            expireTime: "限时发放",
+            id: 12,
+            expireTimes: false,
+            title: "限时发放",
+            minAmount: 30,
+            isTodayExpired: true,
+            expire: "23:59",
+            validDate: "2025.05.12",
+            rule: "1. 付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+            showRule: false,
+            isReceived: false, // 是否使用
+            type: 1,
+        },
+        {
+            id: 1,
+            title: "注册有礼",
+            amount: 20,
+            minAmount: 30,
+            isTodayExpired: true,
+            expire: "23:59",
+            validDate: "2025.05.12",
+            rule: "1. 本券仅限新用户首次下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+            showRule: false,
+            isReceived: false, // 是否使用
+            type: 1,
+        },
+        {
+            id: 5,
+            title: "首次支付送优惠",
+            amount: 20,
+            minAmount: 30,
+            isTodayExpired: false,
+            validDate: "2025.06.12",
+            rule: "1. 本券仅限新用户首次下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+            showRule: false,
+            isReceived: false, // 是否使用
+            type: 1,
+        },
+        {
+            id: 2,
+            title: "店铺红包",
+            amount: 35,
+            minAmount: 50,
+            isTodayExpired: false,
+            validDate: "2025.05.18",
+            rule: "1. 本券仅限指定店铺使用；2. 订单金额需满足最低使用门槛；3. 有效期内使用有效。",
+            showRule: false,
+            isReceived: false,
+            type: 2,
+        },
+        {
+            id: 3,
+            title: "酒店红包",
+            amount: 68,
+            minAmount: 200,
+            isTodayExpired: false,
+            validDate: "2025.05.20",
+            rule: "1. 本券仅限预订酒店使用；2. 需提前24小时预订；3. 有效期内使用有效。",
+            showRule: false,
+            isReceived: false,
+            type: 3,
+        },
+    ],
+    menubar: [
+        {
+            name: "我的收藏",
+            key: "favoriteCount",
+        },
+        {
+            name: "我的评价",
+            key: "unEvaluatedCount",
+        },
+        {
+            name: "投诉反馈",
+            key: "feedbackCount",
+        },
+        {
+            name: "红包卡券",
+            key: "redEnvelopeCount",
+        },
     ],
 };

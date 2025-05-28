@@ -5,21 +5,19 @@
       <text class="zixun">资讯</text>
       <view class="bar-container">
         <view class="search-bar-container">
-          <uni-icons type="location-filled" size="40rpx"></uni-icons>
-
+          <my-icon type="location" size="30rpx" color="#333" />
           <picker @change="bindPickerChange" :value="index" :range="array">
             <view class="uni-input">{{ array[index] }}</view>
           </picker>
-          <uni-icons type="down" size="40rpx"></uni-icons>
+          <uni-icons type="down" size="30rpx"></uni-icons>
         </view>
         <view class="search-bar" @click="onSearchConfirm()">
           <uni-search-bar placeholder="对等关税" clearButton="none" cancelButton="none" :readonly="true"></uni-search-bar>
         </view>
       </view>
     </view>
-
     <!-- 轮播图 -->
-    <view class="swiper-container">
+    <!-- <view class="swiper-container">
       <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" indicator-color="#f3f3f3"
         indicator-active-color="white">
         <swiper-item v-for="(item, index) in banners" :key="index">
@@ -27,6 +25,23 @@
           <text class="text">{{ item.text }}</text>
         </swiper-item>
       </swiper>
+    </view> -->
+    <view class="swiper-container">
+
+      <swiper :autoplay="true" :interval="3000" :duration="1000" :circular="true" :current="currentIndex"
+        @change="onSwiperChange" class="custom-swiper">
+        <swiper-item v-for="(item, index) in banners" :key="index">
+          <image :src="item.image" class="banner-image"></image>
+          <text class="text">{{ item.text }}</text>
+        </swiper-item>
+      </swiper>
+
+      <!-- 自定义指示器 -->
+      <view class="custom-indicator">
+        <text v-for="(item, index) in banners" :key="index" :class="['dot', { active: currentIndex === index }]">
+          ●
+        </text>
+      </view>
     </view>
     <uni-notice-bar show-icon show-close single scrollable text="活动通知:欢迎参与枣庄政府惠民活动政策" color="#A2623C"
       @click="navigateTomessage()" />
@@ -43,7 +58,9 @@
       <view class="hot-news-header">
         <text class="title">热门精选</text>
         <view class="refresh" @click="refreshHotNews()">
-          <uni-icons type="refreshempty" size="40rpx" color="#ADADAD"></uni-icons>
+
+          <my-icon type="refresh" size="30rpx" color="#ADADAD"></my-icon>
+
           <text class="change"> 换一批</text>
         </view>
       </view>
@@ -53,7 +70,7 @@
           <text class="title">{{ item.title }}</text>
           <view class="liulan">
             <view class="icon">
-              <uni-icons type="eye" size="36rpx" color="#ADADAD"></uni-icons>{{ item.views }}
+              <uni-icons type="eye" size="28rpx" color="#ADADAD"></uni-icons>{{ item.views }}
             </view>
             <text class="time"> {{ formattedTime(item.timeAgo) }}</text>
           </view>
@@ -70,7 +87,7 @@
         <text class="title">文旅推荐宣传栏</text>
         <view class="refresh" @click="travelRefresh()">
           <text class="change">更多</text>
-          <uni-icons type="forward" size="40rpx" color="#ADADAD"></uni-icons>
+          <my-icon type="more" color="#333333" size="30rpx"></my-icon>
         </view>
       </view>
 
@@ -90,7 +107,7 @@
         <!-- 右侧缩略图列表 -->
         <view class="thumbnails-container">
           <view v-for="(thumbnail, index) in thumbnails" :key="index" @click="changeImage(index)"
-            class="thumbnail-item">
+            :class="['thumbnail-item', { 'thumbnail-item-selected': imgindex === index }]">
             <image :src="thumbnail.currentImage" class="thumbnail-image"></image>
           </view>
         </view>
@@ -116,14 +133,15 @@
           <text class="title">{{ item.title }}</text>
           <view class="liulan">
             <view class="icon">
-              <uni-icons type="eye" size="36rpx" color="#ADADAD"></uni-icons>{{ item.views }}
+              <uni-icons type="eye" size="28rpx" color="#ADADAD"></uni-icons>{{ item.views }}
             </view>
             <text class="time"> {{ formattedTime(item.timeAgo) }}</text>
           </view>
         </view>
         <view class="news-image-container">
           <image :src="item.image" mode="aspectFill" class="news-image"></image>
-          <!-- <image src="/static/images/tabbar/播放.png" class="image"></image> -->
+          <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-bofang.png"
+            class="play"></image>
           <!-- 视频时长显示 -->
           <text v-if="item.duration" class="duration">{{
             formatDuration(item.duration)
@@ -142,7 +160,9 @@
 
 <script>
 import mockDATA from "@/utils/mock.js";
+import myIcon from "@/components/myIcon.vue";
 export default {
+  components: { myIcon },
   data() {
     return {
       tabs: ["播放多", "新发布"],
@@ -157,6 +177,7 @@ export default {
       hotNews: mockDATA.hotNews,
       videoNews: mockDATA.videoNews,
       value: 0,
+      currentIndex: 0,
       // range: [
       //   { value: 0, text: "台儿庄" },
       //   { value: 1, text: "山亭" },
@@ -172,6 +193,9 @@ export default {
     });
   },
   methods: {
+    onSwiperChange(e) {
+      this.currentIndex = e.detail.current;
+    },
     formattedTime(time) {
       return this.$utils.formatTimeAgo(time);
     },
@@ -225,7 +249,7 @@ export default {
     },
     onSearchConfirm(e) {
       uni.navigateTo({
-        url: "/izaolifepages/searchPage/index",
+        url: "/izaozixunpages/searchPage/index",
       });
     },
     navigateTo(url) {
@@ -282,29 +306,76 @@ export default {
   }
 }
 
+// .swiper-container {
+//   // margin: 0rpx 0rpx 20rpx 0rpx;
+//   position: relative;
+//   margin-bottom: 20rpx;
+
+//   .banner-image {
+//     width: 100%;
+//   }
+
+//   .text {
+//     position: absolute;
+//     display: inline-block;
+//     bottom: 30px;
+//     left: 10px;
+//     font-size: 30rpx;
+//     color: white;
+//   }
+// }
 .swiper-container {
-  // margin: 0rpx 0rpx 20rpx 0rpx;
   position: relative;
+  width: 100%;
   margin-bottom: 20rpx;
 
-  .banner-image {
-    width: 100%;
-  }
+}
 
-  .text {
-    position: absolute;
-    display: inline-block;
-    bottom: 30px;
-    left: 10px;
-    font-size: 30rpx;
-    color: white;
-  }
+.custom-swiper {
+  height: 300rpx;
+  /* 根据你的实际高度调整 */
+}
+
+
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  margin: 10rpx;
+}
+
+/* 自定义指示器样式 */
+.custom-indicator {
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  display: flex;
+  gap: 8rpx;
+}
+
+.dot {
+  font-size: 20rpx;
+  color: #d2cfcfa9;
+}
+
+.dot.active {
+  color: white;
+}
+
+.text {
+  position: absolute;
+  display: inline-block;
+  bottom: 18rpx;
+  left: 10px;
+  font-size: 24rpx;
+  color: white;
 }
 
 /* Tab栏样式 */
 .tab-bar {
   display: flex;
-  border-top: 2rpx solid #e5e5e5;
+  border-top: 1rpx solid #ebebeba6;
+  margin-left: -20rpx;
 }
 
 .tab-item {
@@ -340,6 +411,7 @@ export default {
   margin: 50rpx 0rpx 50rpx 0rpx;
   justify-content: flex-start;
 
+
   .shortcut-item {
     display: flex;
     flex-direction: column;
@@ -363,11 +435,14 @@ export default {
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin-bottom: 40rpx;
+  margin-bottom: 20rpx;
 
   .change {
-    color: #adadad;
-    font-size: 32rpx;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 26rpx;
   }
 }
 
@@ -396,7 +471,7 @@ export default {
       position: absolute;
       color: white;
       right: 6rpx;
-      bottom: 24rpx;
+      bottom: 14rpx;
       font-size: 20rpx;
     }
   }
@@ -442,8 +517,9 @@ export default {
     display: flex;
     gap: 20rpx;
     margin-bottom: 20rpx;
-    border-bottom: 2rpx solid #ebebeb;
-    padding-bottom: 10rpx;
+    border-bottom: 1rpx solid #ebebeba6;
+
+    padding-bottom: 20rpx;
   }
 
   .news-image {
@@ -452,9 +528,20 @@ export default {
     border-radius: 14rpx;
   }
 
+  .play {
+    //定位居中显示
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rpx;
+    height: 40rpx;
+  }
+
   .news-image-container {
     width: 35%;
     height: 150rpx;
+    position: relative;
   }
 
   .news-content {
@@ -555,17 +642,31 @@ export default {
   justify-content: space-around;
 }
 
-.thumbnail-item {
-  width: 80%;
-  height: 24%;
-}
+// .thumbnail-item {
+//   width: 80%;
+//   height: 24%;
+// }
 
 .thumbnail-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 2rpx solid #fff;
+  // border: 2rpx solid #fff;
+  border-radius: 15rpx;
+}
+
+.thumbnail-item {
+  width: 80%;
+  height: 24%;
+  border: 2rpx solid transparent;
+  /* 默认没有边框 */
   border-radius: 20rpx;
+  transition: border-color .3s ease-in-out;
+}
+
+.thumbnail-item-selected {
+  border: 4rpx solid #fff !important;
+  /* 选中时的边框样式 */
 }
 
 uni-notice-bar {

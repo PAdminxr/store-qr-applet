@@ -1,29 +1,33 @@
 <template>
-    <view class="article-detail">
-        <!-- 标题和副标题 -->
-        <view class="article-header">
-            <text class="title">{{ article.title }}</text>
-            <view class="meta">
-                <text>{{ article.date }}</text>
-                <text>浏览量{{ article.views }}</text>
+    <view class="article-container">
+        <view class="article-detail">
+            <!-- 标题和副标题 -->
+            <view class="article-header">
+                <text class="title">{{ article.title }}</text>
+                <view class="meta">
+                    <text>{{ article.date }}</text>
+                    <text>浏览量{{ article.views }}</text>
+                </view>
             </view>
-        </view>
 
-        <!-- 文章图片 -->
-        <image :src="article.imageUrl" mode="widthFix" class="article-image"></image>
+            <!-- 文章图片 -->
+            <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/nhotdetial1.png"
+                mode="widthFix" class="article-image"></image>
 
-        <!-- 文章内容 -->
-        <view class="article-content">
-            <rich-text :nodes="article.content" class="rich-text"></rich-text>
-            <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/hotdetial2.png"
-                style="width: 100%"></image>
-            <p>
-                据不完全统计，从4月7日盘后截至8日9点30，已有75家公司发布了回购公告，20家公司发布了增持公告。初步统计投入资金总额超百亿元。根据专家统计，本轮有一半以上的上市公司回购增持行动使用了央行结构性货币政策工具，充分发挥了专项政策工具精准滴灌、高效实施的作用。
-            </p>
-            <view class="author">
-                <text>编辑：温腾</text>
-                <text>初审/终审：陆毅</text>
+            <!-- 文章内容 -->
+            <view class="article-content">
+                <rich-text :nodes="article.content" class="rich-text"></rich-text>
+                <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/nhotdetial2.png"
+                    mode="widthFix"></image>
+                <p>
+                    据不完全统计，从4月7日盘后截至8日9点30，已有75家公司发布了回购公告，20家公司发布了增持公告。初步统计投入资金总额超百亿元。根据专家统计，本轮有一半以上的上市公司回购增持行动使用了央行结构性货币政策工具，充分发挥了专项政策工具精准滴灌、高效实施的作用。
+                </p>
+                <view class="author">
+                    <text>编辑：温腾</text>
+                    <text>初审/终审：陆毅</text>
+                </view>
             </view>
+
         </view>
         <view class="gary"></view>
         <!-- 评论区 -->
@@ -52,23 +56,24 @@
                 <!-- 互动图标 -->
                 <view class="interaction">
                     <view class="interaction-item">
-                        <uni-icons type="chat" size="44rpx"></uni-icons>
+                        <!-- <uni-icons type="chat" size="44rpx"></uni-icons> -->
+                        <my-icon type="common" color="black" size="40rpx"></my-icon>
                         <text>{{ article.comments }}</text>
                     </view>
                     <view class="interaction-item" @click="toggleLike">
                         <uni-icons :type="article.isLiked ? 'heart-filled' : 'heart'" size="42rpx"
-                            :color="article.isLiked ? '#e74c3c' : ''"></uni-icons>
+                            :color="article.isLiked ? '#e74c3c' : '#000000ad'"></uni-icons>
                         <text>{{ article.likes }}</text>
                     </view>
 
                     <view class="interaction-item" @click="toggleFavorite">
                         <uni-icons :type="article.isFavorite ? 'star-filled' : 'star'" size="44rpx"
-                            :color="article.isFavorite ? '#f1c40f' : ''"></uni-icons>
+                            :color="article.isFavorite ? '#f1c40f' : '#000000ad'"></uni-icons>
                         <text>{{ article.favorites }}</text>
                     </view>
 
                     <view class="interaction-item" @click="shareArticle">
-                        <uni-icons type="redo" size="44rpx"></uni-icons>
+                        <uni-icons type="redo" size="44rpx" color="#000000ad"></uni-icons>
                         <text>分享</text>
                     </view>
                 </view>
@@ -78,7 +83,11 @@
 </template>
 <script>
 import mockDATA from "@/utils/mock.js";
+import myIcon from "@/components/myIcon.vue";
 export default {
+    components: {
+        myIcon
+    },
     data() {
         return {
             articleId: null,
@@ -156,14 +165,14 @@ export default {
         },
         JumpLogin() {
             uni.navigateTo({
-                url: "/pages/login/login"
+                url: "/userpages/login/login"
             });
         },
         submitComment() {
-            // if (!this.isLogin) {
-            //     this.JumpLogin();
-            //     return;
-            // }
+            if (!this.isLogin) {
+                this.JumpLogin();
+                return;
+            }
             if (this.commentText.trim()) {
                 //追加进mockDATA中
                 let id = this.articleId;
@@ -174,7 +183,8 @@ export default {
                         author: "用户" + Math.floor(Math.random() * 999) + 1,
                         text: this.commentText,
                         time: new Date().toISOString(),
-                        avatar: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
+                        avatar: this.$store.state.userLoginInfo?.avatarSrc || 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png',
+
                     })
                 }
                 this.commentText = "";
@@ -182,10 +192,10 @@ export default {
             }
         },
         toggleLike() {
-            // if (!this.isLogin) {
-            //     this.JumpLogin();
-            //     return;
-            // }
+            if (!this.isLogin) {
+                this.JumpLogin();
+                return;
+            }
             let id = this.articleId;
             let articleUpdate = mockDATA.hotNews.find((item) => item.id === id);
             if (articleUpdate) {
@@ -199,10 +209,10 @@ export default {
             }
         },
         toggleFavorite() {
-            // if (!this.isLogin) {
-            //     this.JumpLogin();
-            //     return;
-            // }
+            if (!this.isLogin) {
+                this.JumpLogin();
+                return;
+            }
             //修改收藏数量
             let id = this.articleId;
             let articleUpdate = mockDATA.hotNews.find((item) => item.id === id);
@@ -229,10 +239,10 @@ export default {
             }
         },
         shareArticle() {
-            // if (!this.isLogin) {
-            //     this.JumpLogin();
-            //     return;
-            // }
+            if (!this.isLogin) {
+                this.JumpLogin();
+                return;
+            }
             uni.showToast({
                 title: "请点击右上角“...”按钮进行分享",
                 icon: "none",
@@ -256,151 +266,158 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.article-container {
+    background-color: #fff;
+}
+
 .article-detail {
     padding: 40rpx;
-    background-color: #fff;
 
-    .article-header .title {
-        font-size: 40rpx;
+
+
+}
+
+.article-header .title {
+    font-size: 40rpx;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.article-image {
+    width: 100%;
+    // margin-bottom: 20px;
+}
+
+.article-header .meta {
+    font-size: 28rpx;
+    color: #888;
+    margin: 28rpx 0rpx;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40rpx;
+}
+
+.article-content {
+    padding-bottom: 20rpx;
+}
+
+.author {
+    padding-top: 20rpx;
+    color: #adadad;
+    font-size: 28rpx;
+    display: flex;
+    flex-direction: column;
+    gap: 20rpx;
+}
+
+.rich-text {
+    line-height: 70rpx;
+}
+
+.gary {
+    width: 1904px !important;
+    height: 10rpx;
+    background-color: #eeeeee;
+    margin-left: -500px;
+}
+
+.comments-section {
+    border-top: 1px solid #eee;
+
+    padding: 60rpx 40rpx;
+
+    .comment {
+        padding-bottom: 50rpx;
+    }
+
+    .comments-title {
+        font-size: 32rpx;
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 20rpx;
+        display: block;
     }
 
-    .article-image {
-        width: 100%;
-        // margin-bottom: 20px;
-    }
-
-    .article-header .meta {
-        font-size: 28rpx;
-        color: #888;
-        margin: 28rpx 0rpx;
+    .comment-item {
         display: flex;
-        justify-content: flex-start;
-        gap: 40rpx;
-    }
+        margin-bottom: 20rpx;
 
-    .article-content {
-        padding-bottom: 20rpx;
-    }
-
-    .author {
-        padding-top: 20rpx;
-        color: #adadad;
-        font-size: 28rpx;
-        display: flex;
-        flex-direction: column;
-        gap: 20rpx;
-    }
-
-    .rich-text {
-        line-height: 70rpx;
-    }
-
-    .gary {
-        width: 1904px !important;
-        height: 10rpx;
-        background-color: #eeeeee;
-        margin-left: -500px;
-    }
-
-    .comments-section {
-        border-top: 1px solid #eee;
-        padding: 20rpx 0;
-
-        .comment {
-            padding-bottom: 50rpx;
+        .avatar {
+            width: 60rpx;
+            height: 60rpx;
+            border-radius: 50%;
+            margin-right: 20rpx;
         }
 
-        .comments-title {
-            font-size: 32rpx;
-            font-weight: bold;
-            margin-bottom: 20rpx;
-            display: block;
-        }
-
-        .comment-item {
+        .comment-info {
+            flex: 1;
+            flex: 1;
             display: flex;
-            margin-bottom: 20rpx;
+            flex-direction: column;
 
-            .avatar {
-                width: 60rpx;
-                height: 60rpx;
-                border-radius: 50%;
-                margin-right: 20rpx;
-            }
-
-            .comment-info {
-                flex: 1;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-
-                .comment-author {
-                    font-size: 28rpx;
-                    color: #adadad;
-                    margin-bottom: 10rpx;
-                }
-
-                .comment-text {
-                    font-size: 28rpx;
-                    margin-bottom: 10rpx;
-                }
-
-                .comment-time {
-                    font-size: 24rpx;
-                    color: #adadad;
-                }
-            }
-        }
-    }
-
-    .footer {
-        border-top: 1px solid #eee;
-        padding: 20rpx;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        z-index: 999;
-    }
-
-    .comment-input-container {
-        height: 50rpx;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 26rpx;
-    }
-
-    .comment-input {
-        width: 30%;
-        height: 60rpx;
-        font-size: 22rpx;
-        border-radius: 15px;
-        padding: 0 20rpx;
-        border: 2rpx solid #ddd;
-    }
-
-    .interaction {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14rpx;
-        width: 60%;
-        padding: 0 20rpx;
-
-        .interaction-item {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-
-            text {
-                margin-left: 5px;
+            .comment-author {
                 font-size: 28rpx;
+                color: #adadad;
+                margin-bottom: 10rpx;
             }
+
+            .comment-text {
+                font-size: 28rpx;
+                margin-bottom: 10rpx;
+            }
+
+            .comment-time {
+                font-size: 24rpx;
+                color: #adadad;
+            }
+        }
+    }
+}
+
+.footer {
+    border-top: 1px solid #eee;
+    padding: 20rpx 20rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.comment-input-container {
+    height: 50rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 26rpx;
+}
+
+.comment-input {
+    width: 30%;
+    height: 42rpx;
+    font-size: 22rpx;
+    border-radius: 15px;
+    padding: 0 20rpx;
+    background: #F6F6F6;
+}
+
+.interaction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14rpx;
+    width: 60%;
+    padding: 0 20rpx;
+
+    .interaction-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        text {
+            margin-left: 5px;
+            font-size: 28rpx;
         }
     }
 }

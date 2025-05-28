@@ -32,7 +32,7 @@
                                     {{ truncate(restaurant.name) }}</view>
                                 <view class="restaurant-score">
                                     <image
-                                        src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/icon-lh.png"
+                                        src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/icon-lh.svg"
                                         class="score-icon"></image>
                                     {{ restaurant.score }}分
                                 </view>
@@ -74,7 +74,7 @@
                                 <text class="title">{{ item.title }}</text>
                                 <view class="liulan">
                                     <view class="icon">
-                                        <uni-icons type="eye" size="40rpx" color="#ADADAD"></uni-icons>{{ item.views }}
+                                        <uni-icons type="eye" size="28rpx" color="#ADADAD"></uni-icons>{{ item.views }}
                                     </view>
                                     <text class="time"> {{ formattedTime(item.timeAgo) }}</text>
                                 </view>
@@ -84,6 +84,9 @@
                             </view>
                             <view v-else class="news-image-container">
                                 <image :src="item.image" mode="aspectFill" class="news-image"></image>
+                                <image
+                                    src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-bofang.png"
+                                    class="play"></image>
                                 <!-- 视频时长显示 -->
                                 <text v-if="item.duration" class="duration">{{
                                     formatDuration(item.duration)
@@ -387,6 +390,16 @@ export default {
     width: 100%;
     height: 100%;
     border-radius: 14rpx;
+}
+
+.play {
+    //定位居中显示
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .news-image-container {

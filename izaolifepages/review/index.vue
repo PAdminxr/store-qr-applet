@@ -13,7 +13,7 @@
 
             <view class="upload-section">
                 <view class="upload-box">
-                    <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/camera.png"
+                    <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/camera.png"
                         mode="aspectFill" class="camera-icon"></image>
                     <text class="upload-text">添加视频/图片</text>
                     <text class="upload-note">(建议比例1:1，大小不超过10M)</text>

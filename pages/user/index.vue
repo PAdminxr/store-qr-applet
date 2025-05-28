@@ -18,48 +18,14 @@
                     </view>
                 </view>
             </view>
-            <!-- 红包区域 - 登录后显示 -->
-            <!-- <view class="hongbao-container" v-if="isLogin && hongbao">
-                <view class="hongbao">
-                    <view class="hongbao-content">
-                        <view class="flex-row">
-                            <image :src="src" mode="aspectFit" class="hongbao-icon"></image>
-                            <view class="hongbao-text">
-                                <text class="hongbao-amount">50元</text>
-                                <text class="hongbao-desc">红包待领取</text>
-                            </view>
-                            <text class="hongbao-expire">{{ formatTime(validTime) }}后失效</text>
-                        </view>
-                        <view class="hongbao-action" @click="getHongbao">
-                            <text class="hongbao-btn">去领取</text>
-                        </view>
-                    </view>
-                </view> 
-            </view> -->
-            <view class="hongbao-container" v-if="isLogin && currentHongbao">
-                <view class="hongbao">
-                    <view class="hongbao-content">
-                        <view class="flex-row">
-                            <image :src="currentHongbao.src" mode="aspectFit" class="hongbao-icon"></image>
-                            <view class="hongbao-text">
-                                <text class="hongbao-amount">{{ currentHongbao.amount }}元</text>
-                                <text class="hongbao-desc">红包待领取</text>
-                            </view>
-                            <text class="hongbao-expire" v-if="currentHongbao.type === 'time'">{{
-                                formatTime(currentHongbao.validTime) }}后失效</text>
-                            <text class="hongbao-expire" v-else>{{ currentHongbao.validTime }}</text>
-                        </view>
-                        <view class="hongbao-action" @click="getHongbao">
-                            <text class="hongbao-btn">去领取</text>
-                        </view>
-                    </view>
-                </view>
+            <!-- 红包组件放在这里 -->
+            <view class="hongbao-wrapper" v-if="isLogin && hongbaoList">
+                <HongbaoCarousel :hongbao-list="hongbaoList" @received="handleReceived" />
             </view>
-
         </view>
 
         <!-- 中间内容区域 -->
-        <view class="content" :style="isLogin && hongbao ? 'margin-top: 60rpx;' : 'margin-top: 0;'">
+        <view class="content" :style="{ marginTop: showHongbaoArea ? '60rpx' : '-60rpx' }">
             <!-- 数据统计区域 -->
             <view class="data-container">
                 <uni-grid :column="4" :highlight="true" :showBorder="false" class="grid-container">
@@ -78,7 +44,7 @@
                     <uni-grid-item>
                         <view class="grid-item-content" @click="JumpOrder()">
                             <image class="grid-icon"
-                                src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/star.png"
+                                src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/star.png"
                                 mode="aspectFit"></image>
                             <text class="grid-text">我的订单</text>
                         </view>
@@ -86,15 +52,15 @@
                     <uni-grid-item>
                         <view class="grid-item-content" @click="JumpWork()">
                             <image class="grid-icon"
-                                src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/message.png"
+                                src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/message.png"
                                 mode="aspectFit"></image>
                             <text class="grid-text">我的作品</text>
                         </view>
                     </uni-grid-item>
                     <uni-grid-item>
-                        <view class="grid-item-content" @click="JumpSetting()">
+                        <view class="grid-item-content" @click="JumpUserInfo()">
                             <image class="grid-icon"
-                                src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/setting.png"
+                                src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/setting.png"
                                 mode="aspectFit"></image>
                             <text class="grid-text">设置</text>
                         </view>
@@ -102,7 +68,7 @@
                     <uni-grid-item>
                         <view class="grid-item-content" @click="Jumppay()">
                             <image class="grid-icon"
-                                src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/cash-icon.png"
+                                src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/cash-icon.png"
                                 mode="aspectFit"></image>
                             <text class="grid-text">模拟付款</text>
                         </view>
@@ -116,7 +82,7 @@
             <view class="popup-content">
                 <text class="title">领取成功</text>
                 <view>
-                    <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png"
+                    <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png"
                         class="red-envelope"></image>
                 </view>
                 <view class="description">
@@ -136,172 +102,220 @@
 </template>
 
 <script>
+import HongbaoCarousel from '@/components/HongbaoCarousel.vue';
+import mockDATA from "@/utils/mock.js";
+
 export default {
+    components: { HongbaoCarousel },
     data() {
         return {
-            hongbaoList: [
-                { src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png", amount: 50, validTime: new Date().getTime() + 24 * 60 * 60 * 1000, type: "time" },
-                { src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png", amount: 20, validTime: '限时领取', type: 'text' },
-
-            ],
-            currentIndex: 0,
-            intervalId: null,
-            menubar: [
-                {
-                    name: "我的收藏",
-                    key: "favoriteCount",
-                },
-                {
-                    name: "我的评价",
-                    key: "unEvaluatedCount",
-                },
-                {
-                    name: "投诉反馈",
-                    key: "feedbackCount",
-                },
-                {
-                    name: "红包卡券",
-                    key: "redEnvelopeCount",
-                },
-            ],
-            isLogin: false,
+            hongbaoList: [], // 红包列表，动态加载
+            menubar: mockDATA.menubar || [], // 数据栏位信息
+            isLogin: false, // 登录状态
             userInfo: {
                 avatarSrc:
-                    "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
+                    "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png",
                 nickName: "游客",
                 introduction: "登录后才能查看更多信息哦~",
             },
-            src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png",
-            validTime: new Date().getTime() + 24 * 60 * 60 * 1000, // 默认24小时有效期
-            timer: null,
-            hongbao: true, // 控制红包区域的显示
         };
     },
     computed: {
-        currentHongbao() {
-            return this.hongbaoList[this.currentIndex];
+        showHongbaoArea() {
+            return this.isLogin && this.hongbaoList.length > 0;
         }
     },
     onShow() {
-        this.getFromCache();
-        const newReceivedCoupon = uni.getStorageSync("newReceivedCoupon");
-        if (newReceivedCoupon) {
-            this.openPopup();
-
-            // 重置标志位
-            uni.setStorageSync("newReceivedCoupon", false);
-        }
+        this.loadData(); // 页面显示时统一加载数据
     },
-    mounted() {
-        this.startAutoSwitch();
+    onLoad() {
+        this.loadData(); // 可选：页面初次加载也调用一次
     },
     methods: {
-        startAutoSwitch() {
-            this.intervalId = setInterval(() => {
-                this.currentIndex = (this.currentIndex + 1) % this.hongbaoList.length;
-            }, 2000);
-        },
-        stopAutoSwitch() {
-            if (this.intervalId) {
-                clearInterval(this.intervalId);
-                this.intervalId = null;
+        // 统一数据加载入口
+        loadData() {
+            this.isLogin = uni.getStorageSync('isLogin');
+            console.log("当前登录状态:", this.isLogin);
+
+            if (this.isLogin) {
+                this.getFromCache();
+                this.loadHongbaoList(); // 加载红包数据
+            } else {
+                this.resetUserInfo(); // 游客状态重置 UI
             }
         },
-        getHongbao() {
-            // 处理领取逻辑
-            console.log('领取了红包:', this.currentHongbao);
+
+        // 加载红包列表（兼容异步mock数据）
+        loadHongbaoList() {
+            const maxRetries = 5;
+            let retries = 0;
+
+            const tryLoad = () => {
+                if (mockDATA.allCoupons && mockDATA.allCoupons.length > 0) {
+                    let list = mockDATA.allCoupons.slice(0, 2);
+                    this.hongbaoList = list.filter(item => {
+                        const reddata = this.$store.getters.getReceivedRedEnvelopes?.find(i => i.id === item.id);
+                        return !reddata;
+                    });
+                } else if (retries < maxRetries) {
+                    retries++;
+                    setTimeout(tryLoad, 500); // 轮询等待数据就绪
+                } else {
+                    this.hongbaoList = [];
+                }
+            };
+
+            tryLoad();
         },
 
+        // 获取缓存中的用户相关数据
         getFromCache() {
-            // 加载用户登录信息和状态
             this.$store.dispatch("loadUserInfoFromCache");
-            // 加载评论数据
             this.$store.dispatch('loadOrdersFromCache');
-            // 加载领取的红包列表
             this.$store.dispatch("loadReceivedRedEnvelopesFromCache");
-            // 加载我的收藏
             this.$store.dispatch("loadFavoritesFromCache");
             this.$store.dispatch("loadMerchantsFromCache");
-            // 加载投诉反馈
             this.$store.dispatch("loadFeedbacksFromCache");
+
             this.loadLoginStatus();
         },
-        JumpLogin() {
-            uni.navigateTo({
-                url: "/pages/login/login",
+
+        // 判断登录状态并更新UI
+        loadLoginStatus() {
+            const isLogin = this.$store.getters.getIsLogin || false;
+            this.isLogin = isLogin;
+
+            if (this.isLogin) {
+                this.userInfo = this.getUserInfo() || {
+                    avatarSrc:
+                        "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png",
+                    nickName: "未设置昵称",
+                    introduction: "暂无个人介绍",
+                };
+
+                this.updateMenubar();
+            } else {
+                this.resetUserInfo();
+            }
+        },
+
+        // 用户未登录时恢复默认状态
+        resetUserInfo() {
+            this.userInfo = {
+                avatarSrc:
+                    "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png",
+                nickName: "游客",
+                introduction: "登录后才能查看更多信息哦~",
+            };
+            this.menubar.forEach((item) => {
+                item.num = "-";
             });
+        },
+
+        // 获取用户信息
+        getUserInfo() {
+            return this.$store.getters.getUserInfo || {};
+        },
+
+        // 更新顶部统计栏数据
+        updateMenubar() {
+            this.menubar[0].num = this.getFavoriteCount();
+            this.menubar[1].num = this.getUnEvaluatedCount();
+            this.menubar[2].num = this.getFeedbackCount();
+            this.menubar[3].num = this.getRedEnvelopeCount();
+        },
+
+        getFavoriteCount() {
+            if (!this.isLogin) return "-";
+            const merchants = this.$store.getters.getMerchants || [];
+            const favorites = this.$store.getters.getFavorites || [];
+            return merchants.length + favorites.length;
+        },
+
+        getUnEvaluatedCount() {
+            if (!this.isLogin) return "-";
+            const orders = this.$store.getters.getOrders || [];
+            return orders.length;
+        },
+
+        getRedEnvelopeCount() {
+            if (!this.isLogin) return "-";
+            const redEnvelopes = this.$store.getters.getReceivedRedEnvelopes || [];
+            return redEnvelopes.length;
+        },
+
+        getFeedbackCount() {
+            if (!this.isLogin) return "-";
+            const feedbacks = this.$store.getters.getFeedbacks || [];
+            return feedbacks.length;
+        },
+
+        // 处理领取红包
+        handleReceived(coupon, index) {
+            this.hongbaoList.splice(index, 1)[0];
+            console.log('领取的红包:', coupon);
+
+            this.$store.dispatch("saveEnvelopeToCache", coupon);
+            uni.setStorageSync('newReceivedCoupon', true);
+            this.$store.dispatch("loadReceivedRedEnvelopesFromCache");
+
+            this.updateMenubar(); // 更新顶部数量
+            uni.setStorageSync("newReceivedCoupon", false);
+            this.openPopup();
+        },
+
+        // 弹窗操作
+        openPopup() {
+            this.$refs.popup.open();
+        },
+        closePopup() {
+            uni.setStorageSync("newReceivedCoupon", false);
+            this.$refs.popup.close();
+        },
+        goToCoupons() {
+            this.closePopup();
+            uni.navigateTo({
+                url: "/userpages/couponInfo/index",
+            });
+        },
+
+        // 页面跳转
+        JumpLogin() {
+            uni.navigateTo({ url: "/userpages/login/login" });
         },
         JumpUserInfo() {
             if (this.isLogin) {
-                uni.navigateTo({
-                    url: "/userpages/personalInfo/index",
-                });
+                uni.navigateTo({ url: "/userpages/personalInfo/index" });
             } else {
                 this.JumpLogin();
             }
         },
         JumpOrder() {
-            // if (this.isLogin) {
-            //     uni.navigateTo({
-            //         url: "/userpages/ordersInfo/index",
-            //     });
-            // } else {
-            //     this.JumpLogin();
-            // }
-            uni.navigateTo({
-                url: "/userpages/ordersInfo/index",
-            });
+            if (this.isLogin) {
+                uni.navigateTo({ url: "/userpages/ordersInfo/index" });
+            } else {
+                this.JumpLogin();
+            }
         },
         JumpWork() {
-            // if (this.isLogin) {
-            //     uni.navigateTo({
-            //         url: "/userpages/publishWork/detail",
-            //     });
-            // } else {
-            //     this.JumpLogin();
-            // }
-            uni.navigateTo({
-                url: "/userpages/publishWork/detail",
-            });
-        },
-        JumpSetting() {
-            // if (this.isLogin) {
-            //     uni.showToast({
-            //         title: "客官~ 该功能暂未开放哦~",
-            //         icon: "none",
-            //         duration: 2000,
-            //     });
-            // } else {
-            //     this.JumpLogin();
-            // }
-            uni.showToast({
-                title: "客官~ 该功能暂未开放哦~",
-                icon: "none",
-                duration: 2000,
-            });
+            if (this.isLogin) {
+                uni.navigateTo({ url: "/userpages/publishWork/list" });
+            } else {
+                this.JumpLogin();
+            }
         },
         Jumppay() {
-            // if (this.isLogin) {
-            //     uni.navigateTo({
-            //         url: "/paypages/pay/index",
-            //     });
-            // } else {
-            //     this.JumpLogin();
-            // }
-            uni.navigateTo({
-                url: "/paypages/pay/index",
-            });
-        },
-        getHongbao() {
-            uni.navigateTo({
-                url: "/userpages/couponInfo/detail",
-            });
+            if (this.isLogin) {
+                uni.navigateTo({ url: "/paypages/pay/index" });
+            } else {
+                this.JumpLogin();
+            }
         },
         handleGridClick(item) {
-            // if (!this.isLogin) {
-            //     this.JumpLogin();
-            //     return;
-            // }
+            if (!this.isLogin) {
+                this.JumpLogin();
+                return;
+            }
 
             switch (item.key) {
                 case "favoriteCount":
@@ -317,141 +331,7 @@ export default {
                     uni.navigateTo({ url: "/userpages/couponInfo/index" });
                     break;
             }
-        },
-        openPopup() {
-            this.$refs.popup.open();
-        },
-        closePopup() {
-            // 重置标志位
-            uni.setStorageSync("newReceivedCoupon", false);
-            this.hongbao = false;
-            this.$refs.popup.close();
-        },
-        loadLoginStatus() {
-            const isLogin = this.$store.getters.getIsLogin || false;
-            this.isLogin = isLogin;
-            // console.log('loadLoginStatus', this.$store.getters.getIsLogin, this.$store.getters.getUserInfo);
-
-            // uni.getStorage({
-            //     key: 'userLoginInfo',
-            //     success: (res) => {
-            //         console.log('userLoginInfo', res.data);
-            //         this.userInfo = res.data;
-            //     },
-            // });
-            // uni.getStorage({
-            //     key: 'isLogin',
-            //     success: (res) => {
-            //         console.log('isLogin', res.data);
-            //         this.isLogin = res.data;
-            //     },
-            // });
-
-            // if (this.isLogin) {
-            //     // 获取用户信息
-            //     this.userInfo = this.getUserInfo() || {
-            //         avatarSrc:
-            //             "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
-            //         nickName: "未设置昵称",
-            //         introduction: "暂无个人介绍",
-            //     };
-
-            //     this.updateMenubar();
-            // } else {
-            //     this.userInfo = {
-            //         avatarSrc:
-            //             "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
-            //         nickName: "游客",
-            //         introduction: "登录后才能查看更多信息哦~",
-            //     };
-            //     this.menubar.forEach((item) => {
-            //         item.num = "-";
-            //     });
-            // }
-            this.userInfo = {
-                avatarSrc:
-                    "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
-                nickName: "游客",
-                introduction: "登录后才能查看更多信息哦~",
-            };
-            this.menubar.forEach((item) => {
-                item.num = "-";
-            });
-        },
-        getUserInfo() {
-            return this.$store.getters.getUserInfo || {};
-        },
-        updateMenubar() {
-            this.menubar[0].num = this.getFavoriteCount();
-            this.menubar[1].num = this.getUnEvaluatedCount();
-            this.menubar[2].num = this.getFeedbackCount();
-            this.menubar[3].num = this.getRedEnvelopeCount();
-        },
-        getFavoriteCount() {
-            if (!this.isLogin) return "-";
-            const merchants = this.$store.getters.getMerchants || [];
-            const favorites = this.$store.getters.getFavorites || [];
-            return merchants.length + favorites.length;
-        },
-        getUnEvaluatedCount() {
-            if (!this.isLogin) return "-";
-            const orders = this.$store.getters.getOrders || [];
-            return orders.length;
-        },
-        getRedEnvelopeCount() {
-            if (!this.isLogin) return "-";
-            const redEnvelopes = this.$store.getters.getReceivedRedEnvelopes || [];
-            return redEnvelopes.length;
-        },
-        getFeedbackCount() {
-            if (!this.isLogin) return "-";
-            const feedbacks = this.$store.getters.getFeedbacks || [];
-            return feedbacks.length;
-        },
-        formatTime(endTime) {
-            const now = new Date().getTime();
-            const diff = endTime - now;
-
-            if (diff <= 0) {
-                return "已失效";
-            }
-
-            const hours = Math.floor(diff / (60 * 60 * 1000));
-            const minutes = Math.floor((diff % (60 * 60 * 1000)) / (60 * 1000));
-            const seconds = Math.floor((diff % (60 * 1000)) / 1000);
-
-            return `${hours.toString().padStart(2, "0")}:${minutes
-                .toString()
-                .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-        },
-        startExpireTimer() {
-            // 清除之前的计时器
-            this.clearExpireTimer();
-
-            // 每秒更新一次有效期显示
-            this.timer = setInterval(() => {
-                this.$forceUpdate();
-            }, 1000);
-        },
-        clearExpireTimer() {
-            if (this.timer) {
-                clearInterval(this.timer);
-                this.timer = null;
-            }
-        },
-    },
-    onUnload() {
-        // 页面卸载时清除计时器
-        this.clearExpireTimer();
-        this.stopAutoSwitch();
-    },
-    created() {
-        this.timer = setInterval(() => {
-            this.validTime -= 1000;
-            if (this.validTime <= 0) {
-                clearInterval(this.timer);
-            }
-        }, 1000);
+        }
     },
 };
 </script>
@@ -526,92 +406,15 @@ export default {
 }
 
 /* 红包区域样式 */
-.hongbao-container {
-    position: absolute;
+.hongbao-wrapper {
     width: 100%;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+    position: absolute;
     top: 380rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .hongbao {
-        border: 2rpx solid #ff1b00;
-        border-radius: 16rpx;
-        background: #fffbfb;
-        position: relative;
-        overflow: hidden;
-        width: 87%;
-        padding: 15rpx 20rpx;
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            // background: linear-gradient(to bottom, #FF9100, #f6e5e3);
-
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .hongbao-content {
-            position: relative;
-            z-index: 1;
-
-            .flex-row {
-                display: flex;
-                align-items: center;
-            }
-
-            .hongbao-icon {
-                width: 48rpx;
-                height: 48rpx;
-                margin-right: 10rpx;
-            }
-
-            .hongbao-text {
-                display: flex;
-
-                .hongbao-amount {
-                    font-size: 26rpx;
-                    font-weight: bold;
-                    color: #ff1b00;
-                }
-
-                .hongbao-desc {
-                    font-size: 26rpx;
-                    color: #030303;
-                    margin-left: 2rpx;
-                }
-            }
-
-            .hongbao-expire {
-                font-size: 20rpx;
-                color: #ff1b00;
-                // margin-top: 15rpx;
-                letter-spacing: 2rpx;
-                margin-left: 40rpx;
-            }
-
-            .hongbao-action {
-                position: absolute;
-                right: 0;
-                transform: translateY(-110%);
-
-                .hongbao-btn {
-                    background: linear-gradient(to bottom, #ff9100, #ff1b00);
-                    color: #fff;
-                    font-size: 20rpx;
-                    padding: 12rpx 30rpx;
-                    border-radius: 50rpx;
-                    box-shadow: 0 4rpx 10rpx rgba(255, 27, 0, 0.3);
-                }
-            }
-        }
-    }
 }
+
+
 
 /* 数据统计和功能按钮区域通用样式 */
 .data-container,

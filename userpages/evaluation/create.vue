@@ -20,16 +20,16 @@
                     <!-- 当没有媒体项时显示的上传图标 -->
                     <view v-if="mediaItems.length < maxMediaItems" class="add-media-btn" @click="chooseFile">
                         <uni-icons type="plus" size="40" color="#ADADAD" />
-
                     </view>
-                    <text class="upload-subtip">（建议比例1:1 , 大小不超过10M，最多选择{{ maxMediaItems }}条数据）</text>
+                    <text class="upload-subtip">（建议比例1:1 , 大小不超过10M，最多选择{{
+                        maxMediaItems
+                    }}条数据）</text>
                 </view>
                 <view v-else class="upload-wrapper" @click="chooseFile">
                     <uni-icons type="camera" size="40" color="#333"></uni-icons>
                     <text class="upload-tip">添加视频/图片</text>
                     <text class="upload-subtip">（建议比例1:1 , 大小不超过10M）</text>
                 </view>
-
 
                 <!-- 评论输入区域 -->
                 <view class="comment-container">
@@ -65,12 +65,11 @@
                 <view class="submit-btn btn-enabled" @click="submitComment" v-else>发布</view>
             </view>
         </view>
-
     </view>
 </template>
 
 <script>
-import EnhancedMediaItem from '@/components/EnhancedMediaItem.vue';
+import EnhancedMediaItem from "@/components/EnhancedMediaItem.vue";
 
 export default {
     components: {
@@ -78,9 +77,9 @@ export default {
     },
     data() {
         return {
-            margin: '10rpx',
-            width: '180rpx', // 宽度
-            height: '180rpx', // 高度
+            margin: "10rpx",
+            width: "180rpx", // 宽度
+            height: "180rpx", // 高度
             mediaItems: [], // 媒体项列表
             maxMediaItems: 9, // 最大媒体项数量
             isSubmitting: false, // 新增一个提交锁
@@ -122,13 +121,13 @@ export default {
             this.orderId = parseInt(options.orderId);
             this.getOrderInfo();
         }
-
     },
+
     methods: {
-
         getOrderInfo() {
-            this.orderInfo = this.$store.getters.getOrders.find(item => item.orderId === this.orderId);
-
+            this.orderInfo = this.$store.getters.getOrders.find(
+                (item) => item.orderId === this.orderId
+            );
         },
 
         toggleAnonymous() {
@@ -167,10 +166,10 @@ export default {
             const that = this;
             uni.chooseMedia({
                 count: that.maxMediaItems - that.mediaItems.length, // 动态计算本次可以选择的最大数量
-                mediaType: ['image', 'video'],
-                sourceType: ['album', 'camera'],
+                mediaType: ["image", "video"],
+                sourceType: ["album", "camera"],
                 success(res) {
-                    res.tempFiles.forEach(file => {
+                    res.tempFiles.forEach((file) => {
                         // 使用文件路径判断是否为视频
                         const isVideo = /\.(mp4|mov|avi|mkv)$/i.test(file.tempFilePath);
 
@@ -179,11 +178,11 @@ export default {
                             that.mediaItems.push({
                                 id: Math.floor(Math.random() * 999) + 1,
                                 src: file.tempFilePath,
-                                isVideo: isVideo
+                                isVideo: isVideo,
                             });
                         }
                     });
-                }
+                },
             });
         },
         handleRemove(index) {
@@ -196,8 +195,8 @@ export default {
             this.isSubmitting = true;
 
             uni.showLoading({
-                title: '提交中...',
-                mask: true
+                title: "提交中...",
+                mask: true,
             });
 
             try {
@@ -219,8 +218,8 @@ export default {
                 this.$store.dispatch("saveCommentToCacheAndStore", comment);
                 this.$store.dispatch("updateOrderStatus", {
                     orderId: this.orderInfo.orderId,
-                    field: 'evaluation',
-                    value: true
+                    field: "evaluation",
+                    value: true,
                 });
                 setTimeout(() => {
                     uni.hideLoading();
@@ -228,12 +227,11 @@ export default {
                     uni.navigateTo({
                         url: `/userpages/evaluation/evaluationresult`,
                         fail: () => {
-                            uni.showToast({ title: '页面跳转失败', icon: 'none' });
-                        }
+                            uni.showToast({ title: "页面跳转失败", icon: "none" });
+                        },
                     });
                     this.isSubmitting = false;
                 }, 1000);
-
             } catch (error) {
                 console.error("提交失败:", error);
                 uni.hideLoading();
@@ -250,7 +248,6 @@ export default {
     padding: 20rpx;
     display: flex;
     flex-direction: column;
-
 }
 
 .content-wrapper {

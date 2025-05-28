@@ -3,9 +3,7 @@
         <!-- 瀑布流组件 -->
         <WaterfallFlow :spots="spots" @like="handleLike" :showDeleteButton="false" />
 
-        <!-- 悬浮按钮 -->
-        <uni-fab :pattern="pattern" horizontal="right" vertical="bottom" direction="vertical"
-            @fabClick="handleFabClick" />
+
 
         <!-- 加载提示 -->
         <view v-if="loading" class="loading-text">加载中...</view>
@@ -33,13 +31,23 @@ export default {
             pageSize: 6, // 每次加载的数据条数
             currentPage: 1, // 当前页码
             totalWorks: 0, // 总数据量
+            workId: 0,
 
         };
     },
     onShow() {
+
+    },
+    onLoad(options) {
+        // 从路由参数中获取 workId
+        if (!options.workId) {
+            return;
+        }
+        this.workId = parseInt(options.workId);
         if (this.currentPage === 1 || this.loading) {
             this.loadWorks();
         }
+
     },
     methods: {
         /**
@@ -48,10 +56,12 @@ export default {
         loadWorks() {
             this.loading = true;
             console.log("加载作品数据");
-
+            console.log("workId:", this.workId);
             // 从 store 获取所有作品数据
             this.$store.dispatch("loadWorksFromCache").finally(() => {
-                const allWorks = this.$store.getters.getWorkSpots;
+                const allWorks = this.$store.getters.getWorkSpots.filter(work => {
+                    return work.workId === this.workId;
+                })
                 this.totalWorks = allWorks.length;
 
                 // 如果是第一页，先清空spots数组
@@ -100,14 +110,6 @@ export default {
         },
 
 
-        /**
-         * 发布按钮点击跳转
-         */
-        handleFabClick() {
-            uni.navigateTo({
-                url: "/userpages/publishWork/published",
-            });
-        },
     },
 };
 </script>

@@ -48,11 +48,11 @@
                 <view class="status-image" v-if="coupon.isReceived">
 
                     <!-- #ifdef MP -->
-                    <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/ylq.png">
+                    <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/ylq.png">
                     </image>
                     <!-- #endif -->
                     <!-- #ifdef H5 -->
-                    <img src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/ylq.png"
+                    <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/ylq.png"
                         class="product-image-h5">
                     <!-- #endif -->
                 </view>
@@ -67,92 +67,13 @@
 </template>
 
 <script>
+import mockDATA from "@/utils/mock.js";
 export default {
     data() {
         return {
             activeTab: "unused",
             // 模拟数据
-            allCoupons: [
-                {
-                    amount: 50,
-                    expireTime: new Date().getTime() + 24 * 60 * 60 * 1000,
-                    expireTimes: true,
-                    id: 11,
-                    title: "向商家付款优惠券",
-                    minAmount: 30,
-                    isTodayExpired: true,
-                    expire: "23:59",
-                    validDate: "2025.05.12",
-                    rule: "1. 向商家付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
-                    showRule: false,
-                    isReceived: false, // 是否使用
-                    type: 1,
-                },
-                {
-                    amount: 20,
-                    expireTime: "限时发放",
-                    id: 12,
-                    expireTimes: false,
-                    title: "限时发放",
-                    minAmount: 30,
-                    isTodayExpired: true,
-                    expire: "23:59",
-                    validDate: "2025.05.12",
-                    rule: "1. 付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
-                    showRule: false,
-                    isReceived: false, // 是否使用
-                    type: 1,
-                },
-                {
-                    id: 1,
-                    title: "注册有礼",
-                    amount: 20,
-                    minAmount: 30,
-                    isTodayExpired: true,
-                    expire: "23:59",
-                    validDate: "2025.05.12",
-                    rule: "1. 本券仅限新用户首次下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
-                    showRule: false,
-                    isReceived: false, // 是否使用
-                    type: 1,
-                },
-                {
-                    id: 5,
-                    title: "首次支付送优惠",
-                    amount: 20,
-                    minAmount: 30,
-                    isTodayExpired: false,
-                    validDate: "2025.06.12",
-                    rule: "1. 本券仅限新用户首次下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
-                    showRule: false,
-                    isReceived: false, // 是否使用
-                    type: 1,
-                },
-                {
-                    id: 2,
-                    title: "店铺红包",
-                    amount: 35,
-                    minAmount: 50,
-                    isTodayExpired: false,
-                    validDate: "2025.05.18",
-                    rule: "1. 本券仅限指定店铺使用；2. 订单金额需满足最低使用门槛；3. 有效期内使用有效。",
-                    showRule: false,
-                    isReceived: false,
-                    type: 2,
-                },
-                {
-                    id: 3,
-                    title: "酒店红包",
-                    amount: 68,
-                    minAmount: 200,
-                    isTodayExpired: false,
-                    validDate: "2025.05.20",
-                    rule: "1. 本券仅限预订酒店使用；2. 需提前24小时预订；3. 有效期内使用有效。",
-                    showRule: false,
-                    isReceived: false,
-                    type: 3,
-                },
-            ],
+            allCoupons: mockDATA.allCoupons,
             unusedCoupons: [], // 显示用的未领取的优惠券列表
         };
     },

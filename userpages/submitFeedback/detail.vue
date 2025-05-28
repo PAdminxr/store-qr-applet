@@ -106,7 +106,7 @@ export default {
         playVideo(src) {
             console.log("播放视频：", src);
             uni.navigateTo({
-                url: `/pages/videoPlayer/videoPlayer?src=${encodeURIComponent(src)}`,
+                url: `/userpages/videoPlayer/videoPlayer?src=${encodeURIComponent(src)}`,
             });
         },
     }

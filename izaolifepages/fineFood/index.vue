@@ -6,7 +6,7 @@
 
             <view class="search-container" @click="onSearch()">
                 <view class="search-box">
-                    <uni-search-bar placeholder="搜索您喜欢的菜品或餐厅" clearButton="none" cancelButton="none" :radius="100"
+                    <uni-search-bar placeholder="辣子鸡" clearButton="none" cancelButton="none" :radius="100"
                         v-model="searchKeyword" class="search-input" :readonly="true">
                     </uni-search-bar>
                     <button class="search-button">搜索</button>
@@ -55,7 +55,7 @@
                     <view class="restaurant-name"> {{ truncate(restaurant.name) }}</view>
                     <view class="restaurant-score">
                         <image
-                            src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/icon-lh.png"
+                            src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/icon-lh.svg"
                             class="score-icon"></image>
                         {{ restaurant.score }}分
                     </view>
@@ -65,7 +65,7 @@
                             <text v-else style="color: #adadad">休息中</text>
                             <span :style="{ color: restaurant.isOpen ? '#333333' : '#adadad' }">{{
                                 restaurant.businessHours
-                                }}</span>
+                            }}</span>
                         </view>
                         <view class="restaurant-distance">{{ restaurant.distance }}</view>
                     </view>

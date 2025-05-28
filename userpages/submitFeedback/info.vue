@@ -26,7 +26,7 @@
 
                             <view v-else class="video-cover">
                                 <image class="cover-image"
-                                    src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/video.png"
+                                    src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/video.png"
                                     mode="aspectFill" />
                             </view>
                         </view>

@@ -7,17 +7,22 @@
                     <uni-icons type="back" size="24"></uni-icons>
                 </view>
                 <view class="nav-title">{{ title }}</view>
-                <view> </view>
+                <view></view>
             </view>
+        </view>
 
-            <view class="index-container" @touchend="handleTouchEnd">
-                <!-- 瀑布流组件 -->
-                <WaterfallFlow :spots="spots" @like="handleLike" :showDeleteButton="false" :showViews="true"
-                    @views="handleSetViews" />
+        <!-- 占位符（防止内容被导航栏遮挡） -->
+        <view class="nav-placeholder" :style="{ height: placeholderHeight + 'px' }"></view>
 
-                <view v-if="loading" class="loading-text">加载中...</view>
-                <view v-else-if="noMoreData && spots.length > 0" class="loading-text">没有更多内容了</view>
-            </view>
+        <!-- 页面内容容器 -->
+        <view class="index-container" @touchend="handleTouchEnd">
+            <!-- 瀑布流组件 -->
+            <WaterfallFlow :spots="spots" @like="handleLike" :showDeleteButton="false" :showViews="true"
+                @views="handleSetViews" />
+
+            <!-- 加载状态提示 -->
+            <view v-if="loading" class="loading-text">加载中...</view>
+            <view v-else-if="noMoreData && spots.length > 0" class="loading-text">没有更多内容了</view>
         </view>
     </view>
 </template>
@@ -25,6 +30,7 @@
 <script>
 import mockDATA from "@/utils/mock.js";
 import WaterfallFlow from "@/components/WaterfallFlow.vue";
+
 export default {
     components: {
         WaterfallFlow,
@@ -33,21 +39,23 @@ export default {
         return {
             loading: false, // 是否正在加载
             noMoreData: false, // 是否还有更多数据
-            title: "",
-
-            statusBarHeight: 0,
-
-            spots: [],
-            isLogin: false,
+            title: "", // 页面标题
+            statusBarHeight: 0, // 状态栏高度
+            placeholderHeight: 0, // 占位符高度
+            spots: [], // 展示的数据
+            isLogin: false, // 是否登录
         };
     },
-
     onLoad(options) {
         uni.getSystemInfo({
             success: (res) => {
                 this.statusBarHeight = res.statusBarHeight;
+                // 计算占位符高度：statusBarHeight + nav-content 高度（假设为 100rpx）
+                const navHeightInPx = 100 * res.windowWidth / 750; // 100rpx 转换为 px
+                this.placeholderHeight = this.statusBarHeight + navHeightInPx;
             },
         });
+
         if (options.parentId) {
             this.getSpots(parseInt(options.parentId));
         }
@@ -59,21 +67,24 @@ export default {
     methods: {
         JumpLogin() {
             uni.navigateTo({
-                url: "/pages/login/login"
+                url: "/userpages/login/login",
             });
         },
         handleTouchEnd() {
             if (this.loading || this.noMoreData) return;
-            this.noMoreData = true;
-        },
 
+            this.loading = true;
+            setTimeout(() => {
+                // 模拟加载更多数据
+                this.noMoreData = true;
+            }, 500);
+        },
         getSpots(parentId) {
             this.loading = true;
             this.spots = mockDATA.travel.filter((item) => item.parentId === parentId);
-            this.title = mockDATA.photo.find((item) => item.id === parentId).name;
+            this.title = mockDATA.photo.find((item) => item.id === parentId)?.name || "景点详情";
             this.loading = false;
         },
-
         handleLike(updated) {
             if (!this.isLogin) {
                 this.JumpLogin();
@@ -101,7 +112,6 @@ export default {
                 spotToUpdate.views += 1;
             }
         },
-
         goBack() {
             uni.navigateBack();
         },
@@ -111,38 +121,44 @@ export default {
 
 <style lang="scss" scoped>
 .content {
-    background-color: #ffffff;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .custom-nav {
     width: 100%;
-    height: 130rpx;
-}
-
-.nav-bg {
-    width: 100%;
-    height: 400rpx;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    // box-shadow: 0 2px 6rpx rgba(0, 0, 0, 0.1);
 }
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10rpx;
+    padding: 10rpx 20rpx;
     box-sizing: border-box;
-}
-
-.nav-left,
-.nav-right {
-    display: flex;
-    align-items: center;
+    width: 100%;
+    // background: white;
+    padding-bottom: 20rpx;
 }
 
 .nav-title {
     font-size: 36rpx;
     font-weight: bold;
     padding-right: 6%;
+}
+
+.index-container {
+    // background: #eeeeee;
+    flex: 1;
+    overflow-y: scroll;
+    padding-bottom: 80rpx;
+    // margin-top: 0rpx;
 }
 
 .loading-text {

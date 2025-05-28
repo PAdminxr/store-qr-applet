@@ -139,7 +139,7 @@ export default {
     display: flex;
     align-items: center;
     padding: 40rpx 0;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1rpx solid #ebebeba6;
 }
 
 .icon-placeholder {

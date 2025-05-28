@@ -53,7 +53,7 @@
                     <view class="restaurant-name"> {{ restaurant.name }}</view>
                     <view class="restaurant-score">
                         <image
-                            src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/icon-lh.png"
+                            src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/icon-lh.svg"
                             class="score-icon"></image>
                         {{ restaurant.score }}分
                     </view>

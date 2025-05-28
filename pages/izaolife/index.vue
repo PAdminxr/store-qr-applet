@@ -1,22 +1,7 @@
 <template>
 	<view class="container">
-		<view class="header" :style="{ paddingTop: statusBarHeight + 'rpx' }">
-			<!-- 顶部导航栏 -->
-			<view class="bar-container">
-				<view class="search-bar-container">
-					<uni-icons type="location-filled" size="40rpx"></uni-icons>
-
-					<picker @change="bindPickerChange" :value="index" :range="array">
-						<view class="uni-input">{{ array[index] }}</view>
-					</picker>
-					<uni-icons type="down" size="36rpx"></uni-icons>
-				</view>
-				<view class="search-bar" @click="onSearchConfirm">
-					<uni-search-bar placeholder="枣庄辣子鸡" clearButton="none" cancelButton="none"
-						:readonly="true"></uni-search-bar>
-				</view>
-			</view>
-
+		<view class="header" style="padding-top: calc(var(--status-bar-height) + 44px)">
+			<custom-nav-bar-with-search :index="index" @picker-change="handleChange" @search="onSearchConfirm" />
 			<!-- 功能图标区 -->
 			<view class="function">
 				<view class="function-icons" v-if="pages.length > 1">
@@ -53,7 +38,7 @@
 			<view class="title">
 				<text class="titletext">i必吃榜</text>
 				<view class="more" @click="goToMore('/izaolifepages/foodGuide/index')">更多
-					<uni-icons type="right" size="30rpx"></uni-icons>
+					<my-icon type="more" color="#333333" size="30rpx"></my-icon>
 				</view>
 			</view>
 			<view class="list">
@@ -75,7 +60,7 @@
 			<view class="title">
 				<text class="titletext">酒店民宿</text>
 				<view class="more" @click="goToMore('/izaolifepages/hotelAndHome/index')">更多
-					<uni-icons type="right" size="30rpx"></uni-icons>
+					<my-icon type="more" color="#333333" size="30rpx"></my-icon>
 				</view>
 			</view>
 			<view class="list">
@@ -104,7 +89,9 @@
 				<text class="titletext">景区出行</text>
 
 				<view class="more" @click="goToMore('/izaolifepages/scenicTravel/index')">更多
-					<uni-icons type="right" size="30rpx"></uni-icons>
+					<!-- <uni-icons type="right" size="30rpx"></uni-icons> -->
+					<my-icon type="more" color="#333333" size="30rpx"></my-icon>
+					<!-- <text style="font-family: 'iconfont';">&#xe613;</text> -->
 				</view>
 			</view>
 			<view class="list">
@@ -120,7 +107,7 @@
 					<!-- 第一行：一个大图 -->
 					<view class="small-item first-small" v-for="(item, index3) in scenicSmallList.slice(0, 1)"
 						:key="index3">
-						<div class="overlay-text" style="font-size: 40rpx;">{{ item.name }}</div>
+						<div class="overlay-text" style="font-size: 38rpx;">{{ item.name }}</div>
 						<image class="first-image" :src="item.image"></image>
 					</view>
 
@@ -142,41 +129,52 @@
 				<uni-icons type="close" size="34" color="#fff" />
 			</view>
 		</uni-popup> -->
-		<uni-popup ref="popup" type="center" :mask-click="false" @touchstart="closePopup" :animation="true">
+		<uni-popup ref="popup" type="center" :mask-click="false" :animation="true">
 			<view class="hongbao-popup">
-				<!-- 红包容器 -->
 				<view class="hongbao-wrapper">
-					<!-- 背景图 -->
-					<image class="hongbao-bg" src="/static/images/红包弹窗.png" mode="fill" />
+					<image class="hongbao-bg"
+						src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/红包弹窗.png"
+						mode="aspectFit" />
 
-					<!-- 内容层（绝对定位在背景图之上） -->
 					<view class="hongbao-info">
 						<view class="info-row">
-							<!-- 左侧金额信息 -->
 							<view class="left-content">
-
 								<text class="amount"><text class="symbol">¥</text>30</text>
 								<text class="condition">满100元可使用</text>
 							</view>
-
-							<!-- 分割线 -->
 							<view class="divider"></view>
-
-							<!-- 右侧有效期信息 -->
 							<view class="right-content">
 								<text class="valid-title">优惠券有效期至</text>
 								<text class="valid-date">2025-07-08 23:59</text>
 							</view>
 						</view>
-						<!-- 底部领取按钮 -->
-						<view class="coupon-button">立即领取</view>
+						<view class="coupon-button" @click.stop="useCoupon">立即领取</view>
 					</view>
 				</view>
 
-				<!-- 关闭按钮 -->
 				<view class="close-btn-modal" @click="closePopup">
 					<uni-icons type="close" size="34" color="#fff" />
 				</view>
+			</view>
+		</uni-popup>
+		<uni-popup ref="redpopup" type="center">
+			<view class="popup-content">
+				<text class="title">领取成功</text>
+				<view>
+					<image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png"
+						class="red-envelope"></image>
+				</view>
+				<view class="description">
+					优惠券已发放至您的账户<br />
+					可在“我的-我的优惠券”中查看
+				</view>
+				<view class="buttons">
+					<button class="btn-know" @click="closePopup2">知道了</button>
+					<button class="btn-check" @click="goToCoupons">去查看</button>
+				</view>
+			</view>
+			<view class="close-btn-modal" @click="closePopup2">
+				<uni-icons type="close" size="34" color="#fff" />
 			</view>
 		</uni-popup>
 	</view>
@@ -185,7 +183,11 @@
 
 <script>
 import mockDATA from "@/utils/mock.js";
+import myIcon from "@/components/myIcon.vue";
+
+import CustomNavBarWithSearch from '@/components/CustomNavContent.vue';
 export default {
+	components: { myIcon, CustomNavBarWithSearch },
 	data() {
 		return {
 			dotsStyles: {
@@ -204,10 +206,13 @@ export default {
 			hotelList: mockDATA.hotelList,
 			scenicBigList: mockDATA.scenicBigList,
 			scenicSmallList: mockDATA.scenicSmallList,
-			swiperDotIndex: 0
+			swiperDotIndex: 0,
 		};
 	},
 	computed: {
+		contentMarginTop() {
+			return this.statusBarHeight + 40
+		},
 		// 将 functionList 分成每页 8 项
 		pages() {
 			const pageSize = 8;
@@ -226,22 +231,87 @@ export default {
 			return this.functionList.length > 8;
 		}
 	},
-	onLoad() {
-		uni.getSystemInfo({
-			success: (res) => {
-				this.statusBarHeight = res.statusBarHeight - 8;
-			},
-		});
 
-	},
 	mounted() {
 		//过五秒
-		this.$refs.popup.open();
-		setTimeout(() => {
-			// this.$refs.popup.open();
-		}, 1000)
+
+		this.filterUnreceivedCoupons();
+
+
 	},
 	methods: {
+		filterUnreceivedCoupons() {
+
+			uni.getSystemInfo({
+				success: (res) => {
+					this.statusBarHeight = res.statusBarHeight;
+
+					if (res.customBarHeight) {
+						this.customBarHeight = res.customBarHeight;
+					} else {
+						this.customBarHeight = res.statusBarHeight + 44; // 默认导航栏高度
+					}
+				}
+			});
+			//判断当前红包是否被领取id: 19,
+			this.$store.dispatch("loadReceivedRedEnvelopesFromCache");
+			console.log(this.$store.getters.getReceivedRedEnvelopes);
+			if (this.$store.getters.getReceivedRedEnvelopes.length > 0) {
+				const reddata = this.$store.state.receivedRedEnvelopes.find(item => item.id === 19);
+				if (!reddata) {
+					setTimeout(() => {
+						this.$refs.popup.open();
+					}, 1000)
+				}
+			} else {
+				setTimeout(() => {
+					this.$refs.popup.open();
+				}, 1000)
+			}
+
+		},
+		openPopup2() {
+			this.$refs.redpopup.open();
+		},
+		closePopup2() {
+			// 重置标志位
+			uni.setStorageSync("newReceivedCoupon", false);
+			this.$refs.redpopup.close();
+		},
+		goToCoupons() {
+			// 关闭弹窗
+			this.closePopup2();
+			uni.setStorageSync("newReceivedCoupon", false);
+			uni.navigateTo({
+				url: "/userpages/couponInfo/index",
+			});
+		},
+		useCoupon() {
+
+			const coupon = {
+				amount: 30,
+				expireTime: new Date().getTime() + 24 * 60 * 60 * 1000,
+				expireTimes: true,
+				id: 19,
+				title: "满减活动优惠卷",
+				minAmount: 100,
+				isTodayExpired: false,
+				expire: "23:59",
+				validDate: "2025.07.08",
+				rule: "1. 向商家付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
+				showRule: false,
+				isReceived: false, // 是否使用
+				type: 1,
+			};
+			console.log(coupon);
+			this.$store.dispatch("saveEnvelopeToCache", coupon);
+			uni.setStorageSync('newReceivedCoupon', true);// 标记新领取了优惠券
+			// 关闭弹窗
+			this.closePopup();
+			this.openPopup2();
+
+
+		},
 		navigateTohotel(item) {
 			uni.navigateTo({
 				url: `/izaolifepages/restaurantDetail/index?id=${item.id}&type=${3}`,
@@ -259,21 +329,24 @@ export default {
 			// });
 		},
 		closePopup() {
-			// this.$refs.popup.close();
+			this.$refs.popup.close();
 		},
 		getTopImage(top) {
 			switch (top) {
 				case 1:
-					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/ftop1.png';
+					return 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/ftop1.png';
 				case 2:
-					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/ftop2.png';
+					return 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/ftop2.png';
 				default:
-					return 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/ftop3.png';
+					return 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/ftop3.png';
 			}
 		},
 
 		clickItem(index) {
 			this.swiperDotIndex = index;
+		},
+		handleChange(e) {
+			this.index = e.detail.value;
 		},
 		changeSwiper(e) {
 			this.swiperDotIndex = e.detail.current; // 更新当前索引
@@ -308,13 +381,197 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hongbao-popup {
+	position: relative;
+	width: 650rpx;
+	background-color: transparent;
+}
+
+.hongbao-wrapper {
+	position: relative;
+	width: 650rpx;
+	height: 850rpx;
+	overflow: hidden;
+	border-radius: 16rpx;
+}
+
+.hongbao-bg {
+	width: 650rpx;
+	height: 850rpx;
+	display: block;
+	border-radius: 16rpx;
+}
+
+.hongbao-info {
+	position: absolute;
+	top: 75%;
+	left: 51%;
+	transform: translate(-50%, -50%);
+	width: 77%;
+	padding: 40rpx 20rpx;
+	box-sizing: border-box;
+	z-index: 2;
+	// pointer-events: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.info-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	// margin-bottom: 30rpx;
+	pointer-events: auto;
+	transform: translatey(-20%);
+}
+
+.left-content,
+.right-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 45%;
+	text-align: center;
+	margin-left: 2%;
+}
+
+.left-content {
+	margin-bottom: 5%;
+}
+
+.right-content {
+	margin-right: 2%;
+	margin-top: 3%;
+}
+
+.amount {
+	color: #F6402B;
+	font-size: 80rpx;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+}
+
+.symbol {
+	font-size: 40rpx;
+	margin-right: 10rpx;
+}
+
+.condition {
+	color: #F6402B;
+	font-size: 22rpx;
+	margin-top: -10rpx;
+	text-align: center;
+	width: 100%;
+}
+
+.divider {
+	width: 2rpx;
+	height: 86rpx;
+	background-color: #F4AF6B;
+	margin: 0 10rpx;
+}
+
+.valid-title {
+	color: #866141;
+	font-size: 26rpx;
+}
+
+.valid-date {
+	color: #866141;
+	font-size: 22rpx;
+	margin-top: 4rpx;
+}
+
+.coupon-button {
+	background-image: linear-gradient(to bottom, #FCEAC8, #F8CBA0);
+	color: #866141;
+	border-radius: 40rpx;
+	width: 60%;
+	padding: 10rpx 0;
+	// margin-top: 30rpx;
+	font-size: 28rpx;
+	text-align: center;
+	z-index: 999;
+}
+
+.close-btn-modal {
+	position: absolute;
+	bottom: -90rpx;
+	left: 50%;
+	transform: translateX(-50%);
+
+	width: 60rpx;
+	height: 60rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.popup-content {
+	background-color: white;
+	padding: 50rpx;
+	border-radius: 30rpx;
+	text-align: center;
+
+	.title {
+		font-size: 40rpx;
+		color: red;
+		margin-bottom: 20rpx;
+		font-weight: bold;
+		display: inline-block;
+	}
+
+	.red-envelope {
+		width: 200rpx;
+		height: 200rpx;
+		margin-bottom: 20rpx;
+	}
+
+	.description {
+		font-size: 28rpx;
+		color: #666;
+		margin-bottom: 30rpx;
+	}
+
+	.buttons {
+		display: flex;
+		justify-content: space-around;
+		gap: 20rpx;
+	}
+
+	.btn-know,
+	.btn-check {
+		width: 200rpx;
+		height: 80rpx;
+		line-height: 80rpx;
+		border-radius: 40rpx;
+		font-size: 32rpx;
+	}
+
+	.btn-know {
+		border: 2rpx solid red;
+		color: red;
+		background-color: white;
+	}
+
+	.btn-check {
+		background: linear-gradient(to bottom, #ff9100, #ff1b00);
+		color: white;
+	}
+}
+
 .container {
 	background-color: #f5f5f5;
 }
 
 .header {
 	width: 100%;
-	height: 520rpx;
+	max-height: 570rpx;
 	background: linear-gradient(to bottom,
 			#fe9318,
 			#ffd298 50%,
@@ -345,45 +602,7 @@ export default {
 		padding-top: 10rpx;
 	}
 
-	@media (max-width: 350px) {
-		.search-bar {
-			width: 43%;
-		}
 
-		::v-deep .uni-searchbar__text-placeholder {
-			font-size: 22rpx;
-
-		}
-	}
-
-	@media (min-width: 350px) and(max-width: 380px) {
-		.search-bar {
-			width: 46%;
-		}
-
-
-	}
-
-	@media (min-width: 380px) and(max-width: 450px) {
-		.search-bar {
-			width: 51%;
-		}
-
-
-	}
-
-	@media (min-width: 600px) and (max-width: 1024px) {
-		.search-bar {
-			width: 57%;
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.search-bar {
-			width: 60%;
-		}
-
-	}
 }
 
 
@@ -450,6 +669,9 @@ export default {
 .must-eat,
 .hotel {
 	padding: 34rpx 16rpx 0rpx 16rpx;
+	position: relative;
+	top: 20rpx;
+
 }
 
 .title {
@@ -537,6 +759,13 @@ export default {
 
 }
 
+.small-item .second-image {
+	width: 100%;
+	height: 134rpx;
+	object-fit: cover;
+
+}
+
 .hotel .overlay-text {
 	width: 100%;
 	display: flex;
@@ -619,7 +848,8 @@ export default {
 }
 
 .scenic {
-
+	position: relative;
+	top: 20rpx;
 	padding: 0rpx 16rpx 16rpx 16rpx;
 }
 
@@ -658,8 +888,10 @@ export default {
 .big-item .overlay-text {
 	top: 30rpx;
 	font-size: 42rpx;
-	font-weight: 600;
+	font-weight: 400;
 	display: block;
+	text-align: left;
+	margin-left: 35rpx;
 }
 
 .big-item .desc {
@@ -669,7 +901,8 @@ export default {
 	top: 82rpx;
 	text-align: left;
 	font-size: 22rpx;
-	padding: 20rpx;
+	padding: 10rpx 35rpx;
+	width: 68%;
 }
 
 /* 右侧布局 */
@@ -717,153 +950,22 @@ export default {
 	position: relative;
 }
 
-.hongbao-popup {
-	position: relative;
-	width: 90%;
-	max-width: 600rpx;
-	/* 控制最大宽度 */
-	background-color: transparent;
-}
-
-.hongbao-wrapper {
-	position: relative;
-	width: 100%;
-	padding-top: 100%;
-	/* 创建1:1比例 */
-	border-radius: 16rpx;
-	overflow: hidden;
-}
-
-.hongbao-bg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: inherit;
-}
-
-.hongbao-info {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 90%;
-	padding: 40rpx 20rpx;
-	box-sizing: border-box;
-	z-index: 2;
-	pointer-events: none;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.info-row {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	margin-bottom: 30rpx;
-	pointer-events: auto;
-}
-
-.left-content,
-.right-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 45%;
-	text-align: center;
-}
-
-.amount {
-	color: #F6402B;
-	font-size: 80rpx;
-	font-weight: bold;
-	display: flex;
-	align-items: center;
-}
-
-.symbol {
-	font-size: 40rpx;
-	margin-right: 10rpx;
-}
-
-.condition {
-	color: #F6402B;
-	font-size: 22rpx;
-	margin-top: -10rpx;
-	text-align: center;
-	width: 100%;
-}
-
-.divider {
-	width: 2rpx;
-	height: 86rpx;
-	background-color: #F4AF6B;
-	margin: 0 20rpx;
-}
-
-.valid-title {
-	color: #866141;
-	font-size: 26rpx;
-}
-
-.valid-date {
-	color: #866141;
-	font-size: 22rpx;
-	margin-top: 4rpx;
-}
-
-.coupon-button {
-	background-image: linear-gradient(to bottom, #FCEAC8, #F8CBA0);
-	color: #866141;
-	border-radius: 40rpx;
-	width: 60%;
-	padding: 20rpx 0;
-	margin-top: 30rpx;
-	font-size: 28rpx;
-	text-align: center;
-}
-
-.close-btn-modal {
-	position: absolute;
-	bottom: -60rpx;
-	left: 50%;
-	transform: translateX(-50%);
-	background-color: rgba(0, 0, 0, 0.5);
-	border-radius: 50%;
-	width: 60rpx;
-	height: 60rpx;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	z-index: 3;
-}
-
+//888888
 .small-item .overlay-text {
 	position: absolute;
 	top: 10px;
 	left: 0;
 	right: 0;
 	color: #FFFFFF;
-	font-weight: bold;
+	font-weight: 400;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 32rpx;
+	font-size: 28rpx;
 }
 
-::v-deep .uni-searchbar {
-	padding: 10px 0px 10px 10px !important;
-}
 
-::v-deep .uni-input {
-	font-size: 28rpx !important;
-}
+
 
 ::v-deep .uni-stat__actived {
 	padding-left: 6rpx;
@@ -879,9 +981,5 @@ export default {
 
 ::v-deep .uni-swiper__warp {
 	height: 370rpx !important;
-}
-
-::v-deep .uni-searchbar__text-placeholder {
-	font-size: 28rpx !important;
 }
 </style>

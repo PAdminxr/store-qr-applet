@@ -130,7 +130,9 @@ export default {
 
 
 .result-info {
-    margin-top: 100rpx;
+    padding-top: 100rpx;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .result-buttons {
@@ -139,7 +141,7 @@ export default {
 }
 
 .result-buttons button {
-    padding: 10rpx 40rpx;
+    padding: 0 60rpx;
     border-radius: 10rpx;
     font-size: 30rpx;
     min-width: 200rpx;

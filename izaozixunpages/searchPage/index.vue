@@ -47,11 +47,8 @@ export default {
             searchKeyword: "",
             // 模拟历史搜索记录数据，实际可从本地存储等获取
             historySearchList: [
-                "辣子鸡",
-                "微山湖烤鱼",
-                "台儿庄古城",
-                "铁锅炖",
-                "全季酒店",
+                "热点新闻",
+                "政策法规",
             ],
         };
     },
@@ -72,7 +69,7 @@ export default {
         }
 
         // 获取本地存储的历史记录
-        const historyList = uni.getStorageSync("historySearchList1");
+        const historyList = uni.getStorageSync("historySearchList");
         if (historyList) {
             this.historySearchList = historyList;
         }
@@ -110,7 +107,7 @@ export default {
                 this.historySearchList.pop();
             }
             // 实际开发中可将历史记录保存到本地存储
-            uni.setStorageSync("historySearchList1", this.historySearchList);
+            uni.setStorageSync("historySearchList", this.historySearchList);
         },
     },
 };

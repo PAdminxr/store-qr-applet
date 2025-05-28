@@ -2,8 +2,9 @@
     <view class="container">
         <view class="feedback-container">
             <!-- 记录文字 -->
-            <view class="record-section">
-                <uni-icons type="calendar" size="32rpx"></uni-icons>
+            <view class="record-section" @click="jumpto">
+
+                <my-icon type="log" color="#333333" size="24rpx" line-height="1"></my-icon>
                 <text class="record-text">记录</text>
             </view>
 
@@ -26,7 +27,8 @@
 
                     <view class="record-section" @click="showPopup">
 
-                        <uni-icons type="loop" size="36rpx"></uni-icons>
+
+                        <my-icon type="refresh" size="24rpx" color="#333"></my-icon>
                         <text class="record-text">换个订单</text>
                     </view>
                 </view>
@@ -148,7 +150,7 @@
 
                 <movable-area>
                     <movable-view :x="x" :y="y" direction="all" @change="onChange" animation="true">
-                        <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/robot.png"
+                        <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/robot.png"
                             class="robot-icon" @click="jumpToRobot"></image>
                     </movable-view>
                 </movable-area>
@@ -163,10 +165,13 @@
 
 <script>
 import EnhancedMediaItem from '@/components/EnhancedMediaItem.vue';
+import MyIcon from '@/components/myIcon.vue';
+
 
 export default {
     components: {
         EnhancedMediaItem,
+        MyIcon
     },
     data() {
         return {
@@ -286,6 +291,11 @@ export default {
             this.allorderInfo = this.$store.getters.getOrders;
             this.showorder = true;
         },
+        jumpto() {
+            uni.navigateTo({
+                url: "/userpages/submitFeedback/info",
+            });
+        },
         selectOrder(orderId) {
             this.orderInfo = this.allorderInfo.find(
                 (order) => order.orderId === orderId
@@ -373,7 +383,7 @@ export default {
 
         jumpToRobot() {
             uni.navigateTo({
-                url: "/pages/chatMate/index",
+                url: "/userpages/chatMate/index",
             });
         },
         submitFeedback() {
@@ -463,7 +473,7 @@ export default {
 .record-text {
     font-size: 24rpx;
     color: #000000;
-    margin-left: 5rpx;
+    margin-left: 10rpx;
 }
 
 .problem-type-section {
@@ -520,7 +530,7 @@ movable-view {
 }
 
 .problem-type-button {
-    margin: 20rpx 20rpx 10rpx 20rpx;
+    margin: 20rpx 10rpx 10rpx 20rpx;
 
     border-radius: 20rpx;
     padding: 10rpx 20rpx;
@@ -617,7 +627,7 @@ movable-view {
 }
 
 .order-listshadow {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 .order-container {
@@ -666,7 +676,7 @@ movable-view {
 .shop-icon {
     width: 50rpx;
     height: 50rpx;
-    border-radius: 30rpx;
+    border-radius: 10rpx;
 }
 
 .shop-name {
@@ -693,7 +703,7 @@ movable-view {
     display: flex;
     justify-content: flex-start;
 
-    padding-left: 80rpx;
+    padding-left: 65rpx;
 }
 
 .order-data {

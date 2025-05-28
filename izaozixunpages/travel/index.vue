@@ -68,7 +68,7 @@ export default {
             photos: mockDATA.photo,
             hotTags: mockDATA.hotTags,
             typeof: "scenic",
-            spots: mockDATA.travel.filter((item) => item.typeof === "scenic"),
+            spots: mockDATA.travel.filter((item) => item.typeof === "scenic").slice(0, 7),
             isLogin: false,
         };
     },
@@ -87,7 +87,7 @@ export default {
     methods: {
         JumpLogin() {
             uni.navigateTo({
-                url: "/pages/login/login"
+                url: "/userpages/login/login"
             });
         },
         handleTouchEnd() {
@@ -108,7 +108,7 @@ export default {
             this.hotTags.forEach((t) => (t.active = false));
             tag.active = true;
             this.loading = true;
-            this.spots = mockDATA.travel.filter((item) => item.typeof === tag.type);
+            this.spots = mockDATA.travel.filter((item) => item.typeof === tag.type).slice(0, 7);
             this.loading = false;
             this.noMoreData = false;
         },
@@ -146,7 +146,7 @@ export default {
 <style lang="scss" scoped>
 .content {
     background-color: #ffffff;
-    height: calc(100vh - var(--status-bar-height));
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -155,7 +155,7 @@ export default {
     background-size: 100% 100%;
 
     width: 100%;
-    height: 430rpx;
+    height: 470rpx;
 }
 
 .nav-bg {
@@ -184,13 +184,13 @@ export default {
 }
 
 .photo-swiper {
-    padding: 40rpx 0rpx 0rpx 40rpx;
+    padding: 20rpx 0rpx 0rpx 20rpx;
     width: 100%;
     height: 350rpx;
 }
 
 .photo-item {
-    width: 80%;
+    width: 94%;
     margin-right: 5%;
 
     display: inline-block;
@@ -206,20 +206,20 @@ export default {
     font-size: 18px;
     font-weight: bold;
 
-    padding: 0 20px;
+    padding: 0 20rpx;
 }
 
 .hot-tags {
-    margin: 20px 0;
+    margin: 20rpx 0;
     display: flex;
     margin-bottom: 10rpx;
-    padding: 0 40rpx;
+    //padding: 0 40rpx;
     align-items: center;
     justify-content: space-around;
 }
 
 .hot-tag {
-    padding: 24rpx;
+    padding: 14rpx 28rpx;
     border-radius: 20px;
     background-color: #f5f5f5;
     font-size: 24rpx;
@@ -233,7 +233,7 @@ export default {
 
 .index-container {
     margin-bottom: 30rpx;
-    height: calc(100vh - 550rpx - 200rpx);
+    height: calc(100vh - 550rpx - 100rpx);
     overflow-y: scroll;
 }
 

@@ -6,9 +6,7 @@
         </view>
         <view class="penalty-info-content">
 
-            <!-- #ifdef H5 -->
-            <gauge-charth5 :value="value" />
-            <!-- #endif -->
+
 
             <!-- #ifndef H5 -->
             <gauge-chart :value="value" />
@@ -23,13 +21,12 @@
 </template>
 
 <script>
-import GaugeChart from '@/components/gauge-chart/gauge-chart.vue'
-import GaugeCharth5 from '@/components/gauge-chart/gauge-charth5.vue'
+// import GaugeChart from '@/components/gauge-chart/gauge-chart.vue'
+import GaugeChart from '../components/gauge-chart/gauge-chart.vue'
 
 export default {
     components: {
-        GaugeChart,
-        GaugeCharth5
+        GaugeChart
     },
     data() {
         return {

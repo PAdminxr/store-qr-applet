@@ -14,7 +14,7 @@
         <view class="content">
             <!-- 头部 -->
             <view class="header" :style="{ paddingTop: statusBarHeight + 'rpx' }">
-                <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/robot.png"
+                <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/robot.png"
                     class="robot-icon"></image>
                 <view class="greeting">
                     <text class="title">Hi~ 我是小助理</text>
@@ -30,7 +30,7 @@
                         <text class="faq-title">常见问题</text>
                     </view>
                     <view @click="changeFAQ">
-                        <uni-icons type="refreshempty" size="28rpx" color="#203C7E"></uni-icons>
+                        <my-icon type="refresh" size="24rpx" color="#333"></my-icon>
                         <text class="faq-title faq-refreshempty">换一批</text>
                     </view>
                 </view>
@@ -76,13 +76,13 @@
         </view>
         <view class="voiced" :class="{ show: show_voice }">
             <image class="voice_img" mode="widthFix"
-                :src="(show_voice ? 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/recorde.gif' : 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/none.png')">
+                :src="(show_voice ? 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/recorde.gif' : 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/none.png')">
             </image>
             <view class="tip">手指上滑取消发送</view>
         </view>
         <view class="voiced" :class="{ show: show_cancel_voice }">
             <image class="voice_img" mode="widthFix"
-                :src="'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/quxiao.png'">
+                :src="'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/quxiao.png'">
             </image>
             <view class="tip">松开手指取消发送</view>
         </view>
@@ -91,7 +91,12 @@
 <script>
 const recorderManager = uni.getRecorderManager();
 const innerAudioContext = uni.createInnerAudioContext();
+import myIcon from '@/components/myIcon.vue'
 export default {
+    components: {
+        myIcon
+    },
+
 
     data() {
         return {

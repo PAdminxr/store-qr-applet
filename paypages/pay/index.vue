@@ -39,11 +39,11 @@
                         <view class="flex-row">
                             <image :src="src" mode="aspectFit" class="hongbao-icon"></image>
                             <view class="hongbao-text">
-                                <text class="hongbao-amount">{{ item.amount }}</text>
+                                <text class="hongbao-amount">{{ item.amount }}元</text>
                                 <text class="hongbao-desc">红包待领取</text>
                             </view>
                             <text class="hongbao-expire" v-if="item.expireTimes">{{ formatTime(item.expireTime)
-                                }}后失效</text>
+                            }}后失效</text>
                             <text class="hongbao-expire" v-else>{{ item.expireTime }}</text>
                         </view>
 
@@ -132,9 +132,9 @@
                     <text class="modal-title">添加备注</text>
                     <text class="close-btn" @click="closeRemarkModal">×</text>
                 </view>
-                <textarea v-model="tempRemarkText" placeholder="请输入备注" maxlength="100"
+                <textarea v-model="tempRemarkText" placeholder="请输入备注" maxlength="20"
                     @input="handleRemarkInput"></textarea>
-                <view class="char-count">{{ tempRemarkText.length }}/100</view>
+                <view class="char-count">{{ tempRemarkText.length }}/20</view>
                 <button type="primary" @click="confirmRemark">确定</button>
             </view>
         </uni-popup>
@@ -143,7 +143,7 @@
             <view class="popup-content">
                 <text class="title">领取成功</text>
                 <view>
-                    <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png"
+                    <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png"
                         class="red-envelope"></image>
                 </view>
                 <view class="description">
@@ -179,80 +179,48 @@ export default {
             timer: null,
             selectedData: {},
             paymentAmount: "",
-
             remarkText: "",
             tempRemarkText: "",
             hasRemark: false,
             showFullRemark: false,
-            redPacketList: [
-                {
-                    amount: 50,
-                    expireTime: new Date().getTime() + 24 * 60 * 60 * 1000,
-                    expireTimes: true,
-                    id: 11,
-                    title: "向商家付款优惠券",
-                    minAmount: 30,
-                    isTodayExpired: true,
-                    expire: "23:59",
-                    validDate: "2025.05.12",
-                    rule: "1. 向商家付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
-                    showRule: false,
-                    isReceived: false, // 是否使用
-                    type: 1,
-                },
-                {
-                    amount: 20,
-                    expireTime: "限时发放",
-                    id: 12,
-                    expireTimes: false,
-                    title: "限时发放",
-                    minAmount: 30,
-                    isTodayExpired: true,
-                    expire: "23:59",
-                    validDate: "2025.05.12",
-                    rule: "1. 付款下单使用；2. 不可与其他优惠同时使用；3. 有效期内使用有效。",
-                    showRule: false,
-                    isReceived: false, // 是否使用
-                    type: 1,
-                },
-            ],
+            redPacketList: [],
             moreRedPacketList: [
                 // 更多红包数据
             ],
             showMoreRedPackets: false,
             merchantInfos: [
                 {
-                    icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/punish-icon.png",
+                    icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/punish-icon.png",
                     name: "处罚信息",
                     path: "/izaolifepages/penaltyInfo/detail",
                     path2: '/penaltyDetail'
                 },
                 {
-                    icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/business-icon.png",
+                    icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/business-icon.png",
                     name: "经营信息",
                     path: "/izaolifepages/businessInfo/index",
                     path2: '/businessIndex'
                 },
                 {
-                    icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/credit-icon.png",
+                    icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/credit-icon.png",
                     name: "榴花信用",
                     path: "/izaolifepages/penaltyInfo/index",
                     path2: '/penaltyIndex'
                 },
                 {
-                    icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/kitchen-icon.png",
+                    icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/kitchen-icon.png",
                     name: "明厨亮灶",
                     path: "/izaolifepages/kitchenInspection/index",
                     path2: '/kitchenInspectionIndex'
                 },
                 {
-                    icon: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/health-icon.png",
+                    icon: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/health-icon.png",
                     name: "健康证",
                     path: "/izaolifepages/health/index",
                     path2: '/health'
                 },
             ],
-            src: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/red-envelope.png",
+            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png",
             swiperDotIndex: 0,
             isPayButtonDisabled: true,
             showCursor: true, // 控制光标显示
@@ -299,6 +267,8 @@ export default {
     },
     // #ifdef MP
     onShow() {
+        console.log('mounted', mockDATA.allCoupons);
+        this.redPacketList = mockDATA.allCoupons.slice(2, 4)
         this.handleOnShow();
     },
     // #endif
@@ -306,6 +276,8 @@ export default {
     // #ifndef MP
     mounted() {
         this.handleOnShow();
+        console.log('mounted1', mockDATA.allCoupons);
+        this.redPacketList = mockDATA.allCoupons.slice(2, 4)
     },
     // #endif
 
@@ -380,6 +352,7 @@ export default {
         goToCoupons() {
             // 重置标志位
             uni.setStorageSync("newReceivedCoupon", false);
+            this.closePopup();
 
             // #ifdef MP
             // 小程序环境下使用 uni.navigateTo 进行页面跳转

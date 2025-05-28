@@ -80,7 +80,7 @@
                                     @click.stop="previewMedia(item.media, imgIndex)" />
 
                                 <view v-else class="video-cover" @click="playVideo(img.path)">
-                                    <image class="cover-image" src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/video_cover.png" mode="aspectFill" />
+                                    <image class="cover-image" src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/video_cover.png" mode="aspectFill" />
                                 </view>
                             </view> -->
                             <view v-for="(img, imgIndex) in item.media" :key="imgIndex">
@@ -159,7 +159,7 @@ export default {
         playVideo(src) {
             console.log("播放视频：", src);
             uni.navigateTo({
-                url: `/pages/videoPlayer/videoPlayer?src=${encodeURIComponent(src)}`,
+                url: `/userpages/videoPlayer/videoPlayer?src=${encodeURIComponent(src)}`,
             });
         },
         goEvaluate(item) {
@@ -168,9 +168,34 @@ export default {
             });
         },
         jumpToShore(item) {
-            uni.navigateTo({
-                url: `/izaolifepages/restaurantDetail/index?id=${item.shopId}&type=${1}`,
-            });
+            //根据shopId跳转店铺详情页赋值 type  为 1
+
+            //item.shopId 1-4 类型为1
+            //41.42.43 5-9 类型为2
+            //10-12  类型为3
+            const type = item.shopId
+            if (type >= 1 && type <= 4) {
+                return uni.navigateTo({
+                    url: `/izaolifepages/restaurantDetail/index?id=${item.shopId}&type=${1}`,
+                });
+            }
+            if (type >= 5 && type <= 9) {
+                return uni.navigateTo({
+                    url: `/izaolifepages/restaurantDetail/index?id=${item.shopId}&type=${3}`,
+                });
+            }
+            if (type >= 41 && type <= 43) {
+                return uni.navigateTo({
+                    url: `/izaolifepages/restaurantDetail/index?id=${item.shopId}&type=${3}`,
+                });
+            }
+            if (type >= 10 && type <= 12) {
+                return uni.navigateTo({
+                    url: `/izaolifepages/restaurantDetail/index?id=${item.shopId}&type=${2}`,
+                })
+            }
+
+
         },
         ratingDescription(rating) {
             if (rating === 0) return "";

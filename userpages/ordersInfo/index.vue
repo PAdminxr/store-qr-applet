@@ -6,7 +6,7 @@
 
                 <view class="filter-icon">
                     <view class="filter-text">{{ selectedDate }}</view>
-                    <uni-icons type="down" size="48rpx" color="#999"></uni-icons>
+                    <my-icon type="xiala" color="#333333" size="24rpx" line-height="1"></my-icon>
                 </view>
             </picker>
         </view>
@@ -45,7 +45,11 @@
 </template>
 
 <script>
+import myIcon from '@/components/myIcon.vue'
 export default {
+    components: {
+        myIcon
+    },
     data() {
         return {
 
@@ -139,7 +143,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 150rpx;
+    margin-top: 130rpx;
 }
 
 .order-container {
@@ -184,7 +188,7 @@ export default {
 .shop-icon {
     width: 60rpx;
     height: 60rpx;
-    border-radius: 30rpx;
+    border-radius: 10rpx;
 }
 
 .shop-name {
@@ -222,7 +226,7 @@ export default {
 
 .order-price {
     font-size: 24rpx;
-    color: #333;
+    color: #767676;
     text-align: right;
 }
 
@@ -230,7 +234,7 @@ export default {
     font-weight: 500;
     color: #333;
     display: inline-block;
-    padding-left: 20rpx;
+    padding-left: 10rpx;
     padding-right: 4rpx;
 }
 

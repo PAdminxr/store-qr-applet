@@ -2,7 +2,7 @@
   <view class="login-page" :style="{ minHeight: pageHeight }">
     <!-- Logo 和 标题 -->
     <view class="logo-section">
-      <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/logo.png" mode="aspectFit"
+      <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/logo.png" mode="aspectFit"
         class="logo"></image>
       <text class="app-name">i枣码智慧消费平台</text>
     </view>
@@ -125,7 +125,7 @@ export default {
             loginType: "微信",
             loginMethod: "手机号",
             introduction: "这是一个示例简介",
-            avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/logo.png",
+            avatarSrc: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png',
             loginTime: new Date().toISOString(),
           };
 

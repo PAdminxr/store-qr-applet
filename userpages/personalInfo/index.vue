@@ -38,7 +38,7 @@ export default {
     data() {
         return {
             userInfo: {
-                avatarSrc: "https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png",
+                avatarSrc: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png",
                 nickName: "游客",
                 introduction: "登录后查看个人介绍"
             },
@@ -46,22 +46,23 @@ export default {
             isLogin: false,
         };
     },
-
     onShow() {
-        // 判断用户是否登录
-        this.isLogin = this.$store.getters.getIsLogin || false;
-        // if (this.isLogin) {
-        //     // 获取用户信息
-        //     this.userInfo = this.getUserInfo()
-        // }
-        // else {
-        //     //回到我的页面
-        //     uni.reLaunch({
-        //         url: '/pages/user/index',
-        //     })
-        // }
+        this.isLogin = uni.getStorageSync('isLogin');
+        if (this.isLogin) {
+            this.$store.dispatch("loadUserInfoFromCache");
+            this.userInfo = this.getUserInfo();
+        }
     },
-    onLaunch() {
+    onLoad() {
+
+        this.isLogin = uni.getStorageSync('isLogin');
+        if (this.isLogin) {
+            this.$store.dispatch("loadUserInfoFromCache");
+            this.userInfo = this.getUserInfo()
+        }
+    },
+    mounted() {
+        // 判断用户是否登录
         const userInfo = uni.getStorageSync('userLoginInfo') || null;
         const isLogin = uni.getStorageSync('isLogin') || false;
 
@@ -69,7 +70,20 @@ export default {
             this.$store.dispatch('setUserInfo', userInfo);
             this.$store.dispatch('setIsLogin', true);
         }
+        this.isLogin = isLogin;
+
+        if (this.isLogin) {
+            // 获取用户信息
+            this.userInfo = this.getUserInfo()
+        }
+        else {
+            //回到我的页面
+            uni.reLaunch({
+                url: '/pages/user/index',
+            })
+        }
     },
+
     methods: {
         getUserInfo() {
             return this.$store.getters.getUserInfo || {};
@@ -89,6 +103,11 @@ export default {
             uni.removeStorageSync('isLogin');
 
             uni.showToast({ title: '已退出登录' });
+            setTimeout(() => {
+                uni.reLaunch({
+                    url: '/pages/user/index',
+                });
+            }, 1000)
         },
     },
 };

@@ -34,7 +34,7 @@
                     }">
                         <text :class="['label-text', { 'active-text': isActive(index) }]">{{
                             ["较差", "一般", "好", "较好", "极好"][index]
-                        }}</text>
+                            }}</text>
                     </view>
                 </block>
             </view>
@@ -46,8 +46,9 @@
 </template>
 
 <script>
-import uniEcCanvas from "@/components/uni-ec-canvas/uni-ec-canvas.vue";
-import * as echarts from "@/components/uni-ec-canvas/echarts";
+import uniEcCanvas from "../../components/uni-ec-canvas/uni-ec-canvas.vue";
+import * as echarts from "../../components/uni-ec-canvas/echarts";
+
 
 export default {
     components: {

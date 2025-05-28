@@ -17,30 +17,18 @@
       "style": {
         "navigationStyle": "custom"
       }
-    },
-    {
-      "path": "pages/login/login",
-      "style": {
-        "navigationBarTitleText": "登录"
-      }
-    },
-    {
-      "path": "pages/chatMate/index",
-      "style": {
-        "navigationStyle": "custom"
-      }
-    },
-    {
-      "path": "pages/videoPlayer/videoPlayer",
-      "style": {
-        "navigationStyle": "custom"
-      }
     }
   ],
   "subPackages": [
     {
       "root": "izaozixunpages",
       "pages": [
+        {
+          "path": "searchPage/index",
+          "style": {
+            "navigationStyle": "custom"
+          }
+        },
         {
           "path": "message/index",
           "style": {
@@ -166,6 +154,24 @@
       "root": "userpages",
       "pages": [
         {
+          "path": "videoPlayer/videoPlayer",
+          "style": {
+            "navigationStyle": "custom"
+          }
+        },
+        {
+          "path": "login/login",
+          "style": {
+            "navigationBarTitleText": "登录"
+          }
+        },
+        {
+          "path": "chatMate/index",
+          "style": {
+            "navigationStyle": "custom"
+          }
+        },
+        {
           "path": "personalInfo/index",
           "style": {
             "navigationBarTitleText": "个人信息"
@@ -253,6 +259,12 @@
           "path": "publishWork/published",
           "style": {
             "navigationBarTitleText": "发布作品"
+          }
+        },
+        {
+          "path": "publishWork/list",
+          "style": {
+            "navigationBarTitleText": "我的作品"
           }
         },
         {

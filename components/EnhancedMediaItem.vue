@@ -1,16 +1,15 @@
 <template>
     <view class="media-item" :style="{ width: itemWidth, height: itemHeight, margin: margin }">
         <!-- 媒体内容 -->
-        <view class="media-wrapper" @click="handleClick(mediaSrc, isVideo)">
+        <view class="media-wrapper" @click.stop="handleClick(mediaSrc, videoSrc, isVideo)">
             <!-- <video v-if="isVideo" :src="mediaSrc" class="media-content" controls="false" disable-playback="true"
                 style="pointer-events: none;" // 禁止视频元素响应点击事件></video> -->
-            <view v-if="isVideo" :class="!showStyle ? 'video-cover' : 'video-cover radius'">
-                <image class="cover-image"
-                    src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/video.png"
-                    mode="aspectFill" />
-            </view>
-            <image v-else :src="mediaSrc" mode="aspectFill"
-                :class="!showStyle ? 'media-content' : 'media-content radius'"></image>
+            <!-- <view v-if="isVideo" :class="!showStyle ? 'video-cover' : 'video-cover radius'">
+                <image class="cover-image" :src="mediaSrc" mode="aspectFill" />
+            </view> -->
+            <image :src="mediaSrc" mode="aspectFill" :class="!showStyle ? 'media-content' : 'media-content radius'">
+            </image>
+
         </view>
 
         <!-- 删除按钮 -->
@@ -24,11 +23,23 @@
 export default {
     name: 'EnhancedMediaItem',
     props: {
+        tz: {
+            type: Boolean,
+            default: false
+        },
+        workId: {
+            type: String,
+            required: false
+        },
         margin: {
             type: String,
             default: '0rpx'
         },
         mediaSrc: {
+            type: String,
+            required: true
+        },
+        videoSrc: {
             type: String,
             required: true
         },
@@ -68,15 +79,22 @@ export default {
         }
     },
 
+
     methods: {
-        handleClick(src, isVideo) {
+        handleClick(src, videoSrc, isVideo) {
+            if (this.tz) {
+                uni.navigateTo({
+                    url: `/userpages/publishWork/detail?workId=${this.workId}`,
+                });
+                return;
+            }
             this.$emit('setViews');
 
             if (isVideo == null) {
                 isVideo = !this.isImage(src);
             }
             if (isVideo) {
-                this.playVideo(src);
+                this.playVideo(videoSrc);
             } else {
                 this.previewMedia(src);
             }
@@ -96,7 +114,7 @@ export default {
 
 
             uni.navigateTo({
-                url: `/pages/videoPlayer/videoPlayer?src=${encodeURIComponent(src)}`
+                url: `/userpages/videoPlayer/videoPlayer?src=${encodeURIComponent(src)}`
             });
         },
         removeMedia(index) {

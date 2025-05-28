@@ -15,7 +15,7 @@
 export default {
     data() {
         return {
-            imageSrc: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/health.png'
+            imageSrc: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/health.png'
         };
     },
     methods: {

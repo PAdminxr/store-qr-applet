@@ -2,14 +2,17 @@
     <view class="card">
         <view class="media-container">
 
-            <EnhancedMediaItem :mediaSrc="item.type === 'image' ? item.imageUrl : item.videoUrl"
-                :showDeleteButton="showDeleteButton" :width="width" :height="height" :isVideo="item.type === 'video'"
-                @setViews="handleSetViews" />
-            <view class="video-play" v-if="item.type === 'video'">
+            <!-- <EnhancedMediaItem :mediaSrc="item.type === 'image' ? item.imageUrl : item.videoUrl"
+                :videoSrc="item.videoUrl" :showDeleteButton="showDeleteButton" :width="width" :height="height"
+                :isVideo="item.type === 'video'" @setViews="handleSetViews" />
+            <view class="video-play" v-if="item.type === 'video'"> -->
 
-                <image class="cover-image"
-                    src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/video_cover.png"
-                    mode="aspectFill" />
+            <EnhancedMediaItem :mediaSrc="item.imageUrl" :videoSrc="item.videoUrl" :showDeleteButton="showDeleteButton"
+                :width="width" :height="height" :isVideo="item.type === 'video'" @setViews="handleSetViews" :tz="tz"
+                :workId="item.workId" />
+            <view class=" video-play" v-if="item.type === 'video'">
+                <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-bofang.png"
+                    mode="aspectFill" class="cover-image"></image>
             </view>
             <view class="view-count" v-if="showViews && item.views > 0">
                 <uni-icons type="eye" size="24rpx" color="#fff"></uni-icons>
@@ -17,7 +20,7 @@
             </view>
         </view>
 
-        <view class="card-info">
+        <view class="card-info" v-if="item.title">
             <text class="title">{{ item.title }}</text>
 
             <view class="author-row">
@@ -33,7 +36,9 @@
                 </view>
             </view>
         </view>
+
     </view>
+
 </template>
 
 <script>
@@ -43,6 +48,10 @@ export default {
         EnhancedMediaItem,
     },
     props: {
+        tz: {
+            type: Boolean,
+            default: false
+        },
         item: {
             type: Object,
             required: true
@@ -121,15 +130,18 @@ export default {
     color: #fff;
     font-size: 24rpx;
     padding: 4rpx 12rpx;
-    border-radius: 22rpx;
+    background: rgb(74 72 72 / 37%);
+    border-radius: 100rpx;
+    width: 24rpx;
+    height: 38rpx;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: end;
 }
 
 .cover-image {
-    width: 30rpx;
-    height: 30rpx;
+    width: 20rpx;
+    height: 20rpx;
 
 }
 

@@ -1,36 +1,56 @@
 <template>
     <view class="kitchen-inspection-page">
         <!-- 商户信息区域 -->
-
         <view class="merchant-info-section">
             <text class="section-title">商户信息</text>
-            <p class="info-item2"><text>名&nbsp;称：</text>{{ businessName }}</p>
-            <p class="info-item2"><text>地&nbsp;址：</text>{{ address }}</p>
-            <p class="info-item2"><text>负责人：</text>{{ contactPerson }}</p>
-
+            <p class="info-item">
+                <text class="label">名　　称</text>
+                <text class="colon">：</text>
+                <text class="value">{{ businessName }}</text>
+            </p>
+            <p class="info-item">
+                <text class="label">地　　址</text>
+                <text class="colon">：</text>
+                <text class="value">{{ address }}</text>
+            </p>
+            <p class="info-item">
+                <text class="label">负责人</text>
+                <text class="colon">：</text>
+                <text class="value">{{ contactPerson }}</text>
+            </p>
         </view>
 
         <!-- 检查信息区域 -->
         <view class="inspection-info-section padding-section">
             <text class="section-title">检查信息</text>
-            <p class="info-item"><text>检查日期：</text>{{ inspectionDate }}</p>
-            <p class="info-item"><text>检查人员：</text>{{ inspector }}</p>
-            <p class="info-item"><text>卫生等级：</text>{{ healthRating }}</p>
-
+            <p class="info-item">
+                <text class="label">检查日期</text>
+                <text class="colon">：</text>
+                <text class="value">{{ inspectionDate }}</text>
+            </p>
+            <p class="info-item">
+                <text class="label">检查人员</text>
+                <text class="colon">：</text>
+                <text class="value">{{ inspector }}</text>
+            </p>
+            <p class="info-item">
+                <text class="label">卫生等级</text>
+                <text class="colon">：</text>
+                <text class="value">{{ healthRating }}</text>
+            </p>
         </view>
 
         <!-- 厨房图片区域 -->
         <view class="kitchen-images-section">
-
             <view v-for="(image, index) in kitchenImages" :key="index" @click="previewImage(index)">
                 <image :src="image" mode="aspectFill" class="kitchen-image"></image>
             </view>
-
         </view>
 
         <!-- 厨房视频区域 -->
         <view class="kitchen-video-section">
-            <video :src="kitchenVideo" controls class="kitchen-video"></video>
+            <video src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/4.mp4" controls
+                class="kitchen-video"></video>
         </view>
     </view>
 </template>
@@ -46,11 +66,11 @@ export default {
             inspector: '李斯',
             healthRating: 'A级',
             kitchenImages: [
-                'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/kitchen1.png', // 替换为实际的厨房图片路径
-                'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/kitchen2.png',
-                'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/kitchen3.png'
+                'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/kitchen1.png',
+                'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/kitchen2.png',
+                'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/kitchen3.png'
             ],
-            kitchenVideo: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaozixun/1.mp4' // 替换为实际的厨房视频路径
+            kitchenVideo: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/1.mp4'
         };
     },
     methods: {
@@ -87,30 +107,53 @@ export default {
 
 .padding-section {
     padding-top: 0rpx;
-
-}
-
-.info-item2 {
-    display: grid;
-    grid-template-columns: 120rpx 1fr;
-    font-size: 28rpx;
-    color: #333;
-    margin-bottom: 10rpx;
 }
 
 .info-item {
-    display: grid;
-    grid-template-columns: 150rpx 1fr;
+    display: flex;
+    align-items: center;
+    /* 垂直居中对齐 */
     font-size: 28rpx;
     color: #333;
-    margin-bottom: 10rpx;
-
+    margin-bottom: 20rpx;
+    /* 增加行间距 */
+    line-height: 1.5;
+    /* 设置行高，确保垂直居中 */
 }
 
-.info-item text,
-.info-item2 text {
-    text-align: right;
-    letter-spacing: 3rpx;
+.info-item .label {
+    width: 130rpx;
+    /* 固定标签容器宽度 */
+    text-align: justify;
+    /* 文本两端对齐 */
+    text-align-last: justify;
+    /* 最后一行两端对齐 */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 修复部分浏览器对text-align-last的兼容性 */
+.info-item .label:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+
+.info-item .colon {
+    width: 30rpx;
+    /* 固定冒号宽度 */
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    /* 垂直居中 */
+}
+
+.info-item .value {
+    flex: 1;
+    /* 值占据剩余空间 */
+    vertical-align: middle;
+    /* 垂直居中 */
 }
 
 .kitchen-images-section {
@@ -123,14 +166,11 @@ export default {
     gap: 20rpx;
 }
 
-
-
 .kitchen-image {
     width: 100%;
     height: 200rpx;
     margin-bottom: 20rpx;
     border-radius: 10rpx;
-    /* border: 1px dashed #ccc; */
 }
 
 .kitchen-video-section {
@@ -143,6 +183,5 @@ export default {
     width: 100%;
     height: 400rpx;
     border-radius: 10rpx;
-    /* border: 1px dashed #ccc; */
 }
 </style>

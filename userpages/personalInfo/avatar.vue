@@ -16,7 +16,7 @@
 export default {
     data() {
         return {
-            defaultAvatar: 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png',
+            defaultAvatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png',
             avatarSrc: '',
 
         };

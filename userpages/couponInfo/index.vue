@@ -79,7 +79,7 @@
                 <!-- 已使用图片 -->
                 <view class="status-image">
                     <image
-                        src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/img-yishiyong.png">
+                        src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/img-yishiyong.png">
                     </image>
                 </view>
                 <!-- 展开的规则 -->
@@ -116,7 +116,7 @@
                 <!-- 已过期图片 -->
                 <view class="status-image">
                     <image
-                        src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/user/img-yiguoqi.png" />
+                        src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/img-yiguoqi.png" />
                 </view>
                 <!-- 展开的规则 -->
                 <view class="coupon-rule-detail" v-if="coupon.showRule">

@@ -91,7 +91,7 @@ export default {
                 title: this.title.trim(),
                 authorid: this.$store.state.userLoginInfo?.userId || '123',
                 author: `${this.$store.state.userLoginInfo?.nickName || '测试作者'}`,
-                avatar: this.$store.state.avatarSrc?.userId || 'https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/images/avatar.png',
+                avatar: this.$store.state.userLoginInfo?.avatarSrc || 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png',
                 timestamp: this.$utils.formatTime(new Date()),
 
                 // 每个媒体项独立记录点赞状态和数量

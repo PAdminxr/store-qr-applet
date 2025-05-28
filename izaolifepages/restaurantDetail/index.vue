@@ -1,7 +1,8 @@
 <template>
     <view class="page-container">
         <!-- 顶部导航图标 -->
-        <view class="top-nav-icons" ref="topNavIcons" :style="{ top: safeAreaTop + 'px' }">
+        <view class="top-nav-icons" ref="topNavIcons"
+            :style="{ top: safeAreaTop + 'px', right: capsuleRight + 'px', width: navWidth + 'px' }">
             <view class="nav-left" @click="goBack">
                 <uni-icons type="left" size="24" color="#FFFFFF"></uni-icons>
             </view>
@@ -22,7 +23,7 @@
                 </swiper-item>
             </swiper>
             <view class="banner-index">
-                <image src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static//izaolife/image.png"
+                <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/image.png"
                     class="banner-index-image">
                 </image>
                 {{ currentIndex + 1 }}/{{ bannerImgs.length }}
@@ -34,7 +35,7 @@
             <view class="card-header">
                 <view class="restaurant-name">{{ restaurantInfo.name }}</view>
                 <view class="restaurant-tags">
-                    <img src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/tuijian.png"
+                    <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tuijian.png"
                         class="recommend-icon" />
                 </view>
             </view>
@@ -59,12 +60,12 @@
                     </view>
                     <view class="actions-group">
                         <view class="action-item" @click="navigate">
-                            <img src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/map.png"
+                            <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/map.png"
                                 class="navigate-icon" />
                             <text class="text"> 导航</text>
                         </view>
                         <view class="action-item" @click="call">
-                            <img src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/phone.png"
+                            <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/phone.png"
                                 class="navigate-icon" />
                             <text class="text"> 电话</text>
                         </view>
@@ -112,7 +113,7 @@
                                 <image class="user-avatar" :src="review.avatar" v-if="review.ishow"></image>
 
                                 <image
-                                    src="https://cdn.jsdelivr.net/gh/PAdminxr/store-qr-applet@main/static/izaolife/默认头像.png"
+                                    src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/默认头像.png"
                                     class="user-avatar" v-else />
                                 <view class="user-info">
                                     <view class="user-name">{{ review.userName }}</view>
@@ -175,6 +176,8 @@ export default {
             tabs: ["推荐语", "评价", "商家"],
             restaurantId: 0,
             statusBarHeight: 0,
+            navWidth: 0,
+            capsuleRight: 0,
             isFavorited: false,
             bannerImgs: mockDATA.ctBannerImgs,
             tags: ["平台推荐", "放心商家"],
@@ -197,8 +200,10 @@ export default {
         this.getSystemInfo();
         this.calculateContentHeight();
         if (options) {
+            console.log(options);
             this.type = options.type;
             this.restaurantId = parseInt(options.id);
+            console.log(this.restaurantId);
             this.getData();
         }
     },
@@ -226,6 +231,7 @@ export default {
             }
         },
         getSystemInfo() {
+            // 获取系统信息和胶囊按钮位置
             uni.getSystemInfo({
                 success: (res) => {
                     this.statusBarHeight = res.statusBarHeight;
@@ -235,6 +241,12 @@ export default {
                         this.safeAreaTop = this.statusBarHeight;
                     }
                     this.safeAreaTop += 8;
+
+                    // 获取胶囊按钮位置信息
+                    const capsuleInfo = uni.getMenuButtonBoundingClientRect();
+                    this.capsuleRight = res.windowWidth - capsuleInfo.right;
+                    // 计算导航栏宽度（距离胶囊按钮10pt）
+                    this.navWidth = capsuleInfo.left - 20;
                     this.setTopNavPosition();
                 },
             });
@@ -324,14 +336,14 @@ export default {
         },
         JumpLogin() {
             uni.navigateTo({
-                url: "/pages/login/login"
+                url: "/userpages/login/login"
             });
         },
         toggleFavorite() {
-            // if (!this.$store.getters.getIsLogin) {
-            //     this.JumpLogin();
-            //     return;
-            // }
+            if (!this.$store.getters.getIsLogin) {
+                this.JumpLogin();
+                return;
+            }
             this.isFavorited = !this.isFavorited;
             const id = this.restaurantId;
             const types = {
@@ -391,22 +403,15 @@ export default {
 }
 
 /* 顶部导航图标 */
+/* 顶部导航图标 */
 .top-nav-icons {
     position: absolute;
-
-    top: var(--status-bar-height);
     left: 0;
-    right: 0;
     display: flex;
     justify-content: space-between;
     padding: 0 20rpx;
     z-index: 20;
     align-items: center;
-    width: 68%;
-
-    @media (max-width: 350px) {
-        width: 65%;
-    }
 }
 
 .top-nav-icons .nav-left {
@@ -523,8 +528,8 @@ export default {
 
 .info-item {
     padding: 20rpx 0rpx;
-    border-top: 2rpx solid #ebebeb;
-    border-bottom: 2rpx solid #ebebeb;
+    border-top: 1rpx solid #ebebeba6;
+    border-bottom: 1rpx solid #ebebeba6;
     display: flex;
     width: 100%;
 }
