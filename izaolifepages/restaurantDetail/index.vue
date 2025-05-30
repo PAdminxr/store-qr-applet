@@ -141,7 +141,7 @@
                                 </view>
                             </view>
                         </view>
-                        <view class="reviews-header">
+                        <view class="reviews-header" v-if="type !== '2'">
                             <view class="header-action" @click="viewAllReviews">
                                 <text>查看全部 {{ totalReviews }} 条评价</text>
                                 <uni-icons type="right" size="36rpx" color="#000000"></uni-icons>
@@ -216,12 +216,14 @@ export default {
             this.restaurantInfo = mockDATA.restaurants.find(
                 (item) => item.id === this.restaurantId
             );
+            console.log(this.type);
             if (this.type == "2") {
                 this.fwInfos = mockDATA.jqFwInfos;
                 this.bannerImgs = mockDATA.jqBannerImgs;
                 this.restaurantInfo = mockDATA.travelInfo.find(
                     (item) => item.id === this.restaurantId
                 );
+                this.reviews = mockDATA.jqreviews;
             }
             if (this.type == "3") {
                 this.restaurantInfo = mockDATA.hotelInfo.find(
@@ -340,7 +342,8 @@ export default {
             });
         },
         toggleFavorite() {
-            if (!this.$store.getters.getIsLogin) {
+            const isLogin = uni.getStorageSync('isLogin');
+            if (!isLogin) {
                 this.JumpLogin();
                 return;
             }
@@ -652,7 +655,7 @@ export default {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin-top: 30rpx;
+    // margin-top: 30rpx;
 }
 
 .tabs-title {
@@ -676,7 +679,7 @@ export default {
 .recommendation {
     font-size: 26rpx;
     color: #333333;
-    line-height: 1.6;
+    line-height: 2.2;
     flex-grow: 1;
 }
 
@@ -834,8 +837,8 @@ export default {
 }
 
 .fw-icon {
-    width: 32rpx;
-    height: 32rpx;
+    width: 40rpx;
+    height: 40rpx;
 
     display: flex;
     align-items: center;
@@ -844,8 +847,8 @@ export default {
 }
 
 .fw-icon image {
-    width: 32rpx;
-    height: 32rpx;
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .item-icon image {

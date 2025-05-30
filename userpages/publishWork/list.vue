@@ -1,7 +1,7 @@
 <template>
     <view class="index-container" @touchend="handleTouchEnd">
         <!-- 瀑布流组件 -->
-        <WaterfallFlow :spots="spots" :showDeleteButton="false" />
+        <WaterfallFlow :spots="spots" :showDeleteButton="false" @tz="handleClick" />
 
         <!-- 悬浮按钮 -->
         <uni-fab :pattern="pattern" horizontal="right" vertical="bottom" direction="vertical"
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+// import WaterfallFlow from "@/components/WaterfallFlowwork.vue";
 import WaterfallFlow from "@/components/WaterfallFlowwork.vue";
 
 export default {
@@ -43,50 +44,70 @@ export default {
         }
     },
     methods: {
+        /**
+         * 处理点击事件
+         */
+        handleClick(item) {
+            uni.navigateTo({
+                url: `/userpages/publishWork/detail?workId=${item.workId}`,
+            });
+        },
 
         /**
          * 加载数据的方法
          */
         loadWorks() {
             this.loading = true;
-            console.log("加载作品数据");
             this.$store.dispatch("loadWorksFromCache")
             this.works = this.$store.state.works;
             const processedWorks = this.works.map(work => {
-                let totalViews = 0;
-                let totalLikes = 0;
+                // let totalViews = 0;
+                // let totalLikes = 0;
                 let firstMediaId = null;
                 let firstUrl = null;
                 let firstType = null;
                 let imageUrl = '';
                 let videoUrl = '';
+                let videoPath = '';
 
                 if (work.mediaList && Array.isArray(work.mediaList) && work.mediaList.length > 0) {
-                    totalViews = work.mediaList.reduce((sum, media) => sum + (media.views || 0), 0);
-                    totalLikes = work.mediaList.reduce((sum, media) => sum + (media.likes || 0), 0);
+                    // totalViews = work.mediaList.reduce((sum, media) => sum + (media.views || 0), 0);
+                    // totalLikes = work.mediaList.reduce((sum, media) => sum + (media.likes || 0), 0);
                     const firstMedia = work.mediaList[0];
                     firstMediaId = firstMedia.mediaId;
                     firstUrl = firstMedia.url;
                     firstType = firstMedia.type;
+                    videoPath = firstMedia.videoPath;
 
                     // 根据类型设置 imageUrl 或 videoUrl
                     if (firstType === 'image') {
                         imageUrl = firstUrl;
                     } else if (firstType === 'video') {
                         videoUrl = firstUrl;
+                        videoPath = videoPath;
+
                     }
                 }
 
+                // return {
+                //     ...work,
+                //     views: totalViews,
+                //     likes: totalLikes,
+                //     mediaId: firstMediaId,
+                //     url: firstUrl,
+                //     type: firstType,
+                //     imageUrl,
+                //     videoUrl
+                // };
                 return {
                     ...work,
-                    views: totalViews,
-                    likes: totalLikes,
                     mediaId: firstMediaId,
                     url: firstUrl,
                     type: firstType,
                     imageUrl,
-                    videoUrl
-                };
+                    videoUrl,
+                    videoPath
+                }
             });
 
             // 分页加载到瀑布流
@@ -106,7 +127,7 @@ export default {
 
             // 添加到瀑布流数组
             this.spots.push(...newSpots);
-
+            console.log(this.spots, '11111');
             // 判断是否还有更多数据
             if (end >= this.totalWorks) {
                 this.noMoreData = true;

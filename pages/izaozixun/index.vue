@@ -5,11 +5,12 @@
       <text class="zixun">资讯</text>
       <view class="bar-container">
         <view class="search-bar-container">
-          <my-icon type="location" size="30rpx" color="#333" />
-          <picker @change="bindPickerChange" :value="index" :range="array">
-            <view class="uni-input">{{ array[index] }}</view>
+          <picker id="custom-picker" @change="bindPickerChange" :value="index" :range="array">
+            <view class="custompicker"><my-icon type="location" size="30rpx" color="#333" />
+              <view class="uni-input">{{ array[index] }}</view>
+              <uni-icons type="down" size="30rpx"></uni-icons>
+            </view>
           </picker>
-          <uni-icons type="down" size="30rpx"></uni-icons>
         </view>
         <view class="search-bar" @click="onSearchConfirm()">
           <uni-search-bar placeholder="对等关税" clearButton="none" cancelButton="none" :readonly="true"></uni-search-bar>
@@ -27,11 +28,11 @@
       </swiper>
     </view> -->
     <view class="swiper-container">
-
       <swiper :autoplay="true" :interval="3000" :duration="1000" :circular="true" :current="currentIndex"
-        @change="onSwiperChange" class="custom-swiper">
+        @change="onSwiperChange" class="custom-swiper" @click="clickItem">
+
         <swiper-item v-for="(item, index) in banners" :key="index">
-          <image :src="item.image" class="banner-image"></image>
+          <image :src="item.image" class="banner-image" mode="aspectFill"></image>
           <text class="text">{{ item.text }}</text>
         </swiper-item>
       </swiper>
@@ -58,7 +59,6 @@
       <view class="hot-news-header">
         <text class="title">热门精选</text>
         <view class="refresh" @click="refreshHotNews()">
-
           <my-icon type="refresh" size="30rpx" color="#ADADAD"></my-icon>
 
           <text class="change"> 换一批</text>
@@ -92,7 +92,8 @@
       </view>
 
       <view class="wenlv-recommend">
-        <image :src="thumbnails[imgindex].currentImage" class="background-image" mode="aspectFill"></image>
+        <image :src="thumbnails[imgindex].currentImage" class="background-image" mode="aspectFill" @click="jumpinfo">
+        </image>
 
         <view class="description-container">
           <text class="description-text">{{
@@ -106,8 +107,10 @@
 
         <!-- 右侧缩略图列表 -->
         <view class="thumbnails-container">
-          <view v-for="(thumbnail, index) in thumbnails" :key="index" @click="changeImage(index)"
-            :class="['thumbnail-item', { 'thumbnail-item-selected': imgindex === index }]">
+          <view v-for="(thumbnail, index) in thumbnails" :key="index" @click="changeImage(index)" :class="[
+            'thumbnail-item',
+            { 'thumbnail-item-selected': imgindex === index },
+          ]">
             <image :src="thumbnail.currentImage" class="thumbnail-image"></image>
           </view>
         </view>
@@ -146,8 +149,6 @@
           <text v-if="item.duration" class="duration">{{
             formatDuration(item.duration)
           }}</text>
-
-
         </view>
       </view>
     </view>
@@ -202,6 +203,14 @@ export default {
     bindPickerChange(e) {
       this.index = e.detail.value;
     },
+    triggerPicker() { },
+    clickItem() {
+      const id = parseInt(this.currentIndex) + 1
+
+      uni.navigateTo({
+        url: `/izaozixunpages/message/info?id=${id}`,
+      });
+    },
     navigateTomessage() {
       uni.navigateTo({
         url: "/izaozixunpages/message/index",
@@ -235,6 +244,11 @@ export default {
     travelRefresh() {
       uni.navigateTo({
         url: "/izaozixunpages/travel/index",
+      });
+    },
+    jumpinfo() {
+      uni.navigateTo({
+        url: `/izaozixunpages/travel/info?id=${this.imgindex + 1}`,
       });
     },
     refreshHotNews() {
@@ -306,6 +320,14 @@ export default {
   }
 }
 
+.custompicker {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10rpx;
+  align-items: center;
+}
+
 // .swiper-container {
 //   // margin: 0rpx 0rpx 20rpx 0rpx;
 //   position: relative;
@@ -328,7 +350,6 @@ export default {
   position: relative;
   width: 100%;
   margin-bottom: 20rpx;
-
 }
 
 .custom-swiper {
@@ -336,12 +357,11 @@ export default {
   /* 根据你的实际高度调整 */
 }
 
-
-
 .banner-image {
-  width: 100%;
-  height: 100%;
+  width: 98%;
+  height: 95%;
   margin: 10rpx;
+  border-radius: 10rpx;
 }
 
 /* 自定义指示器样式 */
@@ -410,7 +430,6 @@ export default {
   gap: 30rpx;
   margin: 50rpx 0rpx 50rpx 0rpx;
   justify-content: flex-start;
-
 
   .shortcut-item {
     display: flex;
@@ -661,7 +680,7 @@ export default {
   border: 2rpx solid transparent;
   /* 默认没有边框 */
   border-radius: 20rpx;
-  transition: border-color .3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
 }
 
 .thumbnail-item-selected {
@@ -680,8 +699,6 @@ uni-notice-bar {
 ::v-deep .uni-searchbar {
   padding: 10px 0px 10px 10px !important;
 }
-
-
 
 ::v-deep .uni-stat__actived {
   padding-left: 6rpx;

@@ -36,6 +36,18 @@
           }
         },
         {
+          "path": "message/detail",
+          "style": {
+            "navigationBarTitleText": "消息详情"
+          }
+        },
+        {
+          "path": "message/info",
+          "style": {
+            "navigationBarTitleText": ""
+          }
+        },
+        {
           "path": "articleDetail/index",
           "style": {
             "navigationBarTitleText": ""
@@ -51,6 +63,12 @@
           "path": "travel/index",
           "style": {
             "navigationStyle": "custom"
+          }
+        },
+        {
+          "path": "travel/info",
+          "style": {
+            "navigationBarTitleText": ""
           }
         },
         {
@@ -72,6 +90,12 @@
         },
         {
           "path": "restaurantDetail/index",
+          "style": {
+            "navigationStyle": "custom"
+          }
+        },
+        {
+          "path": "restaurantDetail/jq",
           "style": {
             "navigationStyle": "custom"
           }

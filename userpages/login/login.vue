@@ -2,7 +2,7 @@
   <view class="login-page" :style="{ minHeight: pageHeight }">
     <!-- Logo 和 标题 -->
     <view class="logo-section">
-      <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/logo.png" mode="aspectFit"
+      <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/logo.svg" mode="aspectFit"
         class="logo"></image>
       <text class="app-name">i枣码智慧消费平台</text>
     </view>
@@ -139,9 +139,9 @@ export default {
 
           console.log("用户登录信息已保存：", userInfo);
           setTimeout(() => {
-            uni.switchTab({
-              url: "/pages/user/index",
-            });
+            uni.navigateBack({
+              delta: 1, // 返回上一页 
+            })
           }, 1000);
         }, 1500);
       } else {

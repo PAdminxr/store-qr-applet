@@ -63,7 +63,7 @@
                             <text v-else style="color: #adadad">休息中</text>
                             <span :style="{ color: restaurant.isOpen ? '#333333' : '#adadad' }">{{
                                 restaurant.businessHours
-                            }}</span>
+                                }}</span>
                         </view>
                         <view class="restaurant-distance">{{ restaurant.distance }}</view>
                     </view>
@@ -104,7 +104,7 @@ export default {
             this.currentTab = tab;
             this.isCategoriesExpanded = false;
             if (tab === "推荐") {
-                this.restaurants = mockDATA.hotelInfo;
+                this.restaurants = mockDATA.travelInfo;
                 return;
             }
             this.restaurants = []

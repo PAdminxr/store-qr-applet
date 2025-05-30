@@ -5,8 +5,9 @@
             <!-- 左列 -->
             <view class="column left-column">
                 <block v-for="(item, index) in leftList" :key="index">
+
                     <CardItem :item="item" :showDeleteButton="showDeleteButton" :showViews="showViews"
-                        @views="handleSetViews" :tz="true" />
+                        @views="handleSetViews" :tz="true" @tz="handleTz" />
                 </block>
             </view>
 
@@ -14,7 +15,7 @@
             <view class="column right-column">
                 <block v-for="(item, index2) in rightList" :key="index2">
                     <CardItem :item="item" :showDeleteButton="showDeleteButton" :showViews="showViews"
-                        @views="handleSetViews" :tz="true" />
+                        @views="handleSetViews" :tz="true" @tz="handleTz" />
                 </block>
             </view>
         </view>
@@ -28,7 +29,7 @@
 
 <script>
 
-import CardItem from "./CardItem.vue";
+import CardItem from "@/components/CardItem.vue";
 
 export default {
     components: {
@@ -63,7 +64,11 @@ export default {
             return this.spots.filter((_, index) => index % 2 === 1);
         },
     },
+
     methods: {
+        handleTz(item) {
+            this.$emit('tz', item);
+        },
         jumtoDetail(item) {
             console.log(item);
             uni.navigateTo({

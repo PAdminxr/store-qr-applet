@@ -17,12 +17,32 @@ export default {
             parentId: 4,
             workId: 1,
             mediaId: 5,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
+
         },
         {
 
             imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel1.png",
+            videoPath: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel1.png",
             videoUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video4.mp4",
             type: "video",
             views: 5678,
@@ -35,8 +55,26 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 1,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
         {
             imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel4.png",
@@ -52,8 +90,26 @@ export default {
             parentId: 3,
             workId: 1,
             mediaId: 4,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
 
         {
@@ -70,8 +126,43 @@ export default {
             parentId: 6,
             workId: 1,
             mediaId: 2,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
         {
             imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel3.png",
@@ -87,8 +178,26 @@ export default {
             parentId: 2,
             workId: 1,
             mediaId: 3,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
 
         {
@@ -105,8 +214,26 @@ export default {
             parentId: 5,
             workId: 1,
             mediaId: 6,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
         {
             imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel6.png",
@@ -121,9 +248,27 @@ export default {
             isLiked: false,
             parentId: 5,
             typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
             workId: 1,
             mediaId: 7,
-            timestamp: "2023-08-18 10:30:00",
+            timestamp: "2023-08-18 10:30",
 
         },
 
@@ -142,7 +287,24 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 9,
-            timestamp: "2023-08-18 10:30:00",
+            timestamp: "2023-08-18 10:30",
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
             typeof: 'topic'
         },
         {
@@ -160,7 +322,24 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 10,
-            timestamp: "2023-08-18 10:30:00",
+            timestamp: "2023-08-18 10:30",
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
             typeof: 'topic'
         },
         {
@@ -178,8 +357,25 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 11,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ]
         },
 
         {
@@ -196,8 +392,25 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 25,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
         },
         {
             imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel4.png",
@@ -213,8 +426,25 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 24,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
         },
 
         {
@@ -231,8 +461,26 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 22,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
         {
             imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel3.png",
@@ -248,8 +496,26 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 23,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
 
         {
@@ -265,15 +531,34 @@ export default {
             isLiked: false,
             parentId: 1,
             typeof: 'scenic',
+
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
             workId: 1,
             mediaId: 27,
-            timestamp: "2023-08-18 10:30:00",
+            timestamp: "2023-08-18 10:30",
 
         },
         {
 
 
             imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel1.png",
+            videoPath: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel1.png",
             videoUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/video4.mp4",
             type: "video",
             views: 5678,
@@ -286,8 +571,26 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 28,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
         {
 
@@ -304,8 +607,26 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 29,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
         {
 
@@ -322,8 +643,26 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 30,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
         {
 
@@ -340,8 +679,26 @@ export default {
             parentId: 1,
             workId: 1,
             mediaId: 31,
-            timestamp: "2023-08-18 10:30:00",
-            typeof: 'scenic'
+            timestamp: "2023-08-18 10:30",
+            typeof: 'scenic',
+            comments: 2,
+            commentList: [
+                {
+                    id: 1,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava1.png',
+                    author: '阿花',
+                    text: '这里有最清新的空气、最质朴的民风',
+                    time: '2025-05-09 13:29 '
+                },
+                {
+                    id: 2,
+                    avatar: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/ava2.png',
+                    author: '我们爱旅游',
+                    text: '放下手机，走出城市，来一场说走就走的旅行吧！',
+                    time: '2025-05-19 13:29'
+                }
+            ],
+
         },
 
     ],
@@ -383,8 +740,15 @@ export default {
         },
     ],
     banners: [
-        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次' },
-        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/banner.png", text: '首艘国产大型邮轮“爱达·魔都号”开启航次2' },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/banner.jpg", text: '首艘国产大型邮轮“爱达·魔都号”开启航次' },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/banner1.jpg", text: '一起感受枣庄的魅力吧！' },
+    ],
+    jqbanners: [
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/旅游攻略.jpg", isLiked: false, text: '旅游攻略' },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/纪念园攻略.jpeg", isLiked: false, text: '纪念园攻略' },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/特色游记.png", isLiked: false, text: '特色游记' },
+        { image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/VR导览.jpg", isLiked: false, text: 'VR导览' },
+
     ],
     shortcutItems: [
         {
@@ -513,6 +877,67 @@ export default {
                 }
             ]
         },
+    ],
+    videoNews2: [
+        {
+            id: 1,
+            article: {
+                title: "首艘国产大型邮轮“爱达·魔都号”开启航次",
+                date: "2025-05-30",
+                views: 1234,
+                likes: 56,
+                isLiked: false,
+                isFavorite: false,
+                imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/banner.jpg",
+                content: `
+              <p>中国首艘国产大型邮轮“爱达·魔都号”于2025年5月30日正式开启了它的首次航次。</p>
+    <p>“爱达·魔都号”是完全由中国自主设计建造的第一艘大型豪华邮轮，标志着中国在高端船舶制造领域取得了重要突破。</p>
+
+    <p>这艘邮轮全长约323米，宽37米，拥有超过2000间客房，可容纳近5000名乘客。船上设有多个餐厅、娱乐设施、剧院及购物区，为游客提供全方位的服务体验。</p>
+    <p>此次航次不仅是中国造船业的一大里程碑，也为国内外游客提供了全新的海上旅游选择。</p>`,
+                comments: 0,
+            },
+            commentList: []
+        },
+        {
+            id: 2,
+            article: {
+                title: "一起感受枣庄的魅力吧！",
+                date: "2025-05-29",
+                views: 567,
+                likes: 23,
+                isLiked: false,
+                isFavorite: false,
+                imageUrl: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/banner1.jpg",
+                content: `
+  <p>枣庄，一座承载着厚重历史与现代活力的城市，位于山东省南部。</p>
+  
+  <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel15.png" style="width:100%; margin:20rpx 0; border-radius: 5px;" alt="枣庄风光"/>
+  
+  <p>这里不仅有着悠久的历史文化，还有着丰富的自然资源和独特的美食文化。</p>
+  
+  <h3>台儿庄古城</h3>
+  <p>台儿庄古城是枣庄最著名的景点之一，这座拥有千年历史的古城，见证了无数的历史变迁。走在古老的石板路上，仿佛穿越时空，回到了那个战火纷飞却又充满生机的时代。</p>
+  
+  <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel3.png" style="width:100%; margin:20rpx 0; border-radius: 5px;" alt="台儿庄古城"/>
+  
+  <h3>微山湖</h3>
+  <p>微山湖是中国北方最大的淡水湖，湖水清澈见底，四周环绕着青山绿水。在这里，你可以乘船游览，体验渔民的生活，品尝新鲜捕捞的湖鲜。</p>
+  
+  <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel1.png" style="width:100%; margin:20rpx 0; border-radius: 5px;" alt="微山湖"/>
+  
+  <h3>枣庄美食</h3>
+  <p>来到枣庄，不可错过的还有当地的特色美食。比如辣子鸡、羊肉汤等，每一道菜都充满了地方特色，让人回味无穷。</p>
+  
+  <p>今天，让我们一起踏上旅程，走进枣庄的大好河山，感受这片土地上的温度与情感，体验传统与现代交织的独特韵味。</p>
+
+  <p>一起感受枣庄的魅力吧~✨</p>
+`,
+                comments: 0,
+            },
+            commentList: []
+        }
+
     ],
     videoNews: [
         {
@@ -667,7 +1092,22 @@ export default {
         "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/sjimg.png",
         "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/sjimg.png",
     ],
-
+    jqreviews: [
+        {
+            avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/头像1.png",
+            userName: "用户OIKL7270",
+            date: "2025/03/17",
+            rating: 5,
+            content: "一步一景，每一处都像一幅精心绘制的山水画卷，沿着河边漫步，身心都被这自然美景治愈了！！！",
+            pics: [
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel15.png",
+                "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/travel5.png",
+            ],
+            showFullContent: true,
+            ishow: true,
+            isExpanded: false,
+        }
+    ],
     reviews: [
         {
             avatar: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/c1.png",
@@ -850,7 +1290,7 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct1.png",
             name: "台儿庄运河鱼馆枣庄辣子鸡",
-            score: 89,
+            score: 98,
             isOpen: true,
             businessHours: "09:00-22:00",
             distance: "105m",
@@ -860,9 +1300,11 @@ export default {
             distanceOwner: "距您直线距离约2.6km",
             recommendation: `
   <p>枣庄，辣子鸡的故乡！</p>
+  <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tc2.jpg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0;" />
+
   <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
   
-  <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover;" />
+  <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tc1.jpeg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0;" />
   
   <p>图片上这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
 `,
@@ -875,10 +1317,10 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct2.png",
             name: "花家地艺术餐厅",
-            score: 80,
+            score: 97,
             isOpen: false,
             businessHours: "17:00-03:00",
-            distance: "66m",
+            distance: "166m",
             address: "台儿庄区东顺南路古城东门对面",
             tags: ["美食", "小吃快餐", "地方菜系"],
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
@@ -888,7 +1330,7 @@ export default {
           <p>枣庄，辣子鸡的故乡！</p>
           <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
        
-          <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover;" />
+          <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0;" />
    <p>图片上这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
             top: '02'
@@ -898,10 +1340,10 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct3.png",
             name: "运河鱼馆（古城店）",
-            score: 77,
+            score: 96,
             isOpen: true,
             businessHours: "09:00-22:00",
-            distance: "1.2km",
+            distance: "235m",
             address: "台儿庄区东顺南路古城东门对面",
             tags: ["美食", "食品生鲜", "地方菜系"],
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
@@ -911,7 +1353,7 @@ export default {
           <p>枣庄，辣子鸡的故乡！</p>
           <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
        
-          <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover;" />
+          <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0;" />
   <p>图片上这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
             top: '03'
@@ -921,7 +1363,7 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/ct4.png",
             name: "小火柴大鱼头·铁锅炖·鲁菜",
-            score: 98,
+            score: 95,
             isOpen: true,
             businessHours: "09:00-22:00",
             distance: "320m",
@@ -933,7 +1375,7 @@ export default {
             recommendation: `
           <p>枣庄，辣子鸡的故乡！</p>
           <p>我们是枣庄首家门店，一家酒香不怕巷子深的辣子鸡馆子，位置在一个隐蔽的小山坡上，走地小公鸡是店家在自家园子里散养的，现做现杀的小公鸡真的好好吃！李大厨的辣子鸡拌面真的是份大又好吃了！</p>
-        <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover;" />
+        <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/swfood1.png" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0;" />
     <p>图片上这份菜的大小相比有点儿“渺小”了...另外面条超级劲道！鸡肉也超级入味儿！如果不能吃辣的，可以让他做微微辣，不辣星人绝对可以接受的辣度。土豆，鸡块，宽面条每一项都超好吃哒，欢迎大家过来品鉴！</p>
           `,
             top: '04'
@@ -945,7 +1387,7 @@ export default {
             image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel1.png",
             location: "近台儿庄古城",
             name: "北方世纪酒店",
-            score: 80,
+            score: 98,
             isOpen: false,
             businessHours: "17:00-03:00",
             distance: "66m",
@@ -956,9 +1398,11 @@ export default {
             recommendation: `
             <p> 这是一家非常新的，进去以后发现最新版本的酒店也太棒了。 </p>
             <p> 早餐也好吃，这碗面没得说</p>
+              <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tjd2.jpg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
+
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tjd1.jpg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
 
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
@@ -968,10 +1412,10 @@ export default {
             image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel2.png",
             location: "近抱犊崮",
             name: "黑龙江宾馆",
-            score: 80,
+            score: 95,
             isOpen: false,
             businessHours: "17:00-03:00",
-            distance: "66m",
+            distance: "166m",
             address: "台儿庄区东顺南路古城东门对面",
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
             distanceOwner: "距您直线距离约0.6km",
@@ -981,7 +1425,7 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel2.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tjd1.jpg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
 
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
@@ -991,10 +1435,10 @@ export default {
             image: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel3.png",
             location: "近台儿庄古城",
             name: "状元楼客栈",
-            score: 80,
+            score: 92,
             isOpen: false,
             businessHours: "17:00-03:00",
-            distance: "66m",
+            distance: "266m",
             address: "台儿庄区东顺南路古城东门对面",
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
             distanceOwner: "距您直线距离约0.6km",
@@ -1004,7 +1448,7 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/hotel3.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tjd1.jpg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
 
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
@@ -1014,10 +1458,10 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms1.png",
             name: "滕州滨江国际大酒店",
-            score: 89,
+            score: 90,
             isOpen: true,
             businessHours: "09:00-22:00",
-            distance: "105m",
+            distance: "305m",
             address: "台儿庄古城附近",
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
             distanceOwner: "距您直线距离约0.6km",
@@ -1027,7 +1471,7 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-            <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+            <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tjd1.jpg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
@@ -1036,10 +1480,10 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms2.png",
             name: "布丁连锁酒店",
-            score: 80,
+            score: 89,
             isOpen: false,
             businessHours: "17:00-03:00",
-            distance: "66m",
+            distance: "466m",
             address: "台儿庄区东顺南路古城东门对面",
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
             distanceOwner: "距您直线距离约0.6km",
@@ -1049,7 +1493,7 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-            <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms2.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+            <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tjd1.jpg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
         },
@@ -1058,7 +1502,7 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms3.png",
             name: "那片海文艺酒店",
-            score: 77,
+            score: 85,
             isOpen: true,
             businessHours: "09:00-22:00",
             distance: "1.2km",
@@ -1071,7 +1515,7 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms3.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tjd1.jpg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
 
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
@@ -1081,10 +1525,10 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms4.png",
             name: "舜和枣庄大酒店",
-            score: 98,
+            score: 78,
             isOpen: true,
             businessHours: "09:00-22:00",
-            distance: "320m",
+            distance: "1.6km",
             address: "台儿庄区东顺南路古城东门对面",
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
             distanceOwner: "距您直线距离约0.6km",
@@ -1094,7 +1538,7 @@ export default {
             <p> 早餐也好吃，这碗面没得说</p>
             <p> 房间也很适合年轻人，tcl大电视还可以投屏</p>
             <p> 还有洗衣房，茶水吧，咖啡机，还可以寄存行李</p>
-             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms4.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tjd1.jpg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
 
             <p> 一百块出头你会选择吗？</p>
             <p> 欢迎各大看官来本店入住！</p>`
@@ -1104,10 +1548,10 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jdms5.png",
             name: "艺龙米高时尚酒店",
-            score: 98,
+            score: 78,
             isOpen: true,
             businessHours: "09:00-22:00",
-            distance: "320m",
+            distance: "2.2km",
             address: "台儿庄区东顺南路古城东门对面",
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
             distanceOwner: "距您直线距离约0.6km",
@@ -1127,7 +1571,7 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jq1.png",
             name: "台儿庄古城",
-            score: 89,
+            score: 98,
             isOpen: true,
             businessHours: "09:00-22:00",
             distance: "105m",
@@ -1138,20 +1582,22 @@ export default {
             recommendation: `
                <p>  台儿庄古城，位于山东省枣庄市台儿庄区，是一处具有深厚历史文化底蕴的旅游景区。这座古城的历史可以追溯到秦汉时期，
                         经历了唐宋时期的发展，至明清时期达到繁荣。古城以其独特的历史文化价值和美丽的自然风光而闻名。</p>
+                                 <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tj1.jpeg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
+
           <p>   一步一景：古城内的建筑、街道、桥梁都充满了古朴的气息，仿佛穿越回了古代。</p>
             <p> 夜景璀璨：夜晚的古城更是美轮美奂，灯火阑珊，如梦如幻。</p>
-             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jq1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
-`
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/tj2.jpeg" style="display:block; width:100%;height:auto;border-radius: 10px;object-fit: cover; margin:10px 0; />
+    `
         },
         {
             id: 11,
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jq2.png",
             name: "铁道游击队纪念园",
-            score: 80,
+            score: 94,
             isOpen: false,
             businessHours: "17:00-03:00",
-            distance: "66m",
+            distance: "166m",
             address: "台儿庄区东顺南路古城东门对面",
             addressOwner: "山东省枣庄市台儿庄区运河街道运河北岸路与兴中路交叉口东北500米",
             distanceOwner: "距您直线距离约0.6km",
@@ -1167,7 +1613,7 @@ export default {
             image:
                 "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jq3.png",
             name: "铁道游击队纪念园",
-            score: 77,
+            score: 91,
             isOpen: true,
             businessHours: "09:00-22:00",
             distance: "1.2km",
@@ -1190,7 +1636,8 @@ export default {
             description: '关于本周末信息系统将暂停服务的通知',
             time: '1小时前',
             tag: true,
-            value: 6
+            value: 6,
+            id: 1
         },
         {
             icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-2.png',
@@ -1198,38 +1645,45 @@ export default {
             description: '邀请好友，享4重好礼！',
             time: '2小时前',
             tag: false,
-            value: 100000
+            value: 100000,
+            id: 2
         },
         {
-            icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-1.png',
+            icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-6.png',
             title: '云南过桥米线',
             description: '亲爱的顾客，本店菜品上新，诚意邀请您再次光临本店品尝',
             time: '05-18 13:00',
             tag: false,
             value: 1
+            ,
+            id: 3
         }
     ],
     systemAnnouncements: [
         {
             icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-3.png',
-            title: '升级公告',
-            description: '系统已完成新版本迭代！修复已知问题，新增新增',
+            title: '公告',
+            description: '尊敬的用户，您好！我们平台于近期进行了系统优化升级，',
             time: '昨天17:00',
-            tag: false
+            tag: false,
+
+            id: 4
         },
         {
             icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-3.png',
-            title: '升级公告',
-            description: '系统已完成新版本迭代！修复已知问题，新增新增',
-            time: '昨天17:00',
-            tag: false
+            title: '公告',
+            description: '为了进一步提升平台稳定性，我们计划于北京时间',
+            time: '前天17:00',
+            tag: false,
+            id: 5
         },
         {
             icon: 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-3.png',
-            title: '升级公告',
-            description: '系统已完成新版本迭代！修复已知问题，新增新增',
-            time: '昨天17:00',
-            tag: false
+            title: '公告',
+            description: '检测到您的账号在新设备上登录，请确认是否本人操作',
+            time: '05-26',
+            tag: false,
+            id: 6
         }
     ],
     functionList: [
@@ -1306,7 +1760,7 @@ export default {
             expireTime: new Date().getTime() + 24 * 60 * 60 * 1000,
             expireTimes: true,
             id: 56,
-            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png",
+            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.svg",
             title: "优惠券~",
             minAmount: 30,
             isTodayExpired: true,
@@ -1322,7 +1776,7 @@ export default {
             expireTime: "限时发放啦~",
             id: 57,
             expireTimes: false,
-            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png",
+            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.svg",
             title: "限时发放",
             minAmount: 30,
             isTodayExpired: true,
@@ -1431,4 +1885,27 @@ export default {
             key: "redEnvelopeCount",
         },
     ],
+    messages: [
+        {
+            id: 1,
+            title: '系统通知一',
+            time: '2025-05-28T10:30:00Z',
+            content: '您有一条新的系统通知，请注意查收。',
+            read: false
+        },
+        {
+            id: 2,
+            title: '订单更新提醒',
+            time: '2025-05-27T15:45:00Z',
+            content: '您的订单状态已更新为“发货中”。',
+            read: true
+        },
+        {
+            id: 3,
+            title: '账户安全提醒',
+            time: '2025-05-26T09:15:00Z',
+            content: '检测到您的账号在新设备上登录，请确认是否本人操作。',
+            read: false
+        }
+    ]
 };

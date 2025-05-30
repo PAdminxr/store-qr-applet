@@ -21,14 +21,13 @@
 
                     <!-- 图片或视频 -->
                     <view class="images-wrapper" v-if="item.media && item.media.length > 0">
-                        <view v-for="(img, imgIndex) in item.media" :key="imgIndex">
-                            <image class="review-img" :src="img.src" mode="aspectFill" v-if="!img.isVideo" />
+                        <view v-for="(img, imgIndex) in item.media" :key="imgIndex" style="position: relative;">
+                            <image class="review-img" :src="img.isVideo ? img.videoPath : img.src" mode="aspectFill" />
 
-                            <view v-else class="video-cover">
-                                <image class="cover-image"
-                                    src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/video.png"
-                                    mode="aspectFill" />
-                            </view>
+                            <image v-if="img.isVideo"
+                                src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-bofang.png"
+                                class="play"></image>
+
                         </view>
                     </view>
 
@@ -224,6 +223,15 @@ export default {
     height: 170rpx;
     margin-right: 10rpx;
     border-radius: 10rpx;
+}
+
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .video-cover {

@@ -96,7 +96,7 @@
 			</view>
 			<view class="list">
 				<!-- 左侧大图 -->
-				<view class="big-item" v-for="(item, index2) in scenicBigList" :key="index2">
+				<view class="big-item" v-for="(item, index2) in scenicBigList" :key="index2" @click="jt(0)">
 					<div class="overlay-text">{{ item.name }}</div>
 					<image class="big-image" :src="item.image"></image>
 					<div class="desc">{{ item.desc }}</div>
@@ -106,14 +106,15 @@
 				<view class="right-side">
 					<!-- 第一行：一个大图 -->
 					<view class="small-item first-small" v-for="(item, index3) in scenicSmallList.slice(0, 1)"
-						:key="index3">
+						:key="index3" @click="jt(1)">
 						<div class="overlay-text" style="font-size: 38rpx;">{{ item.name }}</div>
 						<image class="first-image" :src="item.image"></image>
 					</view>
 
 					<!-- 第二行：两个小图 -->
 					<view class="second-row">
-						<view class="small-item" v-for="(item, index4) in scenicSmallList.slice(1, 3)" :key="index4">
+						<view class="small-item" v-for="(item, index4) in scenicSmallList.slice(1, 3)" :key="index4"
+							@click="jt(index4 + 2)">
 							<div class="overlay-text">{{ item.name }}</div>
 							<image class="second-image" :src="item.image"></image>
 						</view>
@@ -161,7 +162,7 @@
 			<view class="popup-content">
 				<text class="title">领取成功</text>
 				<view>
-					<image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png"
+					<image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.svg"
 						class="red-envelope"></image>
 				</view>
 				<view class="description">
@@ -315,6 +316,11 @@ export default {
 		navigateTohotel(item) {
 			uni.navigateTo({
 				url: `/izaolifepages/restaurantDetail/index?id=${item.id}&type=${3}`,
+			});
+		},
+		jt(index) {
+			uni.navigateTo({
+				url: `/izaolifepages/restaurantDetail/jq?id=${index}`,
 			});
 		},
 		navigateTofood(food) {

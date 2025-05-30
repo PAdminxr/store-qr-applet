@@ -46,6 +46,11 @@ export default {
             isLogin: false,
         };
     },
+    computed: {
+        introductionDisplay() {
+
+        }
+    },
     onShow() {
         this.isLogin = uni.getStorageSync('isLogin');
         if (this.isLogin) {
@@ -85,6 +90,15 @@ export default {
     },
 
     methods: {
+        fielname(text) {
+            const intro = text || '';
+            if (text.length > 8) {
+                return intro.slice(0, 5) + '...';
+            }
+            return intro;
+        },
+
+
         getUserInfo() {
             return this.$store.getters.getUserInfo || {};
         },
@@ -153,8 +167,8 @@ export default {
 }
 
 .avatar {
-    width: 60rpx;
-    height: 60rpx;
+    width: 80rpx;
+    height: 80rpx;
     border-radius: 50%;
     margin-left: auto;
 }
@@ -235,5 +249,21 @@ export default {
 ::v-deep .uni-list-item__content-title {
     font-size: 24rpx;
     color: #999;
+}
+
+::v-deep .container--right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::v-deep .uni-list-item__content-title {
+    font-size: 28rpx;
+    color: #999;
+}
+
+::v-deep .uni-list-item__extra {
+
+    max-width: 200px;
 }
 </style>

@@ -85,7 +85,8 @@
                             </view> -->
                             <view v-for="(img, imgIndex) in item.media" :key="imgIndex">
                                 <EnhancedMediaItem :mediaSrc="img.src" :isVideo="img.isVideo" :index="imgIndex"
-                                    :width="width" :height="height" :margin="margin" :showStyle='true' />
+                                    :width="width" :height="height" :margin="margin" :showStyle='true'
+                                    :videoPath="img.videoPath" :play="true" />
                             </view>
                         </view>
                     </view>

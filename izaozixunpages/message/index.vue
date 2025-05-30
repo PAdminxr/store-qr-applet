@@ -16,7 +16,8 @@
         <!-- 消息列表 -->
         <scroll-view scroll-y="true" class="message-list">
             <block v-if="currentTab === 0">
-                <view class="message-item" v-for="(item, index) in siteMessages" :key="index">
+                <view class="message-item" v-for="(item, index) in siteMessages" :key="index"
+                    @click="handleClick(item)">
                     <view>
                         <image class="icon-placeholder" :src="item.icon" mode="aspectFill"></image>
                         <uni-badge v-if="item.value > 100" class="uni-badge-left-margin" :text="item.value"
@@ -43,7 +44,8 @@
                 </view>
             </block>
             <block v-else>
-                <view class="message-item" v-for="(item, index) in systemAnnouncements" :key="index">
+                <view class="message-item" v-for="(item, index) in systemAnnouncements" :key="index"
+                    @click="handleClick(item)">
                     <view>
                         <image class="icon-placeholder" :src="item.icon" mode="aspectFill"></image>
 
@@ -86,6 +88,25 @@ export default {
         switchTab(tab) {
             this.currentTab = tab;
         },
+        handleClick(item) {
+            //根据id修改mockdtad的value 
+            if (this.currentTab === 0) {
+                const index = this.siteMessages.findIndex(message => message.id === item.id);
+                if (index !== -1) {
+                    this.siteMessages[index].value -= 1;
+                }
+            }
+            else {
+                const index = this.systemAnnouncements.findIndex(message => message.id === item.id);
+                if (index !== -1) {
+                    this.systemAnnouncements[index].value -= 1
+                }
+            }
+            uni.navigateTo({
+                url: `/izaozixunpages/message/detail?id=${item.id}`
+            });
+
+        }
     }
 };
 </script>

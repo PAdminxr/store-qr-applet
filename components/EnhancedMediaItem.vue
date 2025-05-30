@@ -1,14 +1,29 @@
 <template>
     <view class="media-item" :style="{ width: itemWidth, height: itemHeight, margin: margin }">
         <!-- 媒体内容 -->
-        <view class="media-wrapper" @click.stop="handleClick(mediaSrc, videoSrc, isVideo)">
+        <view class="media-wrapper" @click.stop="handleClick(mediaSrc, videoPath, isVideo)">
             <!-- <video v-if="isVideo" :src="mediaSrc" class="media-content" controls="false" disable-playback="true"
-                style="pointer-events: none;" // 禁止视频元素响应点击事件></video> -->
+                style="pointer-events: none;"></video> -->
             <!-- <view v-if="isVideo" :class="!showStyle ? 'video-cover' : 'video-cover radius'">
                 <image class="cover-image" :src="mediaSrc" mode="aspectFill" />
             </view> -->
-            <image :src="mediaSrc" mode="aspectFill" :class="!showStyle ? 'media-content' : 'media-content radius'">
-            </image>
+
+            <!-- 单一的媒体内容展示区域 -->
+            <view class="media-content">
+                <image :src="isVideo ? videoPath : mediaSrc" mode="aspectFill"
+                    :class="!showStyle ? 'media-content' : 'media-content radius'"></image>
+
+                <!-- 如果是视频并且需要显示删除按钮，则添加播放图标 -->
+                <view v-if="isVideo && showDeleteButton" class="play-icon-container">
+                    <image
+                        src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-bofang.png"
+                        class="play"></image>
+                </view>
+
+                <image v-if="play"
+                    src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-bofang.png"
+                    class="play"></image>
+            </view>
 
         </view>
 
@@ -31,6 +46,10 @@ export default {
             type: String,
             required: false
         },
+        play: {
+            type: Boolean,
+            default: false
+        },
         margin: {
             type: String,
             default: '0rpx'
@@ -38,6 +57,10 @@ export default {
         mediaSrc: {
             type: String,
             required: true
+        },
+        videoPath: {
+            type: String,
+            required: false
         },
         videoSrc: {
             type: String,
@@ -83,9 +106,8 @@ export default {
     methods: {
         handleClick(src, videoSrc, isVideo) {
             if (this.tz) {
-                uni.navigateTo({
-                    url: `/userpages/publishWork/detail?workId=${this.workId}`,
-                });
+
+                this.$emit('tz');
                 return;
             }
             this.$emit('setViews');
@@ -139,7 +161,17 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
+}
+
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .radius {

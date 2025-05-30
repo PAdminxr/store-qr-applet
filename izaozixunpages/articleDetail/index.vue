@@ -1,5 +1,5 @@
 <template>
-    <view class="article-container">
+    <view class="article-container" id="container">
         <view class="article-detail">
             <!-- 标题和副标题 -->
             <view class="article-header">
@@ -18,8 +18,8 @@
             <view class="article-content">
                 <rich-text :nodes="article.content" class="rich-text"></rich-text>
                 <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/nhotdetial2.png"
-                    mode="widthFix"></image>
-                <p>
+                    mode="widthFix" class="article-image"></image>
+                <p style="line-height: 70rpx;">
                     据不完全统计，从4月7日盘后截至8日9点30，已有75家公司发布了回购公告，20家公司发布了增持公告。初步统计投入资金总额超百亿元。根据专家统计，本轮有一半以上的上市公司回购增持行动使用了央行结构性货币政策工具，充分发挥了专项政策工具精准滴灌、高效实施的作用。
                 </p>
                 <view class="author">
@@ -38,7 +38,7 @@
                     <view class="comment-item">
                         <image :src="comment.avatar" class="avatar"></image>
                         <view class="comment-info">
-                            <label class="comment-author">{{ comment.author }}</label>
+                            <label class="comment-author">{{ fielname(comment.author) }}</label>
                             <text class="comment-text">{{ comment.text }}</text>
                             <text class="comment-time">{{ formattedTime(comment.time) }}</text>
                         </view>
@@ -49,9 +49,10 @@
 
         <!-- 底部互动区 -->
         <view class="footer">
-            <view class="comment-input-container">
+            <view class="comment-input-container" id="bottom">
                 <!-- 输入框 -->
-                <input class="comment-input" placeholder="我来说两句..." v-model="commentText" @confirm="submitComment" />
+                <input class="comment-input" placeholder="我来说两句..." v-model="commentText" @confirm="submitComment"
+                    @blur="onblur" id="commentInput" :auto-focus="isInputFocused" @focus="onInputFocus" />
 
                 <!-- 互动图标 -->
                 <view class="interaction">
@@ -95,6 +96,7 @@ export default {
             article: {},
             comments: [],
             isLogin: false,
+            isInputFocused: false,
         };
     },
     onLoad(options) {
@@ -104,8 +106,8 @@ export default {
         }
     },
     mounted() {
-        const isLogin = this.$store.getters.getIsLogin || false;
-        this.isLogin = isLogin;
+        this.isLogin = uni.getStorageSync('isLogin');
+
         uni.showShareMenu({
             withSubtree: true,
             menus: ["shareAppMessage", "shareTimeline"],
@@ -117,6 +119,38 @@ export default {
     },
 
     methods: {
+        fielname(text) {
+            const intro = text || '';
+            if (text.length > 8) {
+                return intro.slice(0, 5) + '...';
+            }
+            return intro;
+        },
+        onInputFocus() {
+            setTimeout(() => {
+                this.scrollToBottom();
+            }, 300); // 等待键盘弹出后再滚动
+        },
+        onblur() {
+            this.isInputFocused = false;
+        },
+        scrollToBottom() {
+            uni.createSelectorQuery()
+                .select('#container')
+                .boundingClientRect(res => {
+                    if (res) {
+                        uni.pageScrollTo({
+                            scrollTop: res.height,
+                            duration: 300
+                        });
+
+                        setTimeout(() => {
+                            this.isInputFocused = true; // Vue响应式驱动自动聚焦
+                        }, 350);
+                    }
+                }).exec();
+
+        },
         isFavoriteInCache() {
             let id = this.articleId;
             let favoriteList = this.$store.getters.getFavorites
@@ -180,7 +214,7 @@ export default {
                 if (articleUpdate) {
                     articleUpdate.comments.unshift({
                         id: Math.floor(Math.random() * 999) + 1,
-                        author: "用户" + Math.floor(Math.random() * 999) + 1,
+                        author: this.$store.state.userLoginInfo?.nickName || "用户" + Math.floor(Math.random() * 999) + 1,
                         text: this.commentText,
                         time: new Date().toISOString(),
                         avatar: this.$store.state.userLoginInfo?.avatarSrc || 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png',
@@ -265,13 +299,16 @@ export default {
     },
 };
 </script>
+
+
+
 <style scoped lang="scss">
 .article-container {
     background-color: #fff;
 }
 
 .article-detail {
-    padding: 40rpx;
+    padding: 0 40rpx;
 
 
 
@@ -315,16 +352,16 @@ export default {
 }
 
 .gary {
-    width: 1904px !important;
-    height: 10rpx;
+    width: 100%;
+    height: 10rpx; // 小程序推荐使用 rpx
     background-color: #eeeeee;
-    margin-left: -500px;
+    margin: 30rpx 0;
 }
 
 .comments-section {
-    border-top: 1px solid #eee;
+    // border-top: 1px solid #eee;
 
-    padding: 60rpx 40rpx;
+    padding: 0rpx 40rpx 60rpx 40rpx;
 
     .comment {
         padding-bottom: 50rpx;
@@ -395,7 +432,7 @@ export default {
 
 .comment-input {
     width: 30%;
-    height: 42rpx;
+    height: 60rpx;
     font-size: 22rpx;
     border-radius: 15px;
     padding: 0 20rpx;

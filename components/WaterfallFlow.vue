@@ -62,6 +62,7 @@ export default {
             return this.spots.filter((_, index) => index % 2 === 1);
         },
     },
+
     methods: {
         handleSetViews(updated) {
             // 更新本地数据

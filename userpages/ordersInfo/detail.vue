@@ -143,6 +143,8 @@ export default {
     color: #666;
     font-weight: 400;
     flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .content {
@@ -150,7 +152,7 @@ export default {
     font-weight: 500;
     word-break: break-all;
     white-space: normal;
-    padding-left: 20rpx;
+    padding-left: 60rpx;
     text-align: left;
 }
 

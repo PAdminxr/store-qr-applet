@@ -15,7 +15,7 @@
                     <view v-for="(item, index) in mediaItems" :key="index">
                         <EnhancedMediaItem :mediaSrc="item.src" :isVideo="item.isVideo" :index="index"
                             :showDeleteButton="true" :width="width" :height="height" @remove="handleRemove"
-                            :showStyle="true" :margin="margin" />
+                            :showStyle="true" :margin="margin" :videoPath="item.videoPath" />
                     </view>
                     <!-- 当没有媒体项时显示的上传图标 -->
                     <view v-if="mediaItems.length < maxMediaItems" class="add-media-btn" @click="chooseFile">
@@ -23,7 +23,7 @@
                     </view>
                     <text class="upload-subtip">（建议比例1:1 , 大小不超过10M，最多选择{{
                         maxMediaItems
-                    }}条数据）</text>
+                        }}条数据）</text>
                 </view>
                 <view v-else class="upload-wrapper" @click="chooseFile">
                     <uni-icons type="camera" size="40" color="#333"></uni-icons>
@@ -173,15 +173,28 @@ export default {
                         // 使用文件路径判断是否为视频
                         const isVideo = /\.(mp4|mov|avi|mkv)$/i.test(file.tempFilePath);
 
-                        // 如果添加此文件后总数不超过最大限制，则添加到列表中
-                        if (that.mediaItems.length < that.maxMediaItems) {
+
+                        if (isVideo && that.mediaItems.length < that.maxMediaItems) {
                             that.mediaItems.push({
                                 id: Math.floor(Math.random() * 999) + 1,
                                 src: file.tempFilePath,
-                                isVideo: isVideo,
+                                videoPath: file.thumbTempFilePath,
+                                isVideo: true
+                            });
+
+                        } else if (!isVideo && that.mediaItems.length < that.maxMediaItems) {
+                            that.mediaItems.push({
+                                id: Math.floor(Math.random() * 999) + 1,
+                                src: file.tempFilePath,
+                                videoPath: '',
+                                isVideo: false
                             });
                         }
                     });
+                    //强制刷新
+                    that.$nextTick(() => {
+                        that.mediaItems = [...that.mediaItems];
+                    })
                 },
             });
         },

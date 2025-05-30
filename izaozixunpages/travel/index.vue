@@ -34,8 +34,7 @@
         </view>
         <view class="index-container" @touchend="handleTouchEnd">
             <!-- 瀑布流组件 -->
-            <WaterfallFlow :spots="spots" @like="handleLike" :showDeleteButton="false" :showViews="true"
-                @views="handleSetViews" />
+            <WaterfallFlow :spots="spots" :showDeleteButton="false" :showViews="true" @tz="handleTz" />
 
             <!-- 加载提示 -->
             <view v-if="loading" class="loading-text">加载中...</view>
@@ -46,7 +45,8 @@
 
 <script>
 import mockDATA from "@/utils/mock.js";
-import WaterfallFlow from "@/components/WaterfallFlow.vue";
+
+import WaterfallFlow from "@/components/WaterfallFlowwork.vue"
 export default {
     components: {
         WaterfallFlow,
@@ -85,6 +85,12 @@ export default {
         this.isLogin = isLogin;
     },
     methods: {
+        handleTz(item) {
+            uni.navigateTo({
+                url: `/izaozixunpages/travel/info?id=${item.mediaId}`,
+
+            });
+        },
         JumpLogin() {
             uni.navigateTo({
                 url: "/userpages/login/login"
@@ -184,7 +190,7 @@ export default {
 }
 
 .photo-swiper {
-    padding: 20rpx 0rpx 0rpx 20rpx;
+    padding: 40rpx 0rpx 0rpx 20rpx;
     width: 100%;
     height: 350rpx;
 }
@@ -206,7 +212,7 @@ export default {
     font-size: 18px;
     font-weight: bold;
 
-    padding: 0 20rpx;
+    padding: 10rpx 20rpx;
 }
 
 .hot-tags {

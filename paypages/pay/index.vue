@@ -43,7 +43,7 @@
                                 <text class="hongbao-desc">红包待领取</text>
                             </view>
                             <text class="hongbao-expire" v-if="item.expireTimes">{{ formatTime(item.expireTime)
-                            }}后失效</text>
+                                }}后失效</text>
                             <text class="hongbao-expire" v-else>{{ item.expireTime }}</text>
                         </view>
 
@@ -143,7 +143,7 @@
             <view class="popup-content">
                 <text class="title">领取成功</text>
                 <view>
-                    <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png"
+                    <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.svg"
                         class="red-envelope"></image>
                 </view>
                 <view class="description">
@@ -220,7 +220,7 @@ export default {
                     path2: '/health'
                 },
             ],
-            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png",
+            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.svg",
             swiperDotIndex: 0,
             isPayButtonDisabled: true,
             showCursor: true, // 控制光标显示

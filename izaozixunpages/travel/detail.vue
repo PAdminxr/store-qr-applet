@@ -17,8 +17,7 @@
         <!-- 页面内容容器 -->
         <view class="index-container" @touchend="handleTouchEnd">
             <!-- 瀑布流组件 -->
-            <WaterfallFlow :spots="spots" @like="handleLike" :showDeleteButton="false" :showViews="true"
-                @views="handleSetViews" />
+            <WaterfallFlow :spots="spots" :showDeleteButton="false" :showViews="true" @tz="handleTz" />
 
             <!-- 加载状态提示 -->
             <view v-if="loading" class="loading-text">加载中...</view>
@@ -29,7 +28,7 @@
 
 <script>
 import mockDATA from "@/utils/mock.js";
-import WaterfallFlow from "@/components/WaterfallFlow.vue";
+import WaterfallFlow from "@/components/WaterfallFlowwork.vue"
 
 export default {
     components: {
@@ -65,6 +64,12 @@ export default {
         this.isLogin = isLogin;
     },
     methods: {
+        handleTz(item) {
+            uni.navigateTo({
+                url: `/izaozixunpages/travel/info?id=${item.mediaId}`,
+
+            });
+        },
         JumpLogin() {
             uni.navigateTo({
                 url: "/userpages/login/login",

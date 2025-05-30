@@ -16,6 +16,9 @@
             <view class="category-tabs-container">
                 <!-- 横向滚动容器 -->
                 <scroll-view scroll-x class="category-tabs-scroll" :scroll-left="scrollLeft" ref="scrollView">
+                    <!-- 插入一个 20rpx 的占位元素 -->
+                    <view style="width: 20rpx; height: 1px; flex-shrink: 0;">
+                    </view>
                     <view v-for="(tab, index) in tags" :key="index" :id="'tabItem' + index" class="tab-item"
                         :class="{ active: currentTab === tab }" @click="selectCategory(tab, index)">
                         {{ tab }}
@@ -44,8 +47,6 @@
             </view>
         </view>
 
-
-
         <!-- 餐厅列表 -->
         <view class="restaurant-list">
             <view class="restaurant-item" v-for="(restaurant, index) in restaurants" :key="index"
@@ -64,13 +65,11 @@
                             <text v-if="restaurant.isOpen">营业中</text>
                             <text v-else style="color: #adadad">休息中</text>
                             <span :style="{ color: restaurant.isOpen ? '#333333' : '#adadad' }">{{
-                                restaurant.businessHours
-                            }}</span>
+                                restaurant.businessHours }}</span>
                         </view>
                         <view class="restaurant-distance">{{ restaurant.distance }}</view>
                     </view>
                     <view class="restaurant-address">{{ restaurant.address }}</view>
-
                 </view>
             </view>
         </view>
@@ -90,30 +89,58 @@ export default {
             isCategoriesExpanded: false,
             tags: mockDATA.tags,
             restaurants: mockDATA.restaurants,
+            tabWidth: 0, // 每个 tab 项的宽度
             scrollLeft: 0, // 控制 scroll-view 的滚动位置
-            expandBtnWidth: 60 // 展开按钮所占宽度
+            expandBtnWidth: 60,// 展开按钮所占宽度
+            firstTwoTabsWidth: 0, // 前两个 tab 项的总宽度
+
         };
     },
     mounted() {
         this.getTabWidth();
     },
     methods: {
+
         getTabWidth() {
             const query = uni.createSelectorQuery().in(this);
-            query.select('#tabItem0').boundingClientRect(res => {
-                if (res) {
-                    this.tabWidth = res.width;
+            query.selectAll('.tab-item').boundingClientRect(res => {
+                if (res && res.length >= 2) {
+                    this.tabWidth = res[0].width;
+                    this.firstTwoTabsWidth = res[0].width + res[1].width + 40;
                 }
             }).exec();
+
         },
         selectCategory(tab, index) {
             if (!this.tabWidth) {
                 console.warn('tabWidth 尚未获取完成');
                 return;
             }
-            const targetScrollLeft = index * this.tabWidth;
-            this.scrollLeft = targetScrollLeft;
+
+            let targetScrollLeft = this.scrollLeft;
+            console.log(this.scrollLeft, '000');
+
+            // 点击第一个 tab（推荐）：滚动到占位符之后，保留 20rpx 边距
+            if (index === 0) {
+                targetScrollLeft = 0; // ← 关键修改！不是 0，而是跳过 20rpx 占位符
+            }
+            // 点击第二个 tab（地方菜系）：不做滚动，保持原样
+            else if (index === 1) {
+                // 不滚动
+            }
+            // 点击第三个及以后的 tab：正常滚动计算
+            else {
+                targetScrollLeft = index * this.tabWidth;
+                targetScrollLeft -= this.firstTwoTabsWidth + 20;
+                targetScrollLeft -= 30;
+                console.log(targetScrollLeft, '111');
+
+            }
+
+            this.scrollLeft = Math.max(0, targetScrollLeft);
+
             this.currentTab = tab;
+            // 数据筛选不变...
             if (tab === "推荐") {
                 this.restaurants = mockDATA.restaurants;
                 this.isCategoriesExpanded = false;
@@ -123,7 +150,10 @@ export default {
                 (restaurant) => restaurant.tags.includes(tab)
             );
             this.isCategoriesExpanded = false;
+
+
         },
+
         toggleCategories() {
             this.isCategoriesExpanded = !this.isCategoriesExpanded;
         },
@@ -211,33 +241,52 @@ export default {
     align-items: center;
     justify-content: space-between;
     min-height: 60rpx;
-
 }
 
+// .category-tabs-scroll {
+//     white-space: nowrap;
+//     overflow-x: auto;
+//     display: flex;
+//     padding-right: 80rpx;
+//     /* 给右侧 expand-btn 留出空间 */
+// }
+
+// .tab-item {
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//     // min-width: 20%;
+//     width: 138rpx;
+//     /* 确保一行显示5个标签 */
+//     box-sizing: border-box;
+//     font-size: 26rpx;
+//     color: #929292;
+//     position: relative;
+//     height: 80rpx;
+//     /* 固定高度有助于定位 */
+
+// }
 .category-tabs-scroll {
     white-space: nowrap;
     overflow-x: auto;
-    display: flex;
-    padding-right: 60rpx;
-    /* 预留右侧 expand-btn 的空间 */
+    padding-right: 80rpx;
+    // padding-left: 20rpx;
+    /* 给右侧 expand-btn 留出空间 */
 }
 
 .tab-item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 20%;
-    /* 确保一行显示5个标签 */
+    width: 138rpx;
+    /* (750 - 60) / 5 = 138rpx */
     box-sizing: border-box;
     font-size: 26rpx;
     color: #929292;
     position: relative;
     height: 80rpx;
-    /* 固定高度有助于定位 */
-
+    flex-shrink: 0;
 }
-
-
 
 .tab-item.active {
     font-size: 30rpx;
@@ -257,13 +306,27 @@ export default {
     background-color: #fe7b18;
 }
 
+// .expand-btn {
+//     position: absolute;
+//     right: 20rpx;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     z-index: 10;
+//     padding: 10rpx;
+// }
 .expand-btn {
     position: absolute;
     right: 20rpx;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    padding: 10rpx;
+    width: 60rpx;
+    height: 60rpx;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
 
 /* 展开后的分类面板（脱离文档流） */

@@ -133,7 +133,7 @@
                 <view v-for="(item, index) in mediaItems" :key="index">
                     <EnhancedMediaItem :mediaSrc="item.src" :isVideo="item.isVideo" :index="index"
                         :showDeleteButton="true" :width="width" :height="height" @remove="handleRemove"
-                        :showStyle="true" :margin="margin" />
+                        :showStyle="true" :margin="margin" :videoPath="item.videoPath" />
                 </view>
                 <!-- 当没有媒体项时显示的上传图标 -->
                 <view v-if="mediaItems.length < maxMediaItems" class="add-media-btn" @click="chooseFile">
@@ -175,7 +175,7 @@ export default {
     },
     data() {
         return {
-            margin: '6rpx',
+            margin: '10rpx',
             width: '160rpx', // 宽度
             height: '160rpx', // 高度
             isSubmitting: false, // 新增一个提交锁
@@ -359,26 +359,51 @@ export default {
         },
         chooseFile() {
             const that = this;
+
             uni.chooseMedia({
-                count: that.maxMediaItems - that.mediaItems.length, // 动态计算本次可以选择的最大数量
+                count: that.maxMediaItems - that.mediaItems.length,
                 mediaType: ['image', 'video'],
                 sourceType: ['album', 'camera'],
                 success(res) {
                     res.tempFiles.forEach(file => {
-                        // 使用文件路径判断是否为视频
                         const isVideo = /\.(mp4|mov|avi|mkv)$/i.test(file.tempFilePath);
 
-                        // 如果添加此文件后总数不超过最大限制，则添加到列表中
-                        if (that.mediaItems.length < that.maxMediaItems) {
+                        if (isVideo && that.mediaItems.length < that.maxMediaItems) {
+                            // 如果是视频，先加载封面图
+                            uni.getImageInfo({
+                                src: file.thumbTempFilePath,
+                                success(imageRes) {
+                                    // 图片加载成功后才 push 到数组中
+                                    that.mediaItems.push({
+                                        id: Math.floor(Math.random() * 999) + 1,
+                                        src: file.tempFilePath,
+                                        videoPath: imageRes.path, // 使用加载完成的路径
+                                        isVideo: true
+                                    });
+                                },
+                                fail(err) {
+                                    console.error('封面图加载失败:', err);
+                                }
+                            });
+
+                        } else if (!isVideo && that.mediaItems.length < that.maxMediaItems) {
+                            // 图片直接添加
                             that.mediaItems.push({
                                 id: Math.floor(Math.random() * 999) + 1,
                                 src: file.tempFilePath,
-                                isVideo: isVideo
+                                videoPath: '',
+                                isVideo: false
                             });
                         }
                     });
+                    //强制刷新
+                    that.$nextTick(() => {
+                        that.mediaItems = [...that.mediaItems];
+                    })
                 }
             });
+
+            console.log(that.mediaItems); // 注意：这个 log 是同步的，可能在异步加载完成前就执行了
         },
 
         jumpToRobot() {
@@ -790,6 +815,7 @@ movable-view {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-left: 10rpx;
 }
 
 /* 评论输入区域 */

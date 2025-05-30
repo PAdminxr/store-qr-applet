@@ -55,7 +55,7 @@
                             <text v-else style="color: #adadad">休息中</text>
                             <span :style="{ color: restaurant.isOpen ? '#333333' : '#adadad' }">{{
                                 restaurant.businessHours
-                            }}</span>
+                                }}</span>
                         </view>
                         <view class="restaurant-distance">{{ restaurant.distance }}</view>
                     </view>
@@ -225,7 +225,7 @@ export default {
 }
 
 .recommen {
-    font-size: 24rpx;
+    font-size: 26rpx;
     color: #555454;
     line-height: 44rpx;
     display: inline-block;

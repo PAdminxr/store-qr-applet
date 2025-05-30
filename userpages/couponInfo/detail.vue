@@ -63,6 +63,27 @@
 
             </view>
         </view>
+        <!-- 领取成功弹框 -->
+        <uni-popup ref="popup" type="center">
+            <view class="popup-content">
+                <text class="title">领取成功</text>
+                <view>
+                    <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.svg"
+                        class="red-envelope"></image>
+                </view>
+                <view class="description">
+                    优惠券已发放至您的账户<br />
+                    可在“我的-我的优惠券”中查看
+                </view>
+                <view class="buttons">
+                    <button class="btn-know" @click="closePopup">知道了</button>
+                    <button class="btn-check" @click="goToCoupons">去查看</button>
+                </view>
+            </view>
+            <view class="close-btn-modal" @click="closePopup">
+                <uni-icons type="close" size="34" color="#fff" />
+            </view>
+        </uni-popup>
     </view>
 </template>
 
@@ -75,6 +96,7 @@ export default {
             // 模拟数据
             allCoupons: mockDATA.allCoupons,
             unusedCoupons: [], // 显示用的未领取的优惠券列表
+            show: 0,
         };
     },
     computed: {
@@ -92,6 +114,20 @@ export default {
         this.filterUnreceivedCoupons();
     },
     methods: {
+        // 弹窗操作
+        openPopup() {
+            this.$refs.popup.open();
+        },
+        closePopup() {
+            uni.setStorageSync("newReceivedCoupon", false);
+            this.$refs.popup.close();
+        },
+        goToCoupons() {
+            this.closePopup();
+            uni.navigateTo({
+                url: "/userpages/couponInfo/index",
+            });
+        },
         filterUnreceivedCoupons() {
             const receivedIds = this.receivedRedEnvelopes.map((r) => r.id);
 
@@ -112,17 +148,30 @@ export default {
             coupon.showRule = !coupon.showRule;
         },
         useCoupon(coupon) {
+
+            this.show++;
             this.$store.dispatch("saveEnvelopeToCache", coupon);
-            uni.setStorageSync('newReceivedCoupon', true);// 标记新领取了优惠券
+            // uni.setStorageSync('newReceivedCoupon', true);// 标记新领取了优惠券
+            //改变当前领取状态isReceived为true
+            coupon.isReceived = true;
+            if (this.show == 1) {
+                this.openPopup();
+            } else {
+                uni.showToast({
+                    title: '领取成功',
+                    icon: 'none'
+                });
+            }
+
 
             // #ifdef MP
             // 小程序环境下使用 uni.navigateTo 进行页面跳转
-            uni.navigateBack();
+            // uni.navigateBack();
             // #endif
 
             // #ifdef H5
             // H5 环境下使用 Vue Router 的 this.$router.push 方法进行页面跳转
-            this.$router.push({ path: `/qrcodePage` });
+            // this.$router.push({ path: `/qrcodePage` });
             // #endif
         },
     },
@@ -261,5 +310,67 @@ export default {
 
 .ylq {
     color: #929292 !important;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 50rpx;
+    border-radius: 30rpx;
+    text-align: center;
+
+    .title {
+        font-size: 40rpx;
+        color: red;
+        margin-bottom: 20rpx;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .red-envelope {
+        width: 200rpx;
+        height: 200rpx;
+        margin-bottom: 20rpx;
+    }
+
+    .description {
+        font-size: 28rpx;
+        color: #666;
+        margin-bottom: 30rpx;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        gap: 20rpx;
+    }
+
+    .btn-know,
+    .btn-check {
+        width: 200rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        border-radius: 40rpx;
+        font-size: 32rpx;
+    }
+
+    .btn-know {
+        border: 2rpx solid red;
+        color: red;
+        background-color: white;
+    }
+
+    .btn-check {
+        background: linear-gradient(to bottom, #ff9100, #ff1b00);
+        color: white;
+    }
+}
+
+.close-btn-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    padding-top: 20rpx;
 }
 </style>

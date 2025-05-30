@@ -13,8 +13,8 @@
                 <view class="user-info" @click="JumpUserInfo()" v-else>
                     <image class="avatar" :src="userInfo.avatarSrc" mode="aspectFill"></image>
                     <view class="info">
-                        <text class="title">{{ userInfo.nickName }}</text>
-                        <text class="subtitle">{{ userInfo.introduction }}</text>
+                        <text class="title">{{ fielname(userInfo.nickName) }}</text>
+                        <text class="subtitle">{{ fielname2(userInfo.introduction) }}</text>
                     </view>
                 </view>
             </view>
@@ -82,7 +82,7 @@
             <view class="popup-content">
                 <text class="title">领取成功</text>
                 <view>
-                    <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png"
+                    <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.svg"
                         class="red-envelope"></image>
                 </view>
                 <view class="description">
@@ -118,12 +118,14 @@ export default {
                 nickName: "游客",
                 introduction: "登录后才能查看更多信息哦~",
             },
+            headerTop: '80px'
         };
     },
     computed: {
         showHongbaoArea() {
             return this.isLogin && this.hongbaoList.length > 0;
-        }
+        },
+
     },
     onShow() {
         this.loadData(); // 页面显示时统一加载数据
@@ -132,11 +134,31 @@ export default {
         this.loadData(); // 可选：页面初次加载也调用一次
     },
     methods: {
+        fielname(text) {
+            const intro = text || '';
+            if (text.length > 12) {
+                return intro.slice(0, 12) + '...';
+            }
+            return intro;
+        },
+        fielname2(text) {
+            const intro = text || '';
+            if (text.length > 18) {
+                return intro.slice(0, 18) + '...';
+            }
+            return intro;
+        },
         // 统一数据加载入口
         loadData() {
             this.isLogin = uni.getStorageSync('isLogin');
             console.log("当前登录状态:", this.isLogin);
-
+            const intro = this.userInfo.introduction || this.userInfo.nickName;
+            // 判断字符长度是否超过20
+            if (intro.length > 20) {
+                this.headerTop = '100px';
+            } else {
+                this.headerTop = '80px';
+            }
             if (this.isLogin) {
                 this.getFromCache();
                 this.loadHongbaoList(); // 加载红包数据
@@ -357,6 +379,7 @@ export default {
         position: absolute;
         bottom: 100rpx;
         left: 30rpx;
+
         width: calc(100% - 60rpx);
 
         .user-info {
@@ -377,7 +400,12 @@ export default {
                     font-size: 36rpx;
                     font-weight: bold;
                     color: #333;
-                    display: block;
+
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
 
                 .subtitle {

@@ -4,28 +4,45 @@
             <!-- 标题和副标题 -->
             <view class="article-header">
                 <text class="title">{{ article.title }}</text>
-                <view class="meta">
+                <text v-if="mediaId == 5" class="title">最美枣庄欢迎您~</text>
+                <view class="meta" v-if="mediaId != 5">
                     <text>{{ article.date }}</text>
-                    <text>浏览量{{ article.views }}</text>
+                    <text v-if="article.views">浏览量{{ article.views }}</text>
                 </view>
             </view>
 
+            <video v-if="article.videoUrl" :src="article.videoUrl" controls class="video-player"></video>
+            <p v-if="article.videoUrl">
+                山川湖海，皆是世间美好之所在。</p>
             <!-- 文章图片 -->
-            <video :src="article.videoSrc" controls class="video-player"></video>
+            <image v-if="mediaId < 4" :src="thumbnails[mediaId - 1].currentImage" mode="widthFix" class="article-image">
+            </image>
+
+            <p>
+                一座城市，一段文明；一方水土，一种情怀。</p>
+
+            <image :src="article.imageUrl" mode="widthFix" class="article-image"></image>
+
             <!-- 文章内容 -->
             <view class="article-content">
-                <rich-text :nodes="article.content" class="rich-text"></rich-text>
+                <rich-text :nodes="content" class="rich-text"></rich-text>
 
-                <view class="author">
-                    <text>编辑：温腾</text>
-                    <text>初审/终审：陆毅</text>
+                <p style="line-height: 70rpx;">
+                    这里是远离喧嚣的理想之地，群山环抱、碧水潺潺，四季景色各异，春赏花海，夏观云雾，秋品红叶，冬踏雪韵。无论是亲子出游、情侣约会，还是独自放空心灵，这里都是你理想的旅行目的地。 </p>
+                <view class="author-time" v-if='article.author'>
+                    <text class="author">{{ article.author }}</text>
+                    <image :src="article.avatar" class="avatar"></image>
+
+
+
                 </view>
+                <text class="time">发布于 {{ article.timestamp }}</text>
             </view>
 
         </view>
         <view class="gary"></view>
         <!-- 评论区 -->
-        <view class="comments-section" id="bottom">
+        <view class="comments-section">
             <text class="comments-title">评论 {{ article.comments }}</text>
             <view class="comment">
                 <view v-for="(comment, index) in comments" :key="index">
@@ -61,11 +78,7 @@
                         <text>{{ article.likes }}</text>
                     </view>
 
-                    <view class="interaction-item" @click="toggleFavorite">
-                        <uni-icons :type="article.isFavorite ? 'star-filled' : 'star'" size="44rpx"
-                            :color="article.isFavorite ? '#f1c40f' : '#000000ad'"></uni-icons>
-                        <text>{{ article.favorites }}</text>
-                    </view>
+
 
                     <view class="interaction-item" @click="shareArticle">
                         <uni-icons type="redo" size="44rpx" color="#000000ad"></uni-icons>
@@ -74,10 +87,9 @@
                 </view>
             </view>
         </view>
+
     </view>
 </template>
-
-
 <script>
 import mockDATA from "@/utils/mock.js";
 import myIcon from "@/components/myIcon.vue";
@@ -88,31 +100,37 @@ export default {
     data() {
         return {
             scrollIntoId: '',
-            articleId: null,
+            content: `
+               <p>青石板路、雕花木窗、斑驳城墙……每一处细节都在讲述着属于这座古城的故事。在这里，历史不再是书本上的文字，而是可触可感的生活体验</p>
+          <p>   一步一景：古城内的建筑、街道、桥梁都充满了古朴的气息，仿佛穿越回了古代。</p>
+            <p> 夜景璀璨：夜晚的古城更是美轮美奂，灯火阑珊，如梦如幻。</p>
+             <img src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaolife/jq1.png" style="width:100%;height:auto;border-radius: 10px;object-fit: cover; />
+`,
+            mediaId: null,
             commentText: "",
             article: {},
             comments: [],
             isLogin: false,
             isInputFocused: false,
+            thumbnails: mockDATA.thumbnails,
         };
     },
     onLoad(options) {
         if (options.id) {
-            this.articleId = parseInt(options.id);
+            this.mediaId = parseInt(options.id);
             this.getData();
         }
     },
     mounted() {
-
+        this.isLogin = uni.getStorageSync('isLogin');
         uni.showShareMenu({
             withSubtree: true,
             menus: ["shareAppMessage", "shareTimeline"],
         });
         //判断当前的收藏是否在缓存里
         this.$store.dispatch("loadFavoritesFromCache");
-        this.isFavoriteInCache(this.articleId);
-        this.isLogin = uni.getStorageSync('isLogin');
-        console.log(this.isLogin, '1111');
+        this.isFavoriteInCache(this.mediaId);
+
     },
 
     methods: {
@@ -124,13 +142,9 @@ export default {
             return intro;
         },
         onInputFocus() {
-            setTimeout(() => {
-                this.scrollToBottom();
-            }, 300); // 等待键盘弹出后再滚动
+            this.scrollToBottom();
         },
-        onblur() {
-            this.isInputFocused = false;
-        },
+
         scrollToBottom() {
             uni.createSelectorQuery()
                 .select('#container')
@@ -148,34 +162,34 @@ export default {
                 }).exec();
 
         },
+        onblur() {
+            this.isInputFocused = false;
+        },
         isFavoriteInCache() {
-            let id = this.articleId;
+            let id = this.mediaId;
             let favoriteList = this.$store.getters.getFavorites
             const isFavorite = favoriteList.find(item => {
-                return item.articleId === this.articleId;
+                return item.mediaId === this.mediaId;
             });
             if (isFavorite) {
                 this.article.isFavorite = true;
-
                 this.updateViews(id);
-
             }
 
         },
-
         getData() {
-            let id = this.articleId;
+            let id = this.mediaId;
             if (id) {
-                // 模拟获取文章详情和评论数据--视频
+                console.log(id);
                 this.article =
-                    mockDATA.videoNews.find((item) => item.id === id).article || {};
+                    mockDATA.travel.find((item) => item.mediaId === id) || {};
                 this.comments =
-                    mockDATA.videoNews.find((item) => item.id === id).comments || [];
+                    mockDATA.travel.find((item) => item.mediaId === id).commentList || [];
 
             }
         },
         updateViews(id) {
-            mockDATA.videoNews.forEach((item) => {
+            mockDATA.hotNews.forEach((item) => {
                 if (item.id === id) {
                     item.views++;
                     item.article.views++;
@@ -202,8 +216,6 @@ export default {
                 url: "/userpages/login/login"
             });
         },
-
-
         submitComment() {
             if (!this.isLogin) {
                 this.JumpLogin();
@@ -211,15 +223,16 @@ export default {
             }
             if (this.commentText.trim()) {
                 //追加进mockDATA中
-                let id = this.articleId;
-                let articleUpdate = mockDATA.videoNews.find((item) => item.id === id);
+                let id = this.mediaId;
+                let articleUpdate = mockDATA.travel.find((item) => item.mediaId === id);
                 if (articleUpdate) {
-                    articleUpdate.comments.unshift({
+                    articleUpdate.commentList.unshift({
                         id: Math.floor(Math.random() * 999) + 1,
                         author: this.$store.state.userLoginInfo?.nickName || "用户" + Math.floor(Math.random() * 999) + 1,
                         text: this.commentText,
                         time: new Date().toISOString(),
-                        avatar: "/static/images/avatar.png",
+                        avatar: this.$store.state.userLoginInfo?.avatarSrc || 'https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/images/avatar.png',
+
                     })
                 }
                 this.commentText = "";
@@ -231,15 +244,15 @@ export default {
                 this.JumpLogin();
                 return;
             }
-            let id = this.articleId;
-            let articleUpdate = mockDATA.videoNews.find((item) => item.id === id);
+            let id = this.mediaId;
+            let articleUpdate = mockDATA.travel.find((item) => item.mediaId === id);
             if (articleUpdate) {
-                if (articleUpdate.article.isLiked) {
-                    articleUpdate.article.likes -= 1;
-                    articleUpdate.article.isLiked = false;
+                if (articleUpdate.isLiked) {
+                    articleUpdate.likes -= 1;
+                    articleUpdate.isLiked = false;
                 } else {
-                    articleUpdate.article.likes += 1;
-                    articleUpdate.article.isLiked = true;
+                    articleUpdate.likes += 1;
+                    articleUpdate.isLiked = true;
                 }
             }
         },
@@ -249,8 +262,8 @@ export default {
                 return;
             }
             //修改收藏数量
-            let id = this.articleId;
-            let articleUpdate = mockDATA.videoNews.find((item) => item.id === id);
+            let id = this.mediaId;
+            let articleUpdate = mockDATA.hotNews.find((item) => item.id === id);
             if (articleUpdate) {
                 if (articleUpdate.article.isFavorite) {
                     articleUpdate.article.favorites -= 1;
@@ -261,14 +274,13 @@ export default {
                     articleUpdate.article.isFavorite = true;
                     const favorite = {
                         id: Math.floor(Math.random() * 999) + 1,
-                        articleId: id,
+                        mediaId: id,
                         title: this.article.title,
                         time: this.$utils.formatTime(new Date()),
                         image: this.article.imageUrl,
                         views: this.article.views,
                         timeAgo: this.article.date,
-                        type: "video",
-                        duration: this.article.duration,
+                        type: "image"
                     };
                     this.$store.dispatch("saveFavoritesToCache", favorite);
                 }
@@ -285,33 +297,44 @@ export default {
                 duration: 2000,
             });
         },
-
-        onShareAppMessage() {
-            return {
-                title: this.article.title,
-                path: "/pages/article-detail/article-detail?id=123",
-                imageUrl: this.article.imageUrl,
-                success: () => {
-                    uni.showToast({ title: "分享成功" });
-                },
-                fail: () => {
-                    uni.showToast({ title: "分享失败", icon: "none" });
-                },
-            };
-        },
-    }
+    },
+    onShareAppMessage() {
+        return {
+            title: this.article.title,
+            path: "/pages/article-detail/article-detail?id=123",
+            imageUrl: this.article.imageUrl,
+            success: () => {
+                uni.showToast({ title: "分享成功" });
+            },
+            fail: () => {
+                uni.showToast({ title: "分享失败", icon: "none" });
+            },
+        };
+    },
 };
 </script>
+
+
+
 <style scoped lang="scss">
 .article-container {
     background-color: #fff;
 }
 
+p {
+    margin: 20rpx 0;
+}
+
 .article-detail {
-    padding: 0 40rpx;
+    padding: 40rpx 40rpx 10rpx 40rpx;
 
 
 
+}
+
+.video-player {
+    width: 100%;
+    height: 137px;
 }
 
 .article-header .title {
@@ -322,6 +345,7 @@ export default {
 
 .article-image {
     width: 100%;
+    border-radius: 10px;
     // margin-bottom: 20px;
 }
 
@@ -331,25 +355,42 @@ export default {
     margin: 28rpx 0rpx;
     display: flex;
     justify-content: flex-start;
-    gap: 40rpx;
+
 }
 
 .article-content {
     padding-bottom: 20rpx;
 }
 
-.author {
-    padding-top: 20rpx;
-    color: #adadad;
-    font-size: 28rpx;
+.author-time {
+    margin-top: 40rpx;
+    font-size: 26rpx;
+    color: #999;
     display: flex;
-    flex-direction: column;
-    gap: 20rpx;
+    justify-content: flex-end;
+
+    align-items: center;
+
 }
 
-.video-player {
-    width: 100%;
-    height: 137px;
+.author {
+    font-weight: bold;
+    color: #333;
+    margin-right: 20rpx;
+}
+
+.time {
+    font-size: 20rpx;
+    color: #aaa;
+    text-align: right;
+    display: block;
+    margin-top: 10rpx;
+}
+
+.avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
 }
 
 .rich-text {
@@ -366,7 +407,7 @@ export default {
 .comments-section {
     // border-top: 1px solid #eee;
 
-    padding: 0rpx 40rpx 60rpx 40rpx;
+    padding: 0 40rpx 60rpx 40rpx;
 
     .comment {
         padding-bottom: 50rpx;
@@ -436,7 +477,7 @@ export default {
 }
 
 .comment-input {
-    width: 30%;
+    width: 50%;
     height: 60rpx;
     font-size: 22rpx;
     border-radius: 15px;

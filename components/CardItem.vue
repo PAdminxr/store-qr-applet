@@ -9,8 +9,8 @@
 
             <EnhancedMediaItem :mediaSrc="item.imageUrl" :videoSrc="item.videoUrl" :showDeleteButton="showDeleteButton"
                 :width="width" :height="height" :isVideo="item.type === 'video'" @setViews="handleSetViews" :tz="tz"
-                :workId="item.workId" />
-            <view class=" video-play" v-if="item.type === 'video'">
+                :workId="item.workId" :videoPath="item.videoPath" @tz="handleTz" />
+            <view class="video-play" v-if="item.type === 'video'">
                 <image src="https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/izaozixun/icon-bofang.png"
                     mode="aspectFill" class="cover-image"></image>
             </view>
@@ -20,13 +20,13 @@
             </view>
         </view>
 
-        <view class="card-info" v-if="item.title">
+        <view class="card-info" v-if="item.author">
             <text class="title">{{ item.title }}</text>
 
             <view class="author-row">
                 <view class="author-info">
                     <image :src="item.avatar" class="avatar"></image>
-                    <text class="author-name">{{ item.author }}</text>
+                    <text class="author-name">{{ fielname(item.author) }}</text>
                 </view>
 
                 <view class="like-count" @click.stop="toggleLike">
@@ -73,6 +73,16 @@ export default {
     },
 
     methods: {
+        fielname(text) {
+            const intro = text || '';
+            if (text.length > 8) {
+                return intro.slice(0, 5) + '...';
+            }
+            return intro;
+        },
+        handleTz() {
+            this.$emit('tz', this.item);
+        },
         handleSetViews() {
             if (this.showViews) {
                 this.$emit('views', this.item);

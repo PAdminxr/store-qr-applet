@@ -15,7 +15,7 @@
                                     <text class="hongbao-desc">红包待领取</text>
                                 </view>
                                 <text class="hongbao-expire" v-if="item.expireTimes">{{ formatTime(item.expireTime)
-                                }}后失效</text>
+                                    }}后失效</text>
                                 <text class="hongbao-expire" v-else>{{ item.expireTime }}</text>
                             </view>
 
@@ -60,7 +60,7 @@ export default {
         return {
             now: Date.now(),
             timer: null,
-            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.png",
+            src: "https://north-ai-test-public1.oss-cn-beijing.aliyuncs.com/static/user/red-envelope.svg",
         };
     },
     mounted() {
